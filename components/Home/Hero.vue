@@ -1,6 +1,6 @@
 <template>
-    <div class="flex justify-between h-screen bg-primary">
-      <div class="ml-[81px] mt-[136px] flex flex-col">
+    <div class="flex h-screen items-center md:items-start bg-primary">
+      <div class="md:ml-[81px] md:mt-[136px] mx-[auto] flex flex-col">
         <h2 class="font-bold text-[36px] text-secondary" >Trova il tuo parcheggio</h2>
         <div class="mt-[18px] flex gap-[28px] bg-[#fff] py-[10px] pr-[215px] pl-[26px] items-center">
          <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
