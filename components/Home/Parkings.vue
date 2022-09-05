@@ -1,31 +1,35 @@
 <template>
-  <section class="container mx-auto px-[285px] text-center mt-[143px]">
-      <h3 class="text-primary font-bold text-[24px]">LOREM IPSUM LOREM IPSUM</h3>
-      <h1 class="text-secondary mt-[15px] font-bold text-[50px]">I NOSTRI PARCHEGGI</h1>
-      <h5 class="font-semibold text-[18px] text-[#B4B4B4] mt-[33px] leading-[27px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</h5>
-      <div class="flex-wrap mt-[54px] gap-[30px] flex">
-        <div class="pb-[29px] pt-[20px] items-center  flex-1 flex flex-col border-[##B4B4B4] border-[1.5px] rounded-[36px] border-solid">
-            <img class=" max-w-[134px] max-h-[134px]" src="3dparking.png" alt="p"/>
-            <h1 class="text-secondary font-bold text-[50px]">PARKING 1</h1>
-            <h4 class="mt-[27px] text-[#B4B4B4] text-[20px] font-medium">ZONA PRATI</h4>
-        </div>
-        <div class="pb-[29px] pt-[20px] items-center  flex-1 flex flex-col border-[##B4B4B4] border-[1.5px] rounded-[36px] border-solid">
-            <img class=" max-w-[134px] max-h-[134px]" src="3dparking.png" alt="p"/>
-            <h1 class="text-secondary font-bold text-[50px]">PARKING 1</h1>
-            <h4 class="mt-[27px] text-[#B4B4B4] text-[20px] font-medium">ZONA PRATI</h4>
-        </div>
+  <section class="pt-[143px] text-center container mx-auto flex flex-col items-center">
+      <h3 class="font-semibold text-primary text-[24px]">LOREM IPSUM</h3>
+      <h1 class="font-bold text-secondary text-[50px]">I nostri parcheggi</h1>
+      <h5 class="max-w-[800px] text-[18px] font-medium leading-[27px] text-[#B4B4B4]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</h5>
+      <div class="cursor-pointer mt-[54px] flex md:flex-row flex-col gap-[30px]">
+          <div class="p-10 rounded-[36px] border-[1.5px] border-[#B4B4B4] border-solid justify-center items-center flex flex-col">
+            <img class="max-h-[100px] max-w-[100px]" src="3dparking.png" alt="P1" />
+            <h1 class="text-secondary font-bold text-[50px]">PARKING I</h1>
+            <h4 class=" text-[20px] text-[#B4B4B4]">ZONA PRATI</h4>
+          </div>
+          <div class="cursor-pointer p-10 rounded-[36px] border-[1.5px] border-[#B4B4B4] border-solid justify-center items-center flex flex-col">
+            <img class="max-h-[100px] max-w-[100px]" src="3dparking.png" alt="P1" />
+            <h1 class="text-secondary font-bold text-[50px]">PARKING I</h1>
+            <h4 class=" text-[20px] text-[#B4B4B4]">ZONA PRATI</h4>
+          </div>
+           
       </div>
-       <div class="flex-wrap mt-[54px] gap-[30px] flex">
-        <div class="pb-[29px] pt-[20px] items-center  flex-1 flex flex-col border-[##B4B4B4] border-[1.5px] rounded-[36px] border-solid">
-            <img class=" max-w-[134px] max-h-[134px]" src="3dparking.png" alt="p"/>
-            <h1 class="text-secondary font-bold text-[50px]">PARKING 1</h1>
-            <h4 class="mt-[27px] text-[#B4B4B4] text-[20px] font-medium">ZONA PRATI</h4>
-        </div>
-        <div class="pb-[29px] pt-[20px] items-center  flex-1 flex flex-col border-[##B4B4B4] border-[1.5px] rounded-[36px] border-solid">
-            <img class=" max-w-[134px] max-h-[134px]" src="3dparking.png" alt="p"/>
-            <h1 class="text-secondary font-bold text-[50px]">PARKING 1</h1>
-            <h4 class="mt-[27px] text-[#B4B4B4] text-[20px] font-medium">ZONA PRATI</h4>
-        </div>
+        <div class="cursor-pointer mt-[30px] flex md:flex-row flex-col gap-[30px]">
+          <div class="p-10 rounded-[36px] border-[1.5px] border-[#B4B4B4] border-solid justify-center items-center flex flex-col">
+            <img class="max-h-[100px] max-w-[100px]" src="3dparking.png" alt="P1" />
+            <h1 class="text-secondary font-bold text-[50px]">PARKING I</h1>
+            <h4 class=" text-[20px] text-[#B4B4B4]">ZONA PRATI</h4>
+          </div>
+          <div class="cursor-pointer p-10 rounded-[36px] border-[1.5px] border-[#B4B4B4] border-solid justify-center items-center flex flex-col">
+            <img class="max-h-[100px] max-w-[100px]" src="3dparking.png" alt="P1" />
+            <h1 class="text-secondary font-bold text-[50px]">PARKING I</h1>
+            <h4 class=" text-[20px] text-[#B4B4B4]">ZONA PRATI</h4>
+          </div>
+           
       </div>
-    </section>
+      
+      
+  </section>
 </template>
