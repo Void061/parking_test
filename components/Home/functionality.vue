@@ -28,6 +28,6 @@
           <h5 class="max-w-[252px] mt-[25px] text-[#B4B4B4] text-[18px] font-medium">Amet minim mollit non deserunt ullamco </h5>
         </div>
       </div>
-       <button class=" mt-[50px] bg-primary rounded-[11px] text-secondary py-4 px-20 font-semibold text-[24px]"><h3>CONTATTACI</h3></button>
+       <button class=" mt-[50px] bg-primary rounded-[11px] text-secondary py-[14px] px-20 font-semibold text-[24px]"><h3>CONTATTACI</h3></button>
     </section>
 </template>

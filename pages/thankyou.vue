@@ -19,7 +19,7 @@
         </div>
 
          <div class="w-full flex justify-center mt-[83px]">
-            <button class=" bg-primary rounded-[11px] text-secondary py-4 px-20 font-semibold text-[24px]"><h3>TORNA IN HOME PAGE</h3></button>
+            <button class=" bg-primary rounded-[11px] text-secondary py-[14px] px-20 font-semibold text-[24px]"><h3>TORNA IN HOME PAGE</h3></button>
         </div>
 </div>
 </template>

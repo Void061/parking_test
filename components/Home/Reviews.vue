@@ -6,7 +6,7 @@
         <h1 class="text-secondary mt-[15px] font-bold text-[50px]">DICONO DI NOI</h1>
         <h5 class="max-w-[800px] font-medium text-[18px] text-[#B4B4B4] mt-[33px] leading-[27px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</h5>
     
-        <div class="mt-[55px]">
+        <div class="mt-[60px]">
             <!-- Slider main container -->
 <div class="swiper">
   <!-- Additional required wrapper -->
