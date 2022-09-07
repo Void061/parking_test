@@ -1,7 +1,6 @@
 <template>
   <div>
-    <BaseNavbar />
-
+    <BaseHeader />
     <main class="min-h-screen">
       <Nuxt />
     </main>
