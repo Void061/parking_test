@@ -2,15 +2,15 @@
     <section class="py-[136px] mx-auto px-[81px] container">
         <h2 class="font-bold text-[36px] text-secondary">Garage Olimpico Ottaviano</h2>
         <div class="mt-[54px] border-t-[1px] border-solid border-[#B4B4B4] py-[67px] flex flex-col gap-[20px]">
-            <div class="flex gap-[44px]">
+            <div class="flex-col md:flex-row flex gap-[20px] md:gap-[44px]">
                 <input class="flex-1 text-[20px] py-[8px] pl-[37px] border-[1.5px] border-solid border-[#B4B4B4]" type="text" placeholder="NOME" />
                 <input class="flex-1 text-[20px] py-[8px] pl-[37px] border-[1.5px] border-solid border-[#B4B4B4]" type="text" placeholder="COGNOME" />
             </div>
-            <div class="flex gap-[44px]">
+            <div class="flex flex-col md:flex-row gap-[20px] md:gap-[44px]">
                 <input class="flex-1 text-[20px] py-[8px] pl-[37px] border-[1.5px] border-solid border-[#B4B4B4]" type="text" placeholder="TELEFONO" />
                 <input class="flex-1 text-[20px] py-[8px] pl-[37px] border-[1.5px] border-solid border-[#B4B4B4]" type="text" placeholder="MAIL" />
             </div>
-            <div class="flex gap-[44px]">
+            <div class="flex md:flex-row flex-col gap-[20px] md:gap-[44px]">
                 <input class="flex-1 text-[20px] py-[8px] pl-[37px] border-[1.5px] border-solid border-[#B4B4B4]" type="text" placeholder="MODELLO DEL VEICOLO" />
                 <input class="flex-1 text-[20px] py-[8px] pl-[37px] border-[1.5px] border-solid border-[#B4B4B4]" type="text" placeholder="TARGA" />
             </div>
@@ -28,7 +28,7 @@
         </div>
 
         <h2 class="mt-[137px] font-bold text-[36px] text-secondary">RIEPILOGO PRENOTAZIONE</h2>
-         <div class="mt-[54px] border-t-[1px] border-solid border-[#B4B4B4] py-[67px] px-[20px] flex justify-between">
+         <div class="mt-[54px] border-t-[1px] border-solid border-[#B4B4B4] py-[67px] px-[20px] flex flex-col lg:flex-row md:justify-center lg:justify-between">
              <div class="flex flex-col justify-center items-center">
                  <div class="flex flex-col">
                     <h4 class="text-secondary font-medium text-[20px]">COPERTO AUTO PICCOLA</h4>
@@ -40,33 +40,33 @@
                     <p class="text-[13px] text-secondary font-medium">Max 3.9 m.</p>
                  </div>
              </div>
-               <div class="flex flex-col justify-center items-center">
+               <div class="lg:mt-0 mt-[50px] flex flex-col justify-center items-center">
                  <div class="flex flex-col">
-                    <h4 class="text-secondary font-medium text-[20px]">DATA INGRESSO</h4>
+                    <h4 class=" text-secondary font-medium text-[20px]">DATA INGRESSO</h4>
                 </div>
-                 <div class="mt-[38px] flex items-center gap-[28px]">
+                 <div class="lg:mt-[38px] mt-[10px] flex items-center gap-[28px]">
                      <img src="icon_data.png" alt="data" />
                      <h5 class="text-[#B4B4B4] font-medium text-[18px]">02/09/2022</h5>
                  </div>
-                 <div class="w-full mt-[20px] flex items-center gap-[28px]">
+                  <div class="mt-[20px] lg:w-full flex items-center gap-[28px]">
                     <img src="clock_icon.png" alt="orologio" />
                      <h5 class="text-[#B4B4B4] font-medium text-[18px]">14:30</h5>
                  </div>
              </div>
-             <div class="flex flex-col justify-center items-center">
+             <div class="lg:mt-0 mt-[50px] flex flex-col justify-center items-center">
                  <div class="flex flex-col">
                     <h4 class="text-secondary font-medium text-[20px]">DATA USCITA</h4>
                 </div>
-                 <div class="mt-[38px] flex items-center gap-[28px]">
+                 <div class="mt-[10px] lg:mt-[38px] flex items-center gap-[28px]">
                      <img src="icon_data.png" alt="data" />
                      <h5 class="text-[#B4B4B4] font-medium text-[18px]">02/09/2022</h5>
                  </div>
-                 <div class="w-full mt-[20px] flex items-center gap-[28px]">
+                 <div class="mt-[20px] lg:w-full flex items-center gap-[28px]">
                     <img src="clock_icon.png" alt="orologio" />
                      <h5 class="text-[#B4B4B4] font-medium text-[18px]">22:30</h5>
                  </div>
              </div>
-               <div class="flex flex-col justify-center items-center">
+               <div class="lg:mt-0 mt-[50px] flex flex-col items-center">
                  <div class="flex flex-col">
                     <h4 class="text-secondary font-medium text-[20px]">PAGA ONLINE</h4>
                 </div>

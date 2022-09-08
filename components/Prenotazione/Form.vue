@@ -34,7 +34,7 @@
                 </div>
             </div>
         </div>
-        <div class="flex md:px-[11px] mt-[35px] justify-between">
+        <div class="flex flex-row md:flex-nowrap flex-wrap md:px-[11px] mt-[35px] gap-[30px] md:gap-0 justify-between">
 
             <div class="flex gap-[30px]">
                 <input name="veicolo" type="radio" />

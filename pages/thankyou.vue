@@ -10,7 +10,7 @@
         </div>
 
         <div class=" mt-[54px] font-bold text-secondary">
-            <h2 class="text-[36px]">La tua prenotazione è andata a buon fine</h2>
+            <h2 class="text-center text-[36px]">La tua prenotazione è andata a buon fine</h2>
         </div>
     </div>
 

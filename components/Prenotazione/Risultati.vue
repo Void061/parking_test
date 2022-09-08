@@ -1,7 +1,7 @@
 <template>
     <section class="pb-[103px] px-[81px] container mx-auto">
-        <div class="py-[28px] border-b-[1px] border-solid border-[#B4B4B4] flex justify-between">
-            <div class="flex items-center gap-[100px]">
+        <div class="py-[28px] border-b-[1px] border-solid border-[#B4B4B4] flex md:gap-[100px] justify-between">
+            <div class="flex flex-col md:items-center items-start md:flex-row gap-[20px] md:gap-[100px]">
             <h4 class="text-secondary font-medium text-[20px]">COPERTO AUTO PICCOLA</h4>
             <div class="flex items-center gap-[30px]">
                
