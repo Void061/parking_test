@@ -3,7 +3,7 @@
       <div class="container mx-auto flex flex-col items-center">
       <h3 class="text-primary text-[24px] font-semibold">LOREM IPSUM</h3>
       <h1 class="mt-[15px] font-bold text-secondary text-[50px]">LE FUNZIONALITÀ DI CUI HAI BISOGNO</h1>
-      <h5 class="max-w-[800px] mt-[33px] text-[18px] font-medium leading-[27px] text-[#B4B4B4]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</h5>
+      <h5 class="max-w-[800px] mt-[24px] text-[18px] font-medium leading-[27px] text-[#B4B4B4]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</h5>
       </div>
 
       <div class="flex md:flex-row flex-col items-center justify-center">

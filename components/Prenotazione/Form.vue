@@ -14,23 +14,23 @@
             <div class="flex-1 flex flex-col">
                 <h4 class="text-center text-secondary font-medium text-[20px]">INGRESSO</h4>
                 <div class="relative p-[20px] mt-[20px] border-solid border-[1.5px] border-[#B4B4B4]">
-                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="icon_data.png" alt="data" />
-                    <input class="pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
+                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="icon_data.png" alt="data-uscita" />
+                    <input placeholder="Data ingresso" class="pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
                 </div>
                  <div class="relative p-[20px] mt-[20px] border-solid border-[1.5px] border-[#B4B4B4]">
-                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="icon_data.png" alt="data" />
-                    <input class="pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
+                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="clock_icon.png" alt="orario-ingresso" />
+                    <input placeholder="Orario ingresso" class="pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
                 </div>
             </div>
             <div class="flex-1 flex flex-col">
-                <h4 class="text-center text-secondary font-medium text-[20px]">INGRESSO</h4>
+                <h4 class="text-center text-secondary font-medium text-[20px]">USCITA</h4>
                 <div class="relative p-[20px] mt-[20px] border-solid border-[1.5px] border-[#B4B4B4]">
-                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="icon_data.png" alt="data" />
-                    <input class="pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
+                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="icon_data.png" alt="data-uscita" />
+                    <input placeholder="Data uscita" class="pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
                 </div>
                  <div class="relative p-[20px] mt-[20px] border-solid border-[1.5px] border-[#B4B4B4]">
-                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="icon_data.png" alt="data" />
-                    <input class="pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
+                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="clock_icon.png" alt="orario-uscita" />
+                    <input placeholder="Orario uscita" class="pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
                 </div>
             </div>
         </div>
