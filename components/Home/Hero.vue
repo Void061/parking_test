@@ -1,9 +1,10 @@
 <template>
-    <section class="bg-primary h-screen">
+    <section class="min-h-[700px] bg-primary h-screen">
 
-        <div class="md:px-[80px] h-full container flex justify-center md:justify-start items-center relative mx-auto">
+        <div class="px-[20px] md:px-[80px] h-full container flex justify-center md:justify-start items-center relative md:mx-auto">
           <img class="z-[1] absolute md:block hidden bottom-0 right-[5%]" src="hand.png" alt="prenotazioni" />
-          <div class="z-[2] flex flex-col md:min-w-[546px]">
+          <div class="z-[2] flex flex-col max-w-[500px] md:max-w-[unset] md:min-w-[546px]">
+           
             <h2 class="text-secondary font-bold text-[36px]">Trova il tuo parcheggio</h2>
             <div class="mt-[18px] flex gap-[20px] items-center px-[20px] py-[13px] bg-[#ffff] ">
               <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,22 +44,13 @@
               </div>
             </div>
             <div class="px-[20px] mt-[8px] py-[18px] flex gap-[26px] bg-[#ffff]">
-              <label class="items-center cursor-pointer flex gap-[20px]">
-                <input type="radio" name="veicolo" />
-                <img src="car.png" alt="car" />
+
+              <label class="items-center cursor-pointer flex flex-1 gap-[20px]" @click="() => ActiveVeicolo(veicolo.id)" v-for="veicolo in this.veicoli" :key="veicolo.id" :id="veicolo.id">
+                <input class="w-[10px] h-[10px] md:w-[16px] md:h-[16px] " type="radio" name="veicolo" />
+                <div class="veicoli" v-html="veicolo.svgIcon"></div>
               </label>
-               <label class="items-center cursor-pointer flex gap-[20px]">
-                <input type="radio" name="veicolo" />
-                <img src="car.png" alt="car" />
-              </label>
-              <label class="items-center cursor-pointer flex gap-[20px]">
-                <input type="radio" name="veicolo" />
-                <img src="car.png" alt="car" />
-              </label>
-              <label class="items-center cursor-pointer flex gap-[20px]">
-                <input type="radio" name="veicolo" />
-                <img src="car.png" alt="car" />
-              </label>
+              
+              
             </div>
 
             <button class="mt-[14px] rounded-[11px] py-[14px] text-[#ffff] bg-secondary"><h3 class="font-semibold text-[24px]">CERCA</h3></button>
@@ -72,7 +64,19 @@
 <script>
 
 export default{
+  props: ['veicoli'],
+  methods: {
+    ActiveVeicolo(id){
+      let veicolo = document.getElementById(id);
+      let veicoli = document.querySelectorAll(".veicoli-attivi");
+      for (var i = 0; i < veicoli.length; i++) {
+          
+          veicoli[i].classList.remove('veicoli-attivi');
 
+      }
+      veicolo.classList.add('veicoli-attivi');
+    }
+  },
   mounted(){
 
   },
@@ -116,4 +120,21 @@ export default{
   height: auto !important;
   background: transparent !important;
 }
+
+.veicoli path {
+  fill: #B4B4B4;
+}
+
+.veicoli-attivi path{
+  fill: #2F168B !important;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .veicoli svg{
+  width: 35px !important;
+}
+}
+
 </style>

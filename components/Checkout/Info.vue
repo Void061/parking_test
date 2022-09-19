@@ -1,5 +1,5 @@
 <template>
-    <section class="mt-[136px] container mx-auto px-[81px]">
+    <section class="mt-[136px] container mx-auto px-[20px] md:px-[81px]">
         <h2 class="font-bold text-[36px] text-secondary">La tua prenotazione</h2>
         <div class="mt-[54px] flex flex-col border-t-[1px] border-solid border-[#B4B4B4]">
             <div class="py-[80px] px-[20px] md:px-[124px] mt-[71px] bg-[#F8F8F8] rounded-[41px] gap-[35px] flex flex-col">

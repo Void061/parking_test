@@ -1,5 +1,5 @@
 <template>
-    <section class="py-[143px] text-center container mx-auto flex flex-col items-center">
+    <section class="hidden md:flex py-[143px] text-center container mx-auto flex-col items-center">
 
       <div class="flex flex-col items-center text-center">
         <h3 class="text-primary font-bold text-[24px]">LOREM IPSUM</h3>
@@ -62,7 +62,12 @@
   <!-- If we need scrollbar -->
   <!--<div class="swiper-scrollbar"></div>-->
 </div>
+
+
+
         </div>
+
+       
       </div>
      
     </section>
@@ -75,7 +80,32 @@
 
  export default {
    mounted(){
-     const swiper = new Swiper('.swiper', {
+     const swiperM = new Swiper('.swiperM', {
+  // Optional parameters
+
+  loop: true,
+ 
+  slidesPerView: 1,
+
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
+
+ const swiper = new Swiper('.swiper', {
   // Optional parameters
 
   loop: true,

@@ -1,5 +1,5 @@
 <template>
-      <section class="px-[81px]  py-[136px] mx-auto  container">
+      <section class="px-[20px] md:px-[81px]  py-[100px] md:py-[136px] mx-auto  container">
         <h2 class="font-bold text-[36px] text-secondary">Trova il tuo parcheggio</h2>
         <div class="px-[11px] mt-[25px] flex bg-[#ffff] items-center gap-[28px]">
             <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,7 +10,7 @@
             <h4 class="font-medium text-[20px] text-secondary">Garage olimpico ottaviano</h4>
         </div>
 
-        <div class="flex mt-[35px] gap-[44px] ">
+        <div class="flex flex-col md:flex-row mt-[35px] gap-[44px] ">
             <div class="flex-1 flex flex-col">
                 <h4 class="text-center text-secondary font-medium text-[20px]">INGRESSO</h4>
                 <div class="relative p-[20px] mt-[20px] border-solid border-[1.5px] border-[#B4B4B4]">
@@ -35,23 +35,13 @@
             </div>
         </div>
         <div class="flex flex-row md:flex-nowrap flex-wrap md:px-[11px] mt-[35px] gap-[30px] md:gap-0 justify-between">
-
-            <div class="flex gap-[30px]">
+            
+          
+            <label class="cursor-pointer flex gap-[30px] items-center"  v-for="veicolo in this.veicoli" :key="veicolo.id" :id="veicolo.id" @click="() => ActiveVeicolo(veicolo.id)">
                 <input name="veicolo" type="radio" />
-                <img name="veicolo" src="car.png" alt="car" />
-            </div>
-            <div class="flex gap-[30px]">
-                <input name="veicolo" type="radio" />
-                <img src="car.png" alt="car" />
-            </div>
-            <div class="flex gap-[30px]">
-                <input name="veicolo" type="radio" />
-                <img src="car.png" alt="car" />
-            </div>
-            <div class="flex gap-[30px]">
-                <input name="veicolo" type="radio" />
-                <img src="car.png" alt="car" />
-            </div>
+                <div class="veicoli" v-html="veicolo.svgIcon"></div>
+            </label>
+           
         </div>
 
         <button class="mt-[50px] py-[14px] w-full bg-secondary rounded-[11px]"><h3 class="text-[#ffff] text-[24px] font-semibold">CALCOLA</h3></button>
@@ -60,3 +50,41 @@
        
     </section>
 </template>
+
+
+
+<script>
+export default{
+  props: ['veicoli'],
+  methods: {
+    ActiveVeicolo(id){
+      let veicolo = document.getElementById(id);
+      let veicoli = document.querySelectorAll(".veicoli-attivi");
+      for (var i = 0; i < veicoli.length; i++) {
+          
+          veicoli[i].classList.remove('veicoli-attivi');
+
+      }
+      veicolo.classList.add('veicoli-attivi');
+      
+       this.$emit('Search', id);
+    }
+
+   
+  },
+  mounted(){
+
+  },
+ 
+}
+</script>
+
+<style scoped>
+.veicoli path {
+  fill: #B4B4B4;
+}
+
+.veicoli-attivi path{
+  fill: #2F168B !important;
+}
+</style>
