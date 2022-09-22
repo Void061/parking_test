@@ -15,36 +15,38 @@
                 <h4 class="text-center text-secondary font-medium text-[20px]">INGRESSO</h4>
                 <div class="relative p-[20px] mt-[20px] border-solid border-[1.5px] border-[#B4B4B4]">
                     <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="icon_data.png" alt="data-uscita" />
-                    <input placeholder="Data ingresso" class="pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
+                    <input id='data_start' :value="this.data_start" placeholder="Data ingresso" class="pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
                 </div>
                  <div class="relative p-[20px] mt-[20px] border-solid border-[1.5px] border-[#B4B4B4]">
                     <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="clock_icon.png" alt="orario-ingresso" />
-                    <input placeholder="Orario ingresso" class="pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
+                    <input id="ora_start" :value="this.ora_start" placeholder="Orario ingresso" class="pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
                 </div>
             </div>
             <div class="flex-1 flex flex-col">
                 <h4 class="text-center text-secondary font-medium text-[20px]">USCITA</h4>
                 <div class="relative p-[20px] mt-[20px] border-solid border-[1.5px] border-[#B4B4B4]">
                     <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="icon_data.png" alt="data-uscita" />
-                    <input placeholder="Data uscita" class="pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
+                    <input id="data_end" :value="this.data_end" placeholder="Data uscita" class="pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
                 </div>
                  <div class="relative p-[20px] mt-[20px] border-solid border-[1.5px] border-[#B4B4B4]">
                     <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="clock_icon.png" alt="orario-uscita" />
-                    <input placeholder="Orario uscita" class="pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
+                    <input id="ora_end" :value="this.ora_end" placeholder="Orario uscita" class="pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
                 </div>
             </div>
         </div>
         <div class="flex flex-row md:flex-nowrap flex-wrap md:px-[11px] mt-[35px] gap-[30px] md:gap-0 justify-between">
             
           
-            <label class="cursor-pointer flex gap-[30px] items-center"  v-for="veicolo in this.veicoli" :key="veicolo.id" :id="veicolo.id" @click="() => ActiveVeicolo(veicolo.id)">
-                <input name="veicolo" type="radio" />
-                <div class="veicoli" v-html="veicolo.svgIcon"></div>
+            <label class="cursor-pointer flex gap-[30px] items-center"  v-for="v in this.veicoli" :key="v.id" :id="v.id" @click="() => ActiveVeicolo(v.id)">
+                
+                <input type="radio" v-if="v.id == veicolo" name="copertura" checked :value="v.id" />
+                <input type="radio" v-if="v.id != veicolo" name="copertura" :value="v.id" />
+                <div class="veicoli" v-html="v.svgIcon"></div>
             </label>
            
         </div>
 
-        <button class="mt-[50px] py-[14px] w-full bg-secondary rounded-[11px]"><h3 class="text-[#ffff] text-[24px] font-semibold">CALCOLA</h3></button>
+        <button @click="() => SearchCopertura(this.data_start, this.data_end, this.ora_start, this.ora_end, this.veicolo, this.sede)" class="mt-[50px] py-[14px] w-full bg-secondary rounded-[11px]"><h3 class="text-[#ffff] text-[24px] font-semibold">CALCOLA</h3></button>
         
         <div class="mt-[60px] flex justify-center"><img class="cursor-pointer" src="arrow_bottom.png" alt="arrow_bottom" /></div>
        
@@ -55,7 +57,17 @@
 
 <script>
 export default{
-  props: ['veicoli'],
+  props: ['veicoli', 'veicolo', 'data_start', 'ora_start', 'data_end', 'ora_end' , 'sede'],
+  data(){
+      return{
+        m_data_start : '',
+        m_data_end: '',
+        m_veicolo: '',
+        m_ora_start: '',
+        m_ora_end: '',
+        m_sede: '1',
+      }
+  },
   methods: {
     ActiveVeicolo(id){
       let veicolo = document.getElementById(id);
@@ -67,7 +79,43 @@ export default{
       }
       veicolo.classList.add('veicoli-attivi');
       
-       this.$emit('Search', id);
+       //this.$emit('Search', id);
+    },
+    SearchCopertura(){
+        if(this.data_start == "" || this.data_end == "" || this.ora_start == "" || this.ora_end == "" || this.veicolo == "" ){
+
+
+ 
+         
+          this.m_data_start = document.getElementById('data_start');
+          this.m_data_end = document.getElementById('data_end');
+          this.m_ora_start = document.getElementById('ora_start');
+          this.m_ora_end = document.getElementById('ora_end');
+          this.m_veicolo = document.querySelector('input[name="copertura"]:checked');
+          
+
+        if(this.m_data_start == undefined ||this.m_data_start == "" || this.m_data_end == undefined || this.m_data_end == "" || this.m_ora_start == "" || this.m_ora_start == undefined || this.m_ora_end == undefined || this.m_ora_end == "" || this.m_veicolo == undefined || this.m_veicolo == ""){
+            console.log(0);
+        }
+          else{
+          let data = {
+            datainizio: new Date(this.m_data_start + " " + this.m_ora_start),
+            datafine: new Date(this.m_data_fine + " " + this.m_ora_fine),
+            veicolo: this.m_veicolo,
+            sede: this.m_sede,
+           
+          }
+
+          this.$emit('Search', data);
+          }
+          
+        }
+        else{
+          console.log(0);
+        }
+
+       
+        
     }
 
    

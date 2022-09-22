@@ -19,12 +19,14 @@
                 <h4 class="text-center text-secondary font-medium text-[20px]">INGRESSO</h4>
                 <div class="relative p-[20px] mt-[10px] border-solid border-[1.5px] border-[#B4B4B4]">
                     <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="icon_data.png" alt="data-ingresso" />
-                    <input datepicker placeholder="Data ingresso" class="border-0 pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
+                    <input id="data_start" datepicker placeholder="Data ingresso" class="border-0 pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
+                    
                 </div>
+               
                  <div class="relative p-[20px] mt-[10px] border-solid border-[1.5px] border-[#B4B4B4]">
                     <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="clock_icon.png" alt="orario-ingresso" />
                     <div class="timepicker" data-mdb-with-icon="false" id="input-toggle-timepicker">
-                    <input data-mdb-toggle="input-toggle-timepicker" placeholder="Orario uscita" class="border-0 pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
+                    <input id="ora_start" data-mdb-toggle="input-toggle-timepicker" placeholder="Orario ingresso" class="border-0 pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
                     </div>
                 </div>
               </div>
@@ -32,12 +34,12 @@
                 <h4 class="text-center text-secondary font-medium text-[20px]">USCITA</h4>
                 <div class="relative p-[20px] mt-[10px] border-solid border-[1.5px] border-[#B4B4B4]">
                     <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="icon_data.png" alt="data-uscita" />
-                    <input datepicker placeholder="Orario ingresso" class="border-0 pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
+                    <input id="data_end" datepicker placeholder="Data uscita" class="border-0 pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
                 </div>
                  <div class="relative p-[20px] mt-[10px] border-solid border-[1.5px] border-[#B4B4B4]">
                     <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="clock_icon.png" alt="orario-uscita" />
                     <div class="timepicker" data-mdb-with-icon="false" id="input-toggle-timepicker">
-                    <input data-mdb-toggle="input-toggle-timepicker" placeholder="Orario uscita" class="border-0 pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
+                    <input id="ora_end" data-mdb-toggle="input-toggle-timepicker" placeholder="Orario uscita" class="border-0 pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
                     </div>
                 </div>
                  
@@ -46,14 +48,14 @@
             <div class="px-[20px] mt-[8px] py-[18px] flex gap-[26px] bg-[#ffff]">
 
               <label class="items-center cursor-pointer flex flex-1 gap-[20px]" @click="() => ActiveVeicolo(veicolo.id)" v-for="veicolo in this.veicoli" :key="veicolo.id" :id="veicolo.id">
-                <input class="w-[10px] h-[10px] md:w-[16px] md:h-[16px] " type="radio" name="veicolo" />
+                <input class="w-[10px] h-[10px] md:w-[16px] md:h-[16px] " :value="veicolo.id" type="radio" name="veicolo" />
                 <div class="veicoli" v-html="veicolo.svgIcon"></div>
               </label>
               
               
             </div>
 
-            <button class="mt-[14px] rounded-[11px] py-[14px] text-[#ffff] bg-secondary"><h3 class="font-semibold text-[24px]">CERCA</h3></button>
+            <button @click="() => SearchPren()" class="mt-[14px] rounded-[11px] py-[14px] text-[#ffff] bg-secondary"><h3 class="font-semibold text-[24px]">CERCA</h3></button>
           </div>
         </div>
         
@@ -65,7 +67,50 @@
 
 export default{
   props: ['veicoli'],
+  data(){
+    return{
+      data_start: "",
+      data_end: "",
+      ora_start: "",
+      ora_end: "''",
+      sede: "",
+      veicolo: "",
+    }
+  },
   methods: {
+    testing(){
+      alert(1);
+    },
+    SearchPren(){
+      this.data_start = document.getElementById('data_start');
+      this.data_end = document.getElementById('data_end');
+      this.ora_start = document.getElementById('ora_start');
+      this.ora_end = document.getElementById('ora_end');
+      this.sede = 1;
+      this.veicolo = document.querySelector('input[name="veicolo"]:checked');
+      
+      if(this.data_start.value == undefined || this.data_start.value.trim() == ""){
+          console.log(1);
+      }
+      else if(this.data_end.value == undefined || this.data_end.value.trim() == ""){
+         console.log(1);
+      }
+       else if(this.ora_end.value == undefined || this.ora_end.value.trim() == ""){
+         console.log(1);
+      }
+       else if(this.ora_start.value == undefined || this.ora_start.value.trim() == ""){
+         console.log(1);
+      }
+      else if(this.veicolo?.value){
+        //OK
+        this.$router.push('/prenotazione?data_start='+this.data_start.value+'&ora_start='+this.ora_start.value+'&data_end='+this.data_end.value+'&ora_end='+this.ora_end.value+'&veicolo='+this.veicolo.value+'&sede='+this.sede);
+      }
+      else{
+        console.log(11);
+       
+      }
+      
+    },
     ActiveVeicolo(id){
       let veicolo = document.getElementById(id);
       let veicoli = document.querySelectorAll(".veicoli-attivi");
@@ -75,7 +120,10 @@ export default{
 
       }
       veicolo.classList.add('veicoli-attivi');
-    }
+      
+    },
+
+
   },
   mounted(){
 

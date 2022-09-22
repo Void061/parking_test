@@ -25,12 +25,13 @@ export default {
     try{
       const response = await this.$axios.get('https://back-parking.g2r.it/api/veicolo');
       this.veicoli = response.data.data;
-     
+      
     }
     catch(error){
       console.log(error);
     }
-  }
+  },
+
     
 }
 </script>
