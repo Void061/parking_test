@@ -36,7 +36,9 @@
       async SearchCopertura(data){
           let r = await this.$axios.$get('https://back-parking.g2r.it/api/genera/prezzi?dataFine='+data.datafine+'&dataInizio='+data.datainizio+'&VeicoloId='+data.veicolo+'&SedeId='+data.sede);
           this.risultati = r.data;
-          
+           setTimeout(() => {
+             document.getElementById('results').scrollIntoView();
+        }, "1100")
           
       }
   },  
@@ -57,13 +59,18 @@
        
         let r = await this.$axios.$get('https://back-parking.g2r.it/api/genera/prezzi?dataFine='+DataFine+'&dataInizio='+DataInizio+'&VeicoloId='+this.veicolo+'&SedeId='+this.sede);
         this.risultati = r.data;
-        console.log(r.data);
+        
+        setTimeout(() => {
+             document.getElementById('results').scrollIntoView();
+        }, "1100")
+        
       }
       catch(err){
         console.log(err);
       }
     }
   },
+
     
 }
 </script>

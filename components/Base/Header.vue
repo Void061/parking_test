@@ -3,7 +3,7 @@
 <header class="bg-[#F8F8F8]">
     <nav class="py-[20px] container mx-auto px-[81px] flex items-center justify-between">
         <div class="flex">
-            <img src="brand.png" alt="brand" />
+            <img src="/img/brand.png" alt="brand" />
         </div>
         <ul class="lg:gap-[45px] gap-[15px] text-[14px] lg:text-[18px] text-secondary font-medium hidden lg:flex">
             <li class="cursor-pointer"><h5>Home</h5></li>

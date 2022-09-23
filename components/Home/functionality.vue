@@ -8,22 +8,22 @@
 
       <div class="flex md:flex-row flex-col items-center justify-center">
         <div class="flex flex-col items-center mt-[55px]">
-          <img class="max-h-[100px] max-w-[100px]"  src="telecamera.png" alt="telecamera" />
+          <img class="max-h-[100px] max-w-[100px]"  src="/img/telecamera.png" alt="telecamera" />
           <h4 class="mt-[35px] text-secondary text-[20px] font-medium">SORVEGLIANZA H24</h4>
           <h5 class="max-w-[252px] mt-[25px] text-[#B4B4B4] text-[18px] font-medium">Amet minim mollit non deserunt ullamco </h5>
         </div>
         <div class="flex flex-col items-center mt-[55px]">
-          <img class="max-h-[100px] max-w-[100px]"  src="scheda.png" alt="scheda" />
+          <img class="max-h-[100px] max-w-[100px]"  src="/img/scheda.png" alt="scheda" />
           <h4 class="mt-[35px] text-secondary text-[20px] font-medium">DIVERSE TARIFFE</h4>
           <h5 class="max-w-[252px] mt-[25px] text-[#B4B4B4] text-[18px] font-medium">Amet minim mollit non deserunt ullamco </h5>
         </div>
         <div class="flex flex-col items-center mt-[55px]">
-          <img class="max-h-[100px] max-w-[100px]"  src="orologio.png" alt="orologio" />
+          <img class="max-h-[100px] max-w-[100px]"  src="/img/orologio.png" alt="orologio" />
           <h4 class="mt-[35px] text-secondary text-[20px] font-medium">ORARI FLESSIBILI</h4>
           <h5 class="max-w-[252px] mt-[25px] text-[#B4B4B4] text-[18px] font-medium">Amet minim mollit non deserunt ullamco </h5>
         </div>
         <div class="flex flex-col items-center mt-[55px]">
-          <img class="max-h-[100px] max-w-[100px]"  src="phone.png" alt="phone" />
+          <img class="max-h-[100px] max-w-[100px]"  src="/img/phone.png" alt="phone" />
           <h4 class="mt-[35px] text-secondary text-[20px] font-medium">PAGA COME VUOI</h4>
           <h5 class="max-w-[252px] mt-[25px] text-[#B4B4B4] text-[18px] font-medium">Amet minim mollit non deserunt ullamco </h5>
         </div>

@@ -15,27 +15,27 @@
        <div class="swiper-slide">
       <div class="px-[38px] py-[60px] bg-[#F8F8F8] rounded-[24px] flex flex-col items-center justify-center">
         <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</h5>
-        <img class="mt-[11px] w-[78px] h-[33px]" src="virgolette.png" alt="virgolette" />
+        <img class="mt-[11px] w-[78px] h-[33px]" src="/img/virgolette.png" alt="virgolette" />
         <h3 class="mt-[32px] text-primary font-medium text-[24px]" >MARIO ROSSI</h3>
-        <img class="absolute bottom-0 translate-y-[50px]" src="avatar-1.png" alt="avatar-1" />
+        <img class="absolute bottom-0 translate-y-[50px]" src="/img/avatar-1.png" alt="avatar-1" />
       </div>
     </div>
 
      <div class="swiper-slide">
       <div class="px-[38px] py-[60px] bg-[#F8F8F8] rounded-[24px] flex flex-col items-center justify-center">
         <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</h5>
-        <img class="mt-[11px] w-[78px] h-[33px]" src="virgolette.png" alt="virgolette" />
+        <img class="mt-[11px] w-[78px] h-[33px]" src="/img/virgolette.png" alt="virgolette" />
         <h3 class="mt-[32px] text-primary font-medium text-[24px]" >MARIO ROSSI</h3>
-        <img class="absolute bottom-0 translate-y-[50px]" src="avatar-1.png" alt="avatar-1" />
+        <img class="absolute bottom-0 translate-y-[50px]" src="/img/avatar-1.png" alt="avatar-1" />
       </div>
     </div>
 
       <div class="swiper-slide">
       <div class="px-[38px] py-[60px] bg-[#F8F8F8] rounded-[24px] flex flex-col items-center justify-center">
         <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</h5>
-        <img class="mt-[11px] w-[78px] h-[33px]" src="virgolette.png" alt="virgolette" />
+        <img class="mt-[11px] w-[78px] h-[33px]" src="/img/virgolette.png" alt="virgolette" />
         <h3 class="mt-[32px] text-primary font-medium text-[24px]" >MARIO ROSSI</h3>
-        <img class="absolute bottom-0 translate-y-[50px]" src="avatar-1.png" alt="avatar-1" />
+        <img class="absolute bottom-0 translate-y-[50px]" src="/img/avatar-1.png" alt="avatar-1" />
       </div>
     </div>
    

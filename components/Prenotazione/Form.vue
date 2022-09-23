@@ -14,23 +14,28 @@
             <div class="flex-1 flex flex-col">
                 <h4 class="text-center text-secondary font-medium text-[20px]">INGRESSO</h4>
                 <div class="relative p-[20px] mt-[20px] border-solid border-[1.5px] border-[#B4B4B4]">
-                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="icon_data.png" alt="data-uscita" />
-                    <input id='data_start' :value="this.data_start" placeholder="Data ingresso" class="pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
+                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="/img/icon_data.png" alt="data-uscita" />
+                    <input id='data_start' datepicker-autohide datepicker :value="this.data_start" placeholder="Data ingresso" class="pl-[50px] absolute top-0 border-0 bottom-0 left-0 w-full" type="text" />
                 </div>
                  <div class="relative p-[20px] mt-[20px] border-solid border-[1.5px] border-[#B4B4B4]">
-                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="clock_icon.png" alt="orario-ingresso" />
-                    <input id="ora_start" :value="this.ora_start" placeholder="Orario ingresso" class="pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
+                   
+                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="/img/clock_icon.png" alt="orario-ingresso" />
+                    <div class="timepicker"  data-mdb-with-icon="false" id="input-toggle-timepicker">
+                      <input id="ora_start" data-mdb-toggle="input-toggle-timepicker" :value="this.ora_start" placeholder="Orario ingresso" class="pl-[50px] absolute top-0 bottom-0 left-0 border-0 w-full" type="text" />
+                    </div>
                 </div>
             </div>
             <div class="flex-1 flex flex-col">
                 <h4 class="text-center text-secondary font-medium text-[20px]">USCITA</h4>
                 <div class="relative p-[20px] mt-[20px] border-solid border-[1.5px] border-[#B4B4B4]">
-                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="icon_data.png" alt="data-uscita" />
-                    <input id="data_end" :value="this.data_end" placeholder="Data uscita" class="pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
+                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="/img/icon_data.png" alt="data-uscita" />
+                    <input id="data_end" :value="this.data_end" datepicker-autohide datepicker placeholder="Data uscita" class="pl-[50px] absolute border-0 top-0 bottom-0 left-0 w-full" type="text" />
                 </div>
                  <div class="relative p-[20px] mt-[20px] border-solid border-[1.5px] border-[#B4B4B4]">
-                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="clock_icon.png" alt="orario-uscita" />
-                    <input id="ora_end" :value="this.ora_end" placeholder="Orario uscita" class="pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
+                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="/img/clock_icon.png" alt="orario-uscita" />
+                    <div class="timepicker" data-mdb-with-icon="false" id="input-toggle-timepicker">
+                      <input id="ora_end" data-mdb-toggle="input-toggle-timepicker" :value="this.ora_end" placeholder="Orario uscita" class="border-0 pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -48,7 +53,7 @@
 
         <button @click="() => SearchCopertura(this.data_start, this.data_end, this.ora_start, this.ora_end, this.veicolo, this.sede)" class="mt-[50px] py-[14px] w-full bg-secondary rounded-[11px]"><h3 class="text-[#ffff] text-[24px] font-semibold">CALCOLA</h3></button>
         
-        <div class="mt-[60px] flex justify-center"><img class="cursor-pointer" src="arrow_bottom.png" alt="arrow_bottom" /></div>
+        <a href="#results" class="mt-[60px] flex justify-center"><img class="cursor-pointer" src="/img/arrow_bottom.png" alt="arrow_bottom" /></a>
        
     </section>
 </template>
@@ -116,13 +121,14 @@ export default{
 
        
         
-    }
-
+    },
+    
    
   },
   mounted(){
 
   },
+  
  
 }
 </script>
@@ -134,5 +140,16 @@ export default{
 
 .veicoli-attivi path{
   fill: #2F168B !important;
+}
+
+.datepicker-view{
+  flex-direction: column !important;
+}
+.datepicker-header {
+  height: auto !important;
+  background: transparent !important;
+}
+.datepicker-footer{
+  z-index: -1;
 }
 </style>
