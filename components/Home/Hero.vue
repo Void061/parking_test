@@ -2,7 +2,7 @@
     <section class="min-h-[700px] bg-primary h-screen">
 
         <div class="px-[20px] md:px-[80px] h-full container flex justify-center md:justify-start items-center relative md:mx-auto">
-          <img class="z-[1] absolute md:block hidden bottom-0 right-[5%]" src="hand.png" alt="prenotazioni" />
+          <img class="z-[1] absolute md:block hidden bottom-0 right-[5%]" src="/img/hand.png" alt="prenotazioni" />
           <div class="z-[2] flex flex-col max-w-[500px] md:max-w-[unset] md:min-w-[546px]">
            
             <h2 class="text-secondary font-bold text-[36px]">Trova il tuo parcheggio</h2>
@@ -18,13 +18,13 @@
               <div class="px-[9px] py-[8px] flex-1 bg-[#ffff] flex flex-col">
                 <h4 class="text-center text-secondary font-medium text-[20px]">INGRESSO</h4>
                 <div class="relative p-[20px] mt-[10px] border-solid border-[1.5px] border-[#B4B4B4]">
-                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="icon_data.png" alt="data-ingresso" />
+                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="/img/icon_data.png" alt="data-ingresso" />
                     <input id="data_start" datepicker placeholder="Data ingresso" class="border-0 pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
                     
                 </div>
                
                  <div class="relative p-[20px] mt-[10px] border-solid border-[1.5px] border-[#B4B4B4]">
-                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="clock_icon.png" alt="orario-ingresso" />
+                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="/img/clock_icon.png" alt="orario-ingresso" />
                     <div class="timepicker" data-mdb-with-icon="false" id="input-toggle-timepicker">
                     <input id="ora_start" data-mdb-toggle="input-toggle-timepicker" placeholder="Orario ingresso" class="border-0 pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
                     </div>
@@ -33,11 +33,11 @@
                <div class="px-[9px] py-[8px] flex-1 bg-[#ffff] flex flex-col">
                 <h4 class="text-center text-secondary font-medium text-[20px]">USCITA</h4>
                 <div class="relative p-[20px] mt-[10px] border-solid border-[1.5px] border-[#B4B4B4]">
-                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="icon_data.png" alt="data-uscita" />
+                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="/img/icon_data.png" alt="data-uscita" />
                     <input id="data_end" datepicker placeholder="Data uscita" class="border-0 pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
                 </div>
                  <div class="relative p-[20px] mt-[10px] border-solid border-[1.5px] border-[#B4B4B4]">
-                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="clock_icon.png" alt="orario-uscita" />
+                    <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="/img/clock_icon.png" alt="orario-uscita" />
                     <div class="timepicker" data-mdb-with-icon="false" id="input-toggle-timepicker">
                     <input id="ora_end" data-mdb-toggle="input-toggle-timepicker" placeholder="Orario uscita" class="border-0 pl-[50px] absolute top-0 bottom-0 left-0 w-full" type="text" />
                     </div>
@@ -128,35 +128,7 @@ export default{
   mounted(){
 
   },
- head: {
-    script: [
-      {
-        type: "application/javascript",
-        src: "https://unpkg.com/flowbite@1.5.3/dist/datepicker.js",
-      },
-      {
-        type: "application/javascript",
-        src: "https://unpkg.com/flowbite@1.5.3/dist/flowbite.js",
-      },
-      {
-        type: "application/javascript",
-        src: "https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js",
-      },
-     
-    ],
-    link: [
-      {
-        rel: "stylesheet",
-        href: "https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css",
-      },
-      {
-        rel: "stylesheet",
-        href: "https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css",
-      }
-      
-    ]
 
-  }
 }
 </script>
 
@@ -176,7 +148,9 @@ export default{
 .veicoli-attivi path{
   fill: #2F168B !important;
 }
-
+.datepicker-footer{
+  z-index: -1;
+}
 
 
 @media only screen and (max-width: 600px) {

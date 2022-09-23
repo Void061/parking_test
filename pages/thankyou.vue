@@ -2,7 +2,7 @@
 <div class="container px-[20px] mx-auto h-screen flex flex-col justify-center" >
     <div class="flex flex-col items-center">
         <div>
-            <img src="done_icon.png" alt="icon" />
+            <img src="/img/done_icon.png" alt="icon" />
         </div>
 
         <div class="mt-[24px] font-bold text-secondary">

@@ -15,8 +15,35 @@ export default {
     link: [
      
         {
-        rel: 'icon', type: 'image/x-icon', href: '/favicon.ico',
+          rel: 'icon', type: 'image/x-icon', href: '/favicon.ico',
         },
+        {
+          rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css',
+        },
+        {
+          rel: 'stylesheet', href: 'https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css',
+        },
+      
+    ],
+    script: [
+      {
+        hid: 'flowbite',
+        type: 'text/javascript',
+        src: 'https://unpkg.com/flowbite@1.5.3/dist/flowbite.js',
+        defer: true,
+      },
+      {
+        hid: 'datepicker',
+        type: 'text/javascript',
+        src: 'https://unpkg.com/flowbite@1.5.3/dist/datepicker.js',
+        defer: true,
+      },
+      {
+        hid: 'tw-elements',
+        type: 'text/javascript',
+        src: 'https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js',
+        defer: true,
+      },
       
     ],
  

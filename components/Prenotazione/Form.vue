@@ -63,6 +63,7 @@
 <script>
 export default{
   props: ['veicoli', 'veicolo', 'data_start', 'ora_start', 'data_end', 'ora_end' , 'sede'],
+ 
   data(){
       return{
         m_data_start : '',

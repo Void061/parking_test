@@ -13,7 +13,7 @@
             </label>
             </div>
            
-            <button class="px-[18px] py-[10px] w-[152px] h-[46px] flex items-center justify-between bg-primary rounded-[11px]"><h3 class="font-semibold text-secondary text-[24px]">€ {{veicolo.prezzo.toFixed(2)}}</h3><img src="/img/arrow-right.png" alt="arrow-right"/></button>
+            <button @click="Riepilogo(veicolo.categoria.id, risultati.datainizio, risultati.datafine, risultati.orainizio, risultati.orafine)" class="px-[18px] py-[10px] w-[152px] h-[46px] flex items-center justify-between bg-primary rounded-[11px]"><h3 class="font-semibold text-secondary text-[24px]">€ {{veicolo.prezzo.toFixed(2)}}</h3><img src="/img/arrow-right.png" alt="arrow-right"/></button>
             
         </div>
 
@@ -26,7 +26,14 @@
 <script>
 export default {
     props: ['risultati'],
-    
+   
+    methods:{
+        Riepilogo(veicolo_copertura, data_inizio, data_fine, ora_inizio, ora_fine){
+           
+           this.$router.push('/riepilogo?di='+data_inizio+'&df='+data_fine+'&oi='+ora_inizio+'&of='+ora_fine+'&v='+veicolo_copertura);
+            
+        }
+    }
 }
 </script>
 
