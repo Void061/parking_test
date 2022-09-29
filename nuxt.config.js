@@ -1,5 +1,7 @@
 export default {
-  
+  server: {
+    host: '192.168.1.3',
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'MyParking',
@@ -18,10 +20,10 @@ export default {
           rel: 'icon', type: 'image/x-icon', href: '/favicon.ico',
         },
         {
-          rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css',
+          rel: 'stylesheet', href: 'https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css',
         },
         {
-          rel: 'stylesheet', href: 'https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css',
+          rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css',
         },
       
     ],
@@ -39,10 +41,9 @@ export default {
         defer: true,
       },
       {
-        hid: 'tw-elements',
+        hid:'swipr',
         type: 'text/javascript',
-        src: 'https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js',
-        defer: true,
+        src: 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js',
       },
       
     ],
@@ -55,8 +56,9 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: [  
+    { src: '~/plugins/vue-datepicker', ssr: false }, // datepicker plugin here 
+],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

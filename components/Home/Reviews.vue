@@ -1,5 +1,5 @@
 <template>
-    <section class="hidden md:flex py-[143px] text-center container mx-auto flex-col items-center">
+    <section class="hidden md:flex py-[100px] md:py-[136px] md:pb-[100px] text-center container mx-auto flex-col items-center">
 
       <div class="flex flex-col items-center text-center">
         <h3 class="text-primary font-bold text-[24px]">LOREM IPSUM</h3>
@@ -130,22 +130,8 @@
   },
 });
   },
-  head: {
-    script: [
-      {
-        type: "application/javascript",
-        src: "https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js",
-      },
-    ],
   
-    link: [
-        {
-          rel: 'stylesheet', 
-          href: 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css',
-        },
-    ],
-  }
-  // other config goes here
+
 }
 </script>
 

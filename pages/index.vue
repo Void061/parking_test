@@ -2,11 +2,6 @@
   <div>
     <HomeHero :veicoli="this.veicoli"/>
 
-    <HomeParkings />
-
-    <HomeFunctionality />
-
-    <HomeReviews />
 
 
     
@@ -21,6 +16,8 @@ export default {
       veicoli: {},
     }
   },
+
+ 
    
   async created(){
     try{

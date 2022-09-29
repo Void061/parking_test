@@ -1,5 +1,5 @@
 <template>
-    <section id="results" class="pb-[103px] px-[20px] md:px-[81px] container mx-auto">
+    <section id="results" class="pb-[100px] md:pb-[136px] px-[20px] md:px-[81px] container mx-auto">
            <div  v-for="veicolo in this.risultati" :key="veicolo.id" :id="veicolo.id" class="py-[28px] border-b-[1px] border-solid border-[#B4B4B4] flex md:gap-[100px] justify-between">
                
             <div class="flex flex-col md:items-center items-start md:flex-row gap-[20px] md:gap-[100px]">

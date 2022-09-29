@@ -4,6 +4,10 @@
     <div>
         <PrenotazioneForm v-on:Search="SearchCopertura" :data_start="this.data_start" :ora_start="this.ora_start" :ora_end="this.ora_end" :data_end="this.data_end" :sede="this.sede" :veicolo="this.veicolo" :veicoli="this.veicoli" />
         <PrenotazioneRisultati :risultati="this.risultati" />
+        <HomeFunctionality />
+        <HomeChisiamo />
+        <HomeReviews />
+        <HomeParkings />
     </div>
 </template>
 
@@ -46,9 +50,12 @@
         }, "1100")
           
       }
-  },  
+  },
+ 
   async mounted(){
-  
+    
+    
+
     if(this.$route.query.veicolo != undefined && this.$route.query.data_start != undefined && this.$route.query.ora_start != undefined && this.$route.query.data_end != undefined && this.$route.query.ora_end != undefined && this.$route.query.sede != undefined){
       this.veicolo = this.$route.query.veicolo;
       this.data_start = this.$route.query.data_start;
