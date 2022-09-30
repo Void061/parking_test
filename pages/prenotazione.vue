@@ -53,7 +53,9 @@
       }
   },
   async mounted(){
-    
+    const query = new URLSearchParams({
+        order: JSON.stringify([ ['order', 'asc'] ])
+      }) 
      try{
       const response = await this.$axios.get('https://back-parking.g2r.it/api/veicolo');
       this.veicoli = response.data.data;
