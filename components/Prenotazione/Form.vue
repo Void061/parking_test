@@ -1,7 +1,7 @@
 <template>
       <section class="px-[20px] md:px-[81px]  py-[100px] md:py-[136px] mx-auto  container">
        
-        <h2 class="font-bold text-[36px] text-secondary">Trova il tuo parcheggio</h2>
+        <h2 class="font-bold text-[36px] text-secondary">Prenota il tuo parcheggio</h2>
         <div class="px-[11px] mt-[25px] flex bg-[#ffff] items-center gap-[28px]">
             <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="18" height="22" transform="translate(1 1)" fill="white"/>
@@ -23,9 +23,19 @@
                     <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="/img/clock_icon.png" alt="orario-ingresso" />
                     <div class="timepicker"  data-mdb-with-icon="false" id="input-toggle-timepicker">
                      
+
+                     <template v-if="this.ora_start != undefined && this.ora_start != null && this.ora_start != ''">
                       <select id="ora_start" class="pl-[50px] absolute top-0 bottom-0 left-0 border-0 w-full" :value="this.ora_start">
                         <option v-for="item in orari" :key="item">{{item}}</option>
                       </select>
+                     </template>
+
+                     <template v-if="this.ora_start == undefined || this.ora_start == null || this.ora_start == ''">
+                        <select id="ora_start" class="pl-[50px] absolute top-0 bottom-0 left-0 border-0 w-full">
+                        <option selected disabled>Orario ingresso</option>
+                        <option v-for="item in orari" :key="item">{{item}}</option>
+                        </select>
+                     </template>
                     </div>
                 </div>
             </div>
@@ -37,9 +47,18 @@
                 </div>
                  <div class="relative p-[20px] mt-[20px] border-solid border-[1.5px] border-[#B4B4B4]">
                     <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="/img/clock_icon.png" alt="orario-uscita" />  
-                    <select id="ora_end" class="pl-[50px] absolute top-0 bottom-0 left-0 border-0 w-full" :value="this.ora_end">
+                     <template v-if="this.ora_end != undefined && this.ora_end != null && this.ora_end != ''">
+                      <select id="ora_end" class="pl-[50px] absolute top-0 bottom-0 left-0 border-0 w-full" :value="this.ora_end">
                         <option v-for="item in orari" :key="item">{{item}}</option>
                       </select>
+                     </template>
+
+                     <template v-if="this.ora_end == undefined || this.ora_end == null || this.ora_end == ''">
+                        <select id="ora_end" class="pl-[50px] absolute top-0 bottom-0 left-0 border-0 w-full">
+                        <option selected disabled>Orario ingresso</option>
+                        <option v-for="item in orari" :key="item">{{item}}</option>
+                        </select>
+                     </template>
                     
                 </div>
             </div>
@@ -111,11 +130,16 @@ export default{
         }
         else{
           //OK
-          let Di = new Date(this.m_data_start + " " + this.m_ora_start).toLocaleString('it-It');
-          let Df = new Date(this.m_data_end + " " + this.m_ora_end).toLocaleString('it-IT');
+          let Di = new Date(this.m_data_start.value + " " + this.m_ora_start.value).toLocaleString('it-It');
+          let Df = new Date(this.m_data_end.value + " " + this.m_ora_end.value).toLocaleString('it-IT');
+         
           let data = {
               datainizio: Di,
               datafine: Df,
+              data_start: this.m_data_start.value,
+              data_end: this.m_data_end.value,
+              ora_start: this.m_ora_start.value,
+              ora_end: this.m_ora_end.value,
               veicolo: this.m_veicolo,
               sede: this.m_sede,
           };

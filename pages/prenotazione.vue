@@ -36,12 +36,16 @@
 
       async SearchCopertura(data){
         let VoidObj = {};
-        this.risultati = VoidObj;
+        //this.risultati = VoidObj;
      
-          this.risultati 
+         
           let r = await this.$axios.$get('https://back-parking.g2r.it/api/genera/prezzi?dataFine='+data.datafine+'&dataInizio='+data.datainizio+'&VeicoloId='+data.veicolo+'&SedeId='+data.sede);
+          r.data['datainizio'] = data.data_start;
+          r.data['datafine'] = data.data_end;
+          r.data['orainizio'] = data.ora_start;
+          r.data['orafine'] = data.ora_end
           this.risultati = r.data;
-          
+          console.log(this.risultati);
            setTimeout(() => {
              document.getElementById('results').scrollIntoView();
         }, "1100")

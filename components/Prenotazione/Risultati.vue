@@ -12,7 +12,7 @@
                
             </label>
             </div>
-           
+            
             <button @click="Riepilogo(veicolo.categoria.id, risultati.datainizio, risultati.datafine, risultati.orainizio, risultati.orafine)" class="px-[18px] py-[10px] w-[152px] h-[46px] flex items-center justify-between bg-primary rounded-[11px]"><h3 class="font-semibold text-secondary text-[24px]">€ {{veicolo.prezzo.toFixed(2)}}</h3><img src="/img/arrow-right.png" alt="arrow-right"/></button>
             
         </div>
