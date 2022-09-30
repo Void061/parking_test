@@ -30,18 +30,15 @@
   },
   async created(){
       
-    try{
-      const response = await this.$axios.get('https://back-parking.g2r.it/api/veicolo');
-      this.veicoli = response.data.data;
-     
-    }
-    catch(error){
-      console.log(error);
-    }
+   
   },
   methods: {
- 
+
       async SearchCopertura(data){
+        let VoidObj = {};
+        this.risultati = VoidObj;
+     
+          this.risultati 
           let r = await this.$axios.$get('https://back-parking.g2r.it/api/genera/prezzi?dataFine='+data.datafine+'&dataInizio='+data.datainizio+'&VeicoloId='+data.veicolo+'&SedeId='+data.sede);
           this.risultati = r.data;
           
@@ -51,10 +48,16 @@
           
       }
   },
- 
   async mounted(){
     
-    
+     try{
+      const response = await this.$axios.get('https://back-parking.g2r.it/api/veicolo');
+      this.veicoli = response.data.data;
+     
+    }
+    catch(error){
+      console.log(error);
+    }
 
     if(this.$route.query.veicolo != undefined && this.$route.query.data_start != undefined && this.$route.query.ora_start != undefined && this.$route.query.data_end != undefined && this.$route.query.ora_end != undefined && this.$route.query.sede != undefined){
       this.veicolo = this.$route.query.veicolo;
@@ -82,6 +85,7 @@
         setTimeout(() => {
              document.getElementById('results').scrollIntoView();
         }, "1100")
+        
         
       }
       catch(err){

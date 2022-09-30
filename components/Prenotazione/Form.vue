@@ -22,8 +22,10 @@
                    
                     <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="/img/clock_icon.png" alt="orario-ingresso" />
                     <div class="timepicker"  data-mdb-with-icon="false" id="input-toggle-timepicker">
-                      <input id="ora_start" data-mdb-toggle="input-toggle-timepicker" :value="this.ora_start" placeholder="Orario ingresso" class="pl-[50px] absolute top-0 bottom-0 left-0 border-0 w-full" type="text" />
-                      
+                     
+                      <select id="ora_start" class="pl-[50px] absolute top-0 bottom-0 left-0 border-0 w-full" :value="this.ora_start">
+                        <option v-for="item in orari" :key="item">{{item}}</option>
+                      </select>
                     </div>
                 </div>
             </div>
@@ -35,7 +37,9 @@
                 </div>
                  <div class="relative p-[20px] mt-[20px] border-solid border-[1.5px] border-[#B4B4B4]">
                     <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="/img/clock_icon.png" alt="orario-uscita" />  
-                    <input id="ora_end" data-mdb-toggle="input-toggle-timepicker" :value="this.ora_end" placeholder="Orario uscita" class="pl-[50px] absolute top-0 bottom-0 left-0 border-0 w-full" type="text" />
+                    <select id="ora_end" class="pl-[50px] absolute top-0 bottom-0 left-0 border-0 w-full" :value="this.ora_end">
+                        <option v-for="item in orari" :key="item">{{item}}</option>
+                      </select>
                     
                 </div>
             </div>
@@ -107,10 +111,17 @@ export default{
         }
         else{
           //OK
-          this.$nuxt.refresh();
-          this.$forceUpdate();
+          let Di = new Date(this.m_data_start + " " + this.m_ora_start).toLocaleString('it-It');
+          let Df = new Date(this.m_data_end + " " + this.m_ora_end).toLocaleString('it-IT');
+          let data = {
+              datainizio: Di,
+              datafine: Df,
+              veicolo: this.m_veicolo,
+              sede: this.m_sede,
+          };
           this.$router.push('/prenotazione?data_start='+this.m_data_start.value+'&ora_start='+this.m_ora_start.value+'&data_end='+this.m_data_end.value+'&ora_end='+this.m_ora_end.value+"&veicolo="+this.m_veicolo.value+'&sede='+this.m_sede);
-          window.location.href='/prenotazione?data_start='+this.m_data_start.value+'&ora_start='+this.m_ora_start.value+'&data_end='+this.m_data_end.value+'&ora_end='+this.m_ora_end.value+"&veicolo="+this.m_veicolo.value+'&sede='+this.m_sede;
+          this.$emit('Search', data);
+         // window.location.href='/prenotazione?data_start='+this.m_data_start.value+'&ora_start='+this.m_ora_start.value+'&data_end='+this.m_data_end.value+'&ora_end='+this.m_ora_end.value+"&veicolo="+this.m_veicolo.value+'&sede='+this.m_sede;
         }
         
     },
@@ -134,7 +145,6 @@ export default{
 
   mounted(){
     
-      
   },
   
  
