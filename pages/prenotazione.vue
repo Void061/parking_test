@@ -4,10 +4,7 @@
     <div>
         <PrenotazioneForm v-on:Search="SearchCopertura" :data_start="this.data_start" :ora_start="this.ora_start" :ora_end="this.ora_end" :data_end="this.data_end" :sede="this.sede" :veicolo="this.veicolo" :veicoli="this.veicoli" />
         <PrenotazioneRisultati :risultati="this.risultati" />
-        <HomeFunctionality />
-        <HomeChisiamo />
-        <HomeReviews />
-        <HomeParkings />
+       
     </div>
 </template>
 
@@ -74,9 +71,13 @@
       this.sede = this.$route.query.sede;
       let DataInizio = new Date(this.data_start + " " + this.ora_start).toLocaleString('it-IT');
       let DataFine = new Date(this.data_end + " " + this.ora_end).toLocaleString('it-IT');
-
+      let todayDate = new Date().toLocaleString('it-IT');
       
-        
+      if(todayDate > DataInizio || todayDate > DataFine || DataInizio > DataFine){
+        document.getElementById('error-data').innerHTML = 'Date incongruenti';
+        document.getElementById('error-data').classList.remove('hidden');
+      }
+      else{
       try{
        
         let r = await this.$axios.$get('https://back-parking.g2r.it/api/genera/prezzi?dataFine='+DataFine+'&dataInizio='+DataInizio+'&VeicoloId='+this.veicolo+'&SedeId='+this.sede);
@@ -96,6 +97,7 @@
       }
       catch(err){
         console.log(err);
+      }
       }
     }
   },

@@ -1,7 +1,10 @@
 <template>
   <div>
     <HomeHero :veicoli="this.veicoli"/>
-
+      <HomeFunctionality />
+        <HomeChisiamo />
+        <HomeReviews />
+        <HomeParkings />
 
 
     

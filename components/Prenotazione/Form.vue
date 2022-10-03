@@ -1,15 +1,15 @@
 <template>
       <section class="px-[20px] md:px-[81px]  py-[100px] md:py-[136px] mx-auto  container">
-       
-        <h2 class="font-bold text-[36px] text-secondary">Prenota il tuo parcheggio</h2>
-        <div class="px-[11px] mt-[25px] flex bg-[#ffff] items-center gap-[28px]">
-            <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class=" mt-[25px] flex bg-[#ffff] items-center gap-[28px]">
+            <svg width="26" height="36" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="18" height="22" transform="translate(1 1)" fill="white"/>
                 <path d="M19 10C19 17 10 23 10 23C10 23 1 17 1 10C1 7.61305 1.94821 5.32387 3.63604 3.63604C5.32387 1.94821 7.61305 1 10 1C12.3869 1 14.6761 1.94821 16.364 3.63604C18.0518 5.32387 19 7.61305 19 10Z" stroke="#143793" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M10 13C11.6569 13 13 11.6569 13 10C13 8.34315 11.6569 7 10 7C8.34315 7 7 8.34315 7 10C7 11.6569 8.34315 13 10 13Z" stroke="#143793" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-            <h4 class="font-medium text-[20px] text-secondary">Garage Ottaviano</h4>
+            <h4 class="font-medium text-[36px] text-secondary">Garage Ottaviano</h4>
         </div>
+        <h2 class="font-bold text-[20px] text-secondary">Prenota ora</h2>
+       
 
         <div class="flex flex-col md:flex-row mt-[35px] gap-[44px] ">
             <div class="flex-1 flex flex-col">
@@ -63,6 +63,7 @@
                 </div>
             </div>
         </div>
+        <h3 id="error-data" class="hidden my-[20px] text-center text-red-800 font-medium pt-[7px]" >Compila correttamente Ingresso e uscita</h3>
         <div class="flex flex-row md:flex-nowrap flex-wrap md:px-[11px] mt-[35px] gap-[30px] md:gap-0 justify-between">
             
           
@@ -74,7 +75,8 @@
             </label>
            
         </div>
-
+             <h3 id="error-veicolo" class=" hidden my-[20px] text-center text-red-800 font-medium pt-[7px]" >Seleziona un veicolo</h3>
+            
         <button @click="SearchCopertura()" class="mt-[50px] py-[14px] w-full bg-secondary rounded-[11px]"><h3 class="text-[#ffff] text-[24px] font-semibold">CALCOLA</h3></button>
         
         <a href="#results" class="mt-[60px] flex justify-center"><img class="cursor-pointer" src="/img/arrow_bottom.png" alt="arrow_bottom" /></a>
@@ -113,26 +115,30 @@ export default{
       
        
         if(this.m_data_start.value == "" || this.m_data_end.value == undefined){
-         console.log(10);
+          document.getElementById('error-data').innerHTML= 'Compila correttamente ingresso e uscita';
+         document.getElementById('error-data').classList.remove('hidden');
         }
         else if(this.m_data_end.value == "" || this.m_data_end.value == undefined ){
-          console.log(20);
+          document.getElementById('error-data').innerHTML= 'Compila correttamente ingresso e uscita';
+          document.getElementById('error-data').classList.remove('hidden');
         }
         else if(this.m_ora_start.value == "" || this.m_ora_start.value == undefined){
-          console.log(30);
+          document.getElementById('error-data').innerHTML= 'Compila correttamente ingresso e uscita';
+          document.getElementById('error-data').classList.remove('hidden');
         }
         else if(this.m_ora_end.value == "" || this.m_ora_end.value == undefined){
-          console.log(40);
+         document.getElementById('error-data').innerHTML= 'Compila correttamente ingresso e uscita';
+          document.getElementById('error-data').classList.remove('hidden');
         }
         else if(this.m_veicolo == '' || this.m_veicolo == undefined || this.m_veicolo == null){
-          console.log(50);
-         
+          document.getElementById('error-veicolo').classList.remove('hidden');
+      
         }
         else{
           //OK
-          let Di = new Date(this.m_data_start.value + " " + this.m_ora_start.value).toLocaleString('it-It');
+          let Di = new Date(this.m_data_start.value + " " + this.m_ora_start.value).toLocaleString('it-IT');
           let Df = new Date(this.m_data_end.value + " " + this.m_ora_end.value).toLocaleString('it-IT');
-         
+          let todayDate = new Date().toLocaleString('it-IT');
           let data = {
               datainizio: Di,
               datafine: Df,
@@ -143,8 +149,17 @@ export default{
               veicolo: this.m_veicolo,
               sede: this.m_sede,
           };
+
+          if(Di >= Df || todayDate > Di || todayDate > Df){
+            document.getElementById('error-data').innerHTML = 'Date incongruenti';
+            document.getElementById('error-data').classList.remove('hidden');
+          }
+          else{
+          document.getElementById('error-data').classList.add('hidden');
+          document.getElementById('error-veicolo').classList.add('hidden');
           this.$router.push('/prenotazione?data_start='+this.m_data_start.value+'&ora_start='+this.m_ora_start.value+'&data_end='+this.m_data_end.value+'&ora_end='+this.m_ora_end.value+"&veicolo="+this.m_veicolo.value+'&sede='+this.m_sede);
           this.$emit('Search', data);
+          }
          // window.location.href='/prenotazione?data_start='+this.m_data_start.value+'&ora_start='+this.m_ora_start.value+'&data_end='+this.m_data_end.value+'&ora_end='+this.m_ora_end.value+"&veicolo="+this.m_veicolo.value+'&sede='+this.m_sede;
         }
         
@@ -205,5 +220,9 @@ export default{
 }
 .datepicker-footer{
   z-index: -1;
+}
+
+select option:disabled {
+    color: #CCC;
 }
 </style>
