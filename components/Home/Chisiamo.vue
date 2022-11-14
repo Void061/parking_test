@@ -2,7 +2,7 @@
      <section class="px-[20px] md:px-[81px]  items-center justify-center flex flex-col text-center xl:text-left xl:flex-row py-[100px] md:py-[136px] mx-auto  container">
         <div>
            <h3 class="text-[24px] font-semibold text-primary">CHI SIAMO</h3>
-            <h1 class="text-secondary text-[50px] font-bold">GARAGE OLIMPICO OTTAVIANO</h1>
+            <h1 class="text-secondary text-[30px] md:text-[50px] font-bold">GARAGE OLIMPICO OTTAVIANO</h1>
             <div class="xl:max-w-[600px] gap-[35px] mt-[35px] flex flex-col">
                 <p class="leading-[35px] text-[18px] font-medium text-[#B4B4B4]">Il parcheggio Garage Olimpico Ottaviano è una struttura modernamente e professionalmente
                    gestita, situata fuori dalla zona ZTL pur trovandosi nel centro di Roma, in quertiere Prati.

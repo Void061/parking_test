@@ -1,11 +1,11 @@
 <template>
   <div>
-    <HomeHero :veicoli="this.veicoli"/>
+    <HomeHero  :veicoli="this.veicoli"/>
       <HomeFunctionality />
         <HomeChisiamo />
         <HomeReviews />
         <HomeParkings />
-
+        <HomeMappa />
 
     
   </div>
@@ -17,6 +17,8 @@ export default {
   data(){
     return{
       veicoli: {},
+      //Apertura / chiusura
+      FasciaOraria: {},
     }
   },
 
@@ -27,8 +29,9 @@ export default {
         order: JSON.stringify([ ['order', 'asc'] ])
       }) 
     try{
-      const response = await this.$axios.get('https://back-parking.g2r.it/api/veicolo?');
+      const response = await this.$axios.get('https://back-parking.g2r.it/api/veicolo?'+query);
       this.veicoli = response.data.data;
+     
       
     }
     catch(error){

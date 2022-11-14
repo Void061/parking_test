@@ -1,6 +1,23 @@
 <template>
     <section class="px-[20px] py-[100px] md:py-[136px] mx-auto md:px-[81px] container">
-        
+         <div id="popup-modal" tabindex="-1" class="hidden bg-[#000000a4] overflow-y-hidden overflow-x-hidden fixed top-0 right-0 left-0 z-50 md:inset-0 h-modal md:h-full">
+    <div class="relative p-4 w-full max-w-md h-full m-auto top-[35%] md:h-auto">
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <button @click="closeModal" type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white">
+                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                <span class="sr-only">Chiudi</span>
+            </button>
+            <div class="p-6 text-center">
+                <svg aria-hidden="true" class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Se non compilo Marca e Modello mi impegno a comunicarlo prima di presentarmi in garage pena: l'invalidità della prenotazione.</h3>
+                <button @click="consentiModal" type="button" class="text-secondary bg-primary hover:bg-[#ca9d14] focus:ring-4 focus:outline-none focus:ring-[#d6af3b] dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                    Confermo
+                </button>
+                <button @click="closeModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Chiudi</button>
+            </div>
+        </div>
+    </div>
+</div>
         <h2 class="font-bold text-[36px] text-secondary">Garage Olimpico Ottaviano</h2>
          
         <div class="mt-[54px] border-t-[1px] border-solid border-[#B4B4B4] py-[67px] flex flex-col gap-[20px]">
@@ -13,7 +30,7 @@
                 <input  @click="ErrorFixing($event)" id="mail" class="flex-1 text-[20px] py-[8px] pl-[37px] border-[1.5px] border-solid border-[#B4B4B4]" type="text" placeholder="MAIL" />
             </div>
             <div class="flex md:flex-row flex-col gap-[20px] md:gap-[44px]">
-                <input  @click="ErrorFixing($event)" id="modello" class="flex-1 text-[20px] py-[8px] pl-[37px] border-[1.5px] border-solid border-[#B4B4B4]" type="text" placeholder="MODELLO DEL VEICOLO" />
+                <input  @click="ErrorFixing($event)" id="modello" class="flex-1 text-[20px] py-[8px] pl-[37px] border-[1.5px] border-solid border-[#B4B4B4]" type="text" placeholder="MARCA E MODELLO DEL VEICOLO" />
                 <input  @click="ErrorFixing($event)" id="targa" class="flex-1 text-[20px] py-[8px] pl-[37px] border-[1.5px] border-solid border-[#B4B4B4]" type="text" placeholder="TARGA" />
             </div>
             <div class="flex gap-[44px]">
@@ -38,15 +55,15 @@
                   <div class="mt-[30px] veicolo-m veicolo-w" v-html="this.icon"></div>
                 
              </div>
-              <div class="lg:mt-0 mt-[50px] flex flex-col justify-center items-center">
+               <div class="lg:mt-0 mt-[50px] flex flex-col justify-center items-center">
                  <div class="flex flex-col">
                     <h4 class="text-secondary font-medium text-[20px]">DATA INGRESSO</h4>
                 </div>
-                 <div class=" mt-[10px] lg:mt-[38px] flex items-center gap-[28px]">
-                     <img src="/img/icon_data.png" alt="data" />
-                     <h5 class=" text-[#B4B4B4] font-medium text-[18px]">{{this.data_i}}</h5>
+                 <div class="mt-[10px] lg:mt-[38px] flex items-center gap-[28px]">
+                     <img class="ml-[-10px]" src="/img/icon_data.png" alt="data" />
+                     <h5 class="text-[#B4B4B4] font-medium text-[18px]">{{this.data_i}}</h5>
                  </div>
-                <div class="mt-[20px] lg:w-full flex items-center gap-[28px]">
+                 <div class="mt-[20px] lg:w-full flex items-center gap-[28px]">
                     <img src="/img/clock_icon.png" alt="orologio" />
                      <h5 class="text-[#B4B4B4] font-medium text-[18px]">{{this.ora_i}}</h5>
                  </div>
@@ -381,12 +398,13 @@
                 </div>
 
                 <div id="italia" class="hidden max-w-[560px] gap-[34px] mt-[34px] flex flex-col" >
-                    
+                    <!---
                     <h3 class="text-[#B4B4B4] font-medium text-[18px]">Mostra dati fattura sul voucher</h3>
                     <select id="voucher" class="min-w-[200px] w-[100%] md:w-auto px-4 h-[40px]">
                         <option>Si</option>
                         <option>No</option>
                     </select>
+                    -->
                     <h3 class="text-[#B4B4B4] font-medium text-[18px]">Modalità invio</h3>
                     <select id='mod-invio' @change="ModInvio($event)" class="min-w-[200px] w-[100%] md:w-auto px-4 h-[40px]">
                         <option default>Nessuna</option>
@@ -395,15 +413,9 @@
                         <option>Codice IPA (pubblica amministrazione)</option>
                     </select>
                     <input type="text" class="hidden" placeholder="" @click="ErrorFixing($event)" id="dato-invio"/>
-                    <input id="ragione-it" type="text" placeholder="Ragione sociale (nome e cognome o Nome società)" />
-                     <h3 class="text-[#B4B4B4] font-medium text-[18px]">Provincia</h3>
-                    <select id="provincia-it" class="min-w-[200px] w-[100%] md:w-auto px-4 h-[40px]">
-                        <option>Roma</option>
-                    </select>
-                    <h3 class="text-[#B4B4B4] font-medium text-[18px]">Comune</h3>
-                    <select id="comune-it" class="min-w-[200px] w-[100%] md:w-auto px-4 h-[40px]">
-                        <option>Roma</option>
-                    </select>
+                    <input @click="ErrorFixing($event)" id="ragione-it" type="text" placeholder="Ragione sociale (nome e cognome o Nome società)" />
+                    <input @click="ErrorFixing($event)" type="text" id="provincia-it" placeholder="Provincia"/>
+                    <input @click="ErrorFixing($event)" type="text" id="comune-it" placeholder="Comune" />
                     <input @click="ErrorFixing($event)" id="indirizzo-it" type="text" placeholder="Indirizzo" />
                     <input @click="ErrorFixing($event)" id="citta-it" type="text" placeholder="Città" />
                     <input @click="ErrorFixing($event)" id="cap-it" type="text" placeholder="CAP" />
@@ -419,17 +431,29 @@
 
 <script>
 export default {
-    props: ['nome', 'prezzo', 'icon', 'data_i' , 'data_f', 'ora_i', 'ora_f', 'v'],
+    props: ['nome', 'prezzo', 'icon', 'data_i' , 'data_f', 'ora_i', 'ora_f', 'v', 'vt'],
     data(){
         return{
             veicolo_info: '',
             fat: false,
+            modello_consenti: 0,
         }
     },
     async mounted(){
            
     },
     methods:{
+        consentiModal(){
+            this.modello_consenti = 1;
+            modello.value = 'Comunicherò prima di presentarmi';
+            document.getElementById('popup-modal').classList.add('hidden');
+            
+        },
+        closeModal(){
+            document.getElementById('popup-modal').classList.add('hidden');
+            document.getElementById('modello').style.border = '1.5px solid red';
+            document.getElementById('modello').scrollIntoView();
+        },
         ErrorFixing(e, checkmark){
             if(e.target.type == 'checkbox'){
                 document.getElementById(checkmark).style.border = '1.5px solid #B4B4B4';
@@ -501,8 +525,8 @@ export default {
             let p_it = document.getElementById('p-it');
             let mod_invio = document.getElementById('mod-invio');
             let dato_invio = document.getElementById('dato-invio');
-            let voucher = document.getElementById('voucher');
-            let voucher_data = 0;
+
+            
 
             if(nome.value == "" || nome.value == undefined){
                         nome.style.border = '1.5px solid red';
@@ -520,10 +544,7 @@ export default {
                 mail.style.border = '1.5px solid red';
                 mail.scrollIntoView();
             }
-             else if(modello.value == "" || modello.value == undefined){
-                modello.style.border = '1.5px solid red';
-                modello.scrollIntoView();
-            }
+           
             else if(targa.value == "" || targa.value == undefined){
                 targa.style.border = '1.5px solid red';
                 targa.scrollIntoView();
@@ -540,7 +561,18 @@ export default {
                 chiavi_regola.scrollIntoView();
                 document.getElementById('checkmark-chiavi').style.border = '1.5px solid red';
             }
-            else if(fattura_conferma.checked){
+
+            else if(modello.value == "" || modello.value == undefined){
+                
+                document.getElementById('popup-modal').classList.remove('hidden');
+                
+               
+            }else{
+                this.modello_consenti = 1;
+            }
+
+            if(this.modello_consenti == 1){
+             if(fattura_conferma.checked){
                 fattura = 1;
                 if(nazione.value == "" || nazione.value == undefined || nazione.value == '---'){
                     nazione.style.border = '1.5px solid red';
@@ -563,46 +595,53 @@ export default {
                         p_fattura.style.border = '1.5px solid red';
                     }
                     else{
-                        this.$router.push('/checkout?n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&msg='+msg.value+'&f='+fattura+'&nat='+nazione.value+'&nf='+n_fattura.value+'&rf='+r_fattura.value+'&if='+i_fattura.value+'&ctf='+ct_fattura.value+'&pf='+p_fattura.value)
+                        this.$router.push('/checkout?di='+this.data_i+'&oi='+this.ora_i+'&of='+this.ora_f+'&df='+this.data_f+'&n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&msg='+msg.value+'&f='+fattura+'&nat='+nazione.value+'&nf='+n_fattura.value+'&rag_it='+r_fattura.value+'&ind='+i_fattura.value+'&ct_it='+ct_fattura.value+'&p_it='+p_fattura.value+'&vt='+this.vt+'&v='+this.v)
                     }
                 }
                 else{
                     //FATTURA ITALIANA
-                    if(voucher.value == 'Si'){voucher_data = 1;}
-                    else{voucher_data = 0;}
+                    
 
                     if(mod_invio.value != 'Nessuna'){
                         if(dato_invio.value == "" || dato_invio.value == undefined){
                             dato_invio.style.border = '1.5px solid red';
                             dato_invio.scrollIntoView();
                         }
+                    
                     else if(ragione_it.value == "" || ragione_it.value == undefined){ragione_it.style.border = '1.5px solid red'; ragione_it.scrollIntoView();}
-                    else if(indirizzo.value == "" || indirizzo.value == undefined){indirizzo.style.border = '1.5px solid red'; indirizzo.scrollIntoView();}
+                   else if(provincia.value == "" || provincia.value == undefined ){provincia.style.border = '1.5px solid red'; provincia.scrollIntoView();}
+                    else if(comune.value == "" || comune.value == undefined){comune.style.border='1.5px solid red'; comune.scrollIntoView();}
+                   else if(indirizzo.value == "" || indirizzo.value == undefined){indirizzo.style.border = '1.5px solid red'; indirizzo.scrollIntoView();}
                     else if(citta.value == "" || citta.value == undefined){citta.style.border = '1.5px solid red'; citta.scrollIntoView();}
                     else if(cap.value == "" || cap.value == undefined){cap.style.border = '1.5px solid red'; cap.scrollIntoView();}
                     else if (p_it.value == "" || p_it.value == undefined){p_it.style.border = '1.5px solid red'; p_it.scrollIntoView();}
+                    
+                    
                     else{
                         //REDIRECT CON MODALITA' DI INVIO
-                        this.$router.push('/checkout?n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&msg='+msg.value+'&f='+fattura+'&nat='+nazione.value+'&vc='+voucher_data+'&md_send='+mod_invio.value+'&dt_send='+dato_invio.value+'&rag_it='+ragione_it.value+'&prv='+provincia.value+'&com='+comune.value+'&ind='+indirizzo.value+'&ct_it='+citta.value+'&cap='+cap.value+'&p_it='+p_it.value)
+                        this.$router.push('/checkout?di='+this.data_i+'&oi='+this.ora_i+'&of='+this.ora_f+'&df='+this.data_f+'&n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&msg='+msg.value+'&f='+fattura+'&nat='+nazione.value+'&md_send='+mod_invio.value+'&dt_send='+dato_invio.value+'&rag_it='+ragione_it.value+'&prv='+provincia.value+'&com='+comune.value+'&ind='+indirizzo.value+'&ct_it='+citta.value+'&cap='+cap.value+'&p_it='+p_it.value+'&vt='+this.vt+'&v='+this.v)
                             
                         }
                     }
                     else if(ragione_it.value == "" || ragione_it.value == undefined){ragione_it.style.border = '1.5px solid red'; ragione_it.scrollIntoView();}
-                    else if(indirizzo.value == "" || indirizzo.value == undefined){indirizzo.style.border = '1.5px solid red'; indirizzo.scrollIntoView();}
+                   else if(provincia.value == "" || provincia.value == undefined ){provincia.style.border = '1.5px solid red'; provincia.scrollIntoView();}
+                    else if(comune.value == "" || comune.value == undefined){comune.style.border='1.5px solid red'; comune.scrollIntoView();}
+                   else if(indirizzo.value == "" || indirizzo.value == undefined){indirizzo.style.border = '1.5px solid red'; indirizzo.scrollIntoView();}
                     else if(citta.value == "" || citta.value == undefined){citta.style.border = '1.5px solid red'; citta.scrollIntoView();}
                     else if(cap.value == "" || cap.value == undefined){cap.style.border = '1.5px solid red'; cap.scrollIntoView();}
                     else if (p_it.value == "" || p_it.value == undefined){p_it.style.border = '1.5px solid red'; p_it.scrollIntoView();}
                     else{
                         //REDIRECT SENZA MODALITA' DI INVIO
-                        this.$router.push('/checkout?n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&msg='+msg.value+'&f='+fattura+'&nat='+nazione.value+'&vc='+voucher_data+'&md_send='+mod_invio.value+'&rag_it='+ragione_it.value+'&prv='+provincia.value+'&com='+comune.value+'&ind='+indirizzo.value+'&ct_it='+citta.value+'&cap='+cap.value+'&p_it='+p_it.value)
+                        this.$router.push('/checkout?di='+this.data_i+'&oi='+this.ora_i+'&of='+this.ora_f+'&df='+this.data_f+'&n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&msg='+msg.value+'&f='+fattura+'&nat='+nazione.value+'&md_send='+mod_invio.value+'&rag_it='+ragione_it.value+'&prv='+provincia.value+'&com='+comune.value+'&ind='+indirizzo.value+'&ct_it='+citta.value+'&cap='+cap.value+'&p_it='+p_it.value+'&vt='+this.vt+'&v='+this.v)
                     }
                 }
             }
             else{
                 fattura = 0;
-                this.$router.push('/checkout?n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&msg='+msg.value+'&f='+fattura
-                )
+                this.$router.push('/checkout?di='+this.data_i+'&oi='+this.ora_i+'&of='+this.ora_f+'&df='+this.data_f+'&n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&msg='+msg.value+'&f='+fattura+'&vt='+this.vt+'&v='+this.v);
+                
             }
+          }
         }
     }
    

@@ -1,6 +1,6 @@
 export default {
   server: {
-    host: '192.168.1.3',
+    //host: '192.168.1.2',
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -57,7 +57,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [  
-    { src: '~/plugins/vue-datepicker', ssr: false }, // datepicker plugin here 
+    { src: '~/plugins/vue-datepicker', ssr: false }, // Datepicker plugin here 
+    { src: '~/plugins/paypal.client'}, // Paypal Plugin Here
 ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -83,6 +84,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    vendor: ['vue-paypal-checkout'],
     postcss: {
       plugins: {
         tailwindcss: {},
