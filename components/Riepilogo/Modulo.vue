@@ -9,7 +9,8 @@
             </button>
             <div class="p-6 text-center">
                 <svg aria-hidden="true" class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Se non compilo Marca e Modello mi impegno a comunicarlo prima di presentarmi in garage pena: l'invalidità della prenotazione.</h3>
+                <h3 class="text-lg font-normal text-gray-500 dark:text-gray-400">Mi impegno a comunicare la targa e le specifiche del modello il prima possibile.</h3>
+                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Ogni prenotazione senza targa o le specifiche del modello potrebbe essere invalidata.</h3>
                 <button @click="consentiModal" type="button" class="text-secondary bg-primary hover:bg-[#ca9d14] focus:ring-4 focus:outline-none focus:ring-[#d6af3b] dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
                     Confermo
                 </button>
@@ -100,34 +101,54 @@
         </div>
 
         <div class="pb-[55px] border-b-[1px] border-solid border-[#B4B4B4] mt-[100px] md:mt-[152px] flex flex-col">
-            <h4 class="text-[#B4B4B4] font-medium text-[20px]">ORARIO DI APERTURA</h4>
+            <h4 class="font-bold text-[#B4B4B4] font-medium text-[20px] py-8">*NOTA BENE Posti per FURGONI/MINIVAN: <span class="font-normal">Altezza MAX consentita per veicoli mt 2,70 e larghezza Max mt 2,40</span></h4>
+            <h4 class="font-bold text-[#B4B4B4] font-medium text-[20px]">ORARI DEL PARCHEGGIO</h4>
             <h4 class="max-w-[953px] mt-[34px] text-[#B4B4B4] font-medium text-[20px]">
-                Dal Lunedì al Sabato dalle 06:00 all'1:00. Domenica e festivi dalle 06:00 alle 10:00 e dalle 18:00 all'1:00.
-                Dal 09 al 31 agosto il parcheggio sarà aperto dalle 06:00 alle 10:00 e dalle 18:00 alle 01:00.
+                ORARI DI APERTURA: dal Lunedì al Sabato dalle 06:00 AM alle 01:00 AM 
+                GIORNI DI CHIUSURA: Domenica chiuso dalle 10:00 AM alle 18:00 AM e giorni festivi.
             </h4>
             <div class="mt-[34px] flex gap-[30px]">
                  <label class="mt-[6px] custom-checkbox">
                     <input @click="ErrorFixing($event, 'checkmark-orario')" id='orario-ridotto' class="" type="checkbox" />
-                    <span id='checkmark-orario' class="checkmark"></span>
+                    <span id='checkmark-orario' class="checkmark checkboxfixing"></span>
                 </label>
                 <h5 class="text-[#B4B4B4] font-medium text-[18px]">Ho preso nota dell'orario ridotto del parcheggio</h5>
             </div>
         </div>
         <div class="pb-[55px] border-b-[1px] border-solid border-[#B4B4B4] mt-[50px] flex flex-col">
-            <h4 class="text-[#B4B4B4] font-medium text-[20px]">ALTRE INFORMAZIONI</h4>
+            <h4 class="font-bold text-[#B4B4B4] text-[20px]">ALTRE INFORMAZIONI</h4>
             <h4 class="max-w-[953px] mt-[34px] text-[#B4B4B4] font-medium text-[20px]">
-                Le chiavi del veicolo devono essere consegnate agli addetti.
+                Esibire il ticket di prenotazione per accedere al parcheggio.
+            </h4>
+             <h4 class="mt-0 max-w-[953px] text-[#B4B4B4] font-medium text-[20px]">
+               Le chiavi del veicolo devono essere consegnate agli addetti.
+            </h4>
+             <h4 class="mt-0 max-w-[953px] text-[#B4B4B4] font-medium text-[20px]">
+               Non si accetteranno veicoli di segmento e misure differenti rispetto a quelle indicate in prenotazione.
             </h4>
             <div class="mt-[34px] flex gap-[30px]">
                  <label class="mt-[6px] custom-checkbox">
                     <input @click="ErrorFixing($event, 'checkmark-chiavi')" id='chiavi-regola' class="" type="checkbox" />
-                    <span id='checkmark-chiavi' class="checkmark"></span>
+                    <span id='checkmark-chiavi' class="checkboxfixing checkmark"></span>
                 </label>
-                <h5 class="text-[#B4B4B4] font-medium text-[18px]">Ho preso nota del regolamento</h5>
+                <h5 class="text-[#B4B4B4] font-medium text-[18px]">ho preso nota delle altre informazioni</h5>
+            </div>
+        </div>
+         <div class="pb-[55px] border-b-[1px] border-solid border-[#B4B4B4] mt-[50px] flex flex-col">
+            <h4 class="font-bold text-[#B4B4B4] text-[20px]">AVVERTENZE</h4>
+            <h4 class="max-w-[953px] mt-[34px] text-[#B4B4B4] font-medium text-[20px]">
+                Se in fase di prenotazione decidi di NON comunicare il segmento della tua auto poiché è stata NOLEGGIATA e non sei ancora certo del modello definitivo che ti verrà consegnato, ti impegni a comunicare al Parcheggio in oggetto i dati dell’auto che ti hanno consegnato almeno 24h prima dell’arrivo pena l’invalidità della prenotazione. In questa circostanza la tua prenotazione non sarà rimborsabile
+            </h4>
+            <div class="mt-[34px] flex gap-[30px]">
+                 <label class="mt-[6px] custom-checkbox">
+                    <input @click="ErrorFixing($event, 'checkmark-avvertenze')" id='avvertenze-regola' class="" type="checkbox" />
+                    <span id='checkmark-avvertenze' class="checkboxfixing checkmark"></span>
+                </label>
+                <h5 class="text-[#B4B4B4] font-medium text-[18px]">ho preso nota delle avvertenze</h5>
             </div>
         </div>
         <div class="pb-[55px] mt-[50px] flex flex-col">
-            <h4 class="text-[#B4B4B4] font-medium text-[20px]">ALTRE INFORMAZIONI</h4>
+            <h4 class="font-bold text-[#B4B4B4] text-[20px]">FATTURAZIONE</h4>
             <div class="mt-[34px] flex gap-[30px]">
                  <label class="mt-[6px] custom-checkbox">
                     <input @click="OpenDetails()" id="fattura" class="" type="checkbox" />
@@ -447,12 +468,14 @@ export default {
             this.modello_consenti = 1;
             modello.value = 'Comunicherò prima di presentarmi';
             document.getElementById('popup-modal').classList.add('hidden');
-            
+            this.Checkout();
         },
         closeModal(){
             document.getElementById('popup-modal').classList.add('hidden');
             document.getElementById('modello').style.border = '1.5px solid red';
+            document.getElementById('targa').style.border = '1.5px solid red';
             document.getElementById('modello').scrollIntoView();
+           
         },
         ErrorFixing(e, checkmark){
             if(e.target.type == 'checkbox'){
@@ -499,6 +522,7 @@ export default {
             let consenti_dati = document.getElementById('consenti-dati');
             let orario_ridotto = document.getElementById('orario-ridotto');
             let chiavi_regola = document.getElementById('chiavi-regola');
+            let avvertenze_regola = document.getElementById('avvertenze-regola');
             let fattura_conferma = document.getElementById('fattura');
             let nome = document.getElementById('nome');
             let cognome = document.getElementById('cognome');
@@ -545,10 +569,10 @@ export default {
                 mail.scrollIntoView();
             }
            
-            else if(targa.value == "" || targa.value == undefined){
+            /*else if(targa.value == "" || targa.value == undefined){
                 targa.style.border = '1.5px solid red';
                 targa.scrollIntoView();
-            }
+            }*/
             else if(!consenti_dati.checked){
                 consenti_dati.scrollIntoView();
                 document.getElementById('checkmark-dati').style.border = '1.5px solid red';
@@ -562,7 +586,12 @@ export default {
                 document.getElementById('checkmark-chiavi').style.border = '1.5px solid red';
             }
 
-            else if(modello.value == "" || modello.value == undefined){
+            else if(!avvertenze_regola.checked){
+                avvertenze_regola.scrollIntoView();
+                document.getElementById('checkmark-avvertenze').style.border = '1.5px solid red';
+            }
+
+            else if(modello.value == "" || modello.value == undefined || targa.value == "" || targa.value == undefined){
                 
                 document.getElementById('popup-modal').classList.remove('hidden');
                 
@@ -713,5 +742,9 @@ export default {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+.checkboxfixing:after{
+    top: 1px !important;
 }
 </style>

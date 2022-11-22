@@ -59,6 +59,7 @@ export default {
   plugins: [  
     { src: '~/plugins/vue-datepicker', ssr: false }, // Datepicker plugin here 
     { src: '~/plugins/paypal.client'}, // Paypal Plugin Here
+   
 ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -73,6 +74,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    
     
   ],
 

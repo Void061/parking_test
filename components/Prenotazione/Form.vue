@@ -219,8 +219,8 @@ export default{
    this.FasciaOraria = RangeLavoro.data;
    this.sede_info = RangeLavoro.data;
    //Rimuovo 00:08:00 -> :00 dalle stringhe, risultato -> 08:00
-   let apertura = this.FasciaOraria.apertura.slice(0, 5);
-   let chiusura = this.FasciaOraria.chiusura.slice(0, 5);
+   let apertura = 0//this.FasciaOraria.apertura.slice(0, 5);
+   let chiusura = 0//this.FasciaOraria.chiusura.slice(0, 5);
    //Prendo l'indice di 08:00 nel mio array di orari ingresso e uscita
    //Successivamente faccio lo splice dell'array così da prendere da Posizione(08:00 in poi e )
    let index = this.orari_ingresso.indexOf(apertura);

@@ -2,9 +2,9 @@
     <section class=" md:flex py-[100px] md:py-[136px] md:pb-[100px] text-center container mx-auto flex-col items-center">
 
       <div class="flex flex-col items-center text-center">
-        <h3 class="text-primary font-bold text-[24px]">LOREM IPSUM</h3>
+        <h3 class="text-primary font-bold text-[24px]">I NOSTRI CLIENTI</h3>
         <h1 class="text-secondary mt-[15px] font-bold text-[30px] md:text-[50px]">DICONO DI NOI</h1>
-        <h5 class="max-w-[800px] px-3 font-medium text-[18px] text-[#B4B4B4] mt-[24px] leading-[27px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</h5>
+        <h5 class="max-w-[800px] px-3 font-medium text-[18px] text-[#B4B4B4] mt-[24px] leading-[27px]">Il Parcheggio PARKINGARAGE si impegna costantemente per offrire un servizio sempre migliore alla propria clientela. Queste sono solo alcune delle esperienze dei nostri clienti</h5>
     
         <div class="mt-[100px]">
             <!-- Slider main container -->
@@ -14,28 +14,46 @@
     <!-- Slides -->
        <div class="swiper-slide">
       <div class="px-[38px] py-[60px] bg-[#F8F8F8] rounded-[24px] flex flex-col items-center justify-center">
-        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</h5>
+        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Comodissimo per la sua ubicazione in una zona doveè praticamente impossibile trovare un parcheggio libero. Prezzi nella media. Complessivamente mi ritengo molto soddisfatta.</h5>
         <img class="mt-[11px] w-[78px] h-[33px]" src="/img/virgolette.png" alt="virgolette" />
-        <h3 class="mt-[32px] text-primary font-medium text-[24px]" >MARIO ROSSI</h3>
-        <img class="absolute bottom-0 translate-y-[50px]" src="/img/avatar-1.png" alt="avatar-1" />
+        <h3 class="mt-[32px] text-primary font-medium text-[24px]" >MIRIAM B.</h3>
+        <img class="absolute bottom-0 translate-y-[50px] max-w-[90px]" src="/img/woman.png" alt="woman-1" />
       </div>
     </div>
 
      <div class="swiper-slide">
       <div class="px-[38px] py-[60px] bg-[#F8F8F8] rounded-[24px] flex flex-col items-center justify-center">
-        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</h5>
+        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Posteggio al coperto e custodito poco distante dallo Stadio Olimpico (20  min. a piedi c.a. lungo un ampio viale illuminato) si può prenotare Online e pagare via internet, personale impeccabile.</h5>
         <img class="mt-[11px] w-[78px] h-[33px]" src="/img/virgolette.png" alt="virgolette" />
-        <h3 class="mt-[32px] text-primary font-medium text-[24px]" >MARIO ROSSI</h3>
-        <img class="absolute bottom-0 translate-y-[50px]" src="/img/avatar-1.png" alt="avatar-1" />
+        <h3 class="mt-[32px] text-primary font-medium text-[24px]" >RICCARDO C.</h3>
+        <img class="absolute bottom-0 translate-y-[50px] max-w-[90px]" src="/img/man.png" alt="man-1" />
       </div>
     </div>
 
       <div class="swiper-slide">
       <div class="px-[38px] py-[60px] bg-[#F8F8F8] rounded-[24px] flex flex-col items-center justify-center">
-        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</h5>
+        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">In questi 6 mesi mi sono recata spesso in questo Parking e devo dire che i ragazzi che ci lavorano sono molto competenti, organizzazione, servizi eccellenti e sanificazione con Ozono.</h5>
         <img class="mt-[11px] w-[78px] h-[33px]" src="/img/virgolette.png" alt="virgolette" />
-        <h3 class="mt-[32px] text-primary font-medium text-[24px]" >MARIO ROSSI</h3>
-        <img class="absolute bottom-0 translate-y-[50px]" src="/img/avatar-1.png" alt="avatar-1" />
+        <h3 class="mt-[32px] text-primary font-medium text-[24px]" >CONSUELO C.</h3>
+        <img class="absolute bottom-0 translate-y-[50px] max-w-[90px]" src="/img/woman.png" alt="woman-2" />
+      </div>
+    </div>
+
+      <div class="swiper-slide">
+      <div class="px-[38px] py-[60px] bg-[#F8F8F8] rounded-[24px] flex flex-col items-center justify-center">
+        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Parcheggio comodissimoben collegato alla zona Prati e se ci si deve recare presso il tribunale Civile e Penale. All’esterno della zona Ztl, ottimo rapporto qualità prezzo, ve lo consiglio!</h5>
+        <img class="mt-[11px] w-[78px] h-[33px]" src="/img/virgolette.png" alt="virgolette" />
+        <h3 class="mt-[32px] text-primary font-medium text-[24px]" >ROSARIO A.</h3>
+        <img class="absolute bottom-0 translate-y-[50px] max-w-[90px]" src="/img/man.png" alt="man-2" />
+      </div>
+    </div>
+
+     <div class="swiper-slide">
+      <div class="px-[38px] py-[60px] bg-[#F8F8F8] rounded-[24px] flex flex-col items-center justify-center">
+        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Parcheggio molto comodo in zona centrale. la macchina in ogni momento della giornata. Penso che i prezzi siano nella media. Ottimo il servizio di prenotazione Online, consigliato.</h5>
+        <img class="mt-[11px] w-[78px] h-[33px]" src="/img/virgolette.png" alt="virgolette" />
+        <h3 class="mt-[32px] text-primary font-medium text-[24px]" >SILVIA R.</h3>
+        <img class="absolute bottom-0 translate-y-[50px] max-w-[90px]" src="/img/woman.png" alt="woman-3" />
       </div>
     </div>
    
@@ -69,28 +87,48 @@
     <!-- Slides -->
        <div class="swiper-slide">
       <div class="px-[38px] py-[60px] bg-[#F8F8F8] rounded-[24px] flex flex-col items-center justify-center">
-        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</h5>
+        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Comodissimo per la sua ubicazione in una zona doveè praticamente impossibile trovare un parcheggio libero. Prezzi nella media. Complessivamente mi ritengo molto soddisfatta.</h5>
         <img class="mt-[11px] w-[78px] h-[33px]" src="/img/virgolette.png" alt="virgolette" />
-        <h3 class="mt-[32px] text-primary font-medium text-[24px]" >MARIO ROSSI</h3>
-        <img class="absolute bottom-0 translate-y-[50px]" src="/img/avatar-1.png" alt="avatar-1" />
+        <h3 class="mt-[32px] text-primary font-medium text-[24px]" >MIRIAM B.</h3>
+        <img class="absolute bottom-0 translate-y-[50px] max-w-[90px]" src="/img/woman.png" alt="woman-1-m" />
       </div>
     </div>
 
      <div class="swiper-slide">
       <div class="px-[38px] py-[60px] bg-[#F8F8F8] rounded-[24px] flex flex-col items-center justify-center">
-        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</h5>
+        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Posteggio al coperto e custodito poco distante dallo Stadio Olimpico (20  min. a piedi c.a. lungo un ampio viale illuminato) si può prenotare Online e pagare via internet, personale impeccabile.</h5>
         <img class="mt-[11px] w-[78px] h-[33px]" src="/img/virgolette.png" alt="virgolette" />
-        <h3 class="mt-[32px] text-primary font-medium text-[24px]" >MARIO ROSSI</h3>
-        <img class="absolute bottom-0 translate-y-[50px]" src="/img/avatar-1.png" alt="avatar-1" />
+        <h3 class="mt-[32px] text-primary font-medium text-[24px]" >RICCARDO C.</h3>
+        <img class="absolute bottom-0 translate-y-[50px] max-w-[90px]" src="/img/man.png" alt="man-1-m" />
       </div>
     </div>
 
       <div class="swiper-slide">
       <div class="px-[38px] py-[60px] bg-[#F8F8F8] rounded-[24px] flex flex-col items-center justify-center">
-        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</h5>
+        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">In questi 6 mesi mi sono recata spesso in questo Parking e devo dire che i ragazzi che ci lavorano sono molto competenti, organizzazione, servizi eccellenti e sanificazione con Ozono.</h5>
         <img class="mt-[11px] w-[78px] h-[33px]" src="/img/virgolette.png" alt="virgolette" />
-        <h3 class="mt-[32px] text-primary font-medium text-[24px]" >MARIO ROSSI</h3>
-        <img class="absolute bottom-0 translate-y-[50px]" src="/img/avatar-1.png" alt="avatar-1" />
+        <h3 class="mt-[32px] text-primary font-medium text-[24px]" >CONSUELO C.</h3>
+        <img class="absolute bottom-0 translate-y-[50px] max-w-[90px]" src="/img/woman.png" alt="woman-2-m" />
+      </div>
+    </div>
+
+    <div class="swiper-slide">
+      <div class="px-[38px] py-[60px] bg-[#F8F8F8] rounded-[24px] flex flex-col items-center justify-center">
+        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Parcheggio comodissimoben collegato alla zona Prati e se ci si deve recare presso il tribunale Civile e Penale. All’esterno della zona Ztl, ottimo rapporto qualità prezzo, ve lo consiglio!
+</h5>
+        <img class="mt-[11px] w-[78px] h-[33px]" src="/img/virgolette.png" alt="virgolette" />
+        <h3 class="mt-[32px] text-primary font-medium text-[24px]" >ROSARIO A.</h3>
+        <img class="absolute bottom-0 translate-y-[50px] max-w-[90px]" src="/img/man.png" alt="man-2-m" />
+      </div>
+    </div>
+
+      <div class="swiper-slide">
+      <div class="px-[38px] py-[60px] bg-[#F8F8F8] rounded-[24px] flex flex-col items-center justify-center">
+        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Parcheggio molto comodo in zona centrale. la macchina in ogni momento della giornata. Penso che i prezzi siano nella media. Ottimo il servizio di prenotazione Online, consigliato.
+</h5>
+        <img class="mt-[11px] w-[78px] h-[33px]" src="/img/virgolette.png" alt="virgolette" />
+        <h3 class="mt-[32px] text-primary font-medium text-[24px]" >SILVIA R.</h3>
+        <img class="absolute bottom-0 translate-y-[50px] max-w-[90px]" src="/img/woman.png" alt="woman-3-m" />
       </div>
     </div>
    

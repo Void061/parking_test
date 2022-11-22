@@ -6,12 +6,23 @@
             <label class="cursor-pointer h-[90px] border-[1.5px] px-[10px] md:px-[40px] py-[10px] border-solid border-[#B4B4B4] mt-[54px] flex justify-between items-center">
                 <div class="flex items-center gap-[52px]">
                    <input type="radio" name="pagamento" />
+                    <h4 class="text-[#B4B4B4] font-medium text-[14px] md:text-[20px]">Paga con Stripe</h4>
+                </div>
+                <div class="flex">
+                    <img class="h-auto max-h-[50px]" src="/img/Stripe.png" alt="Stripe" />
+                </div>
+            </label>  
+           
+            
+            <label class="cursor-pointer h-[90px] border-[1.5px] px-[10px] md:px-[40px] py-[10px] border-solid border-[#B4B4B4] mt-[54px] flex justify-between items-center">
+                <div class="flex items-center gap-[52px]">
+                   <input type="radio" name="pagamento" />
                     <h4 class="text-[#B4B4B4] font-medium text-[14px] md:text-[20px]">Paga con carta</h4>
                 </div>
                 <div class="flex">
                     <img class="md:h-auto h-[15px]" src="/img/credit_cards.png" alt="cards" />
                 </div>
-            </label>  
+            </label> 
             <label @click="SetupPaypal()" class="cursor-pointer h-[90px] border-[1.5px] md:px-[40px] px-[10px] py-[10px] border-solid border-[#B4B4B4] mt-[54px] flex justify-between items-center">
                 <div class="flex items-center gap-[52px]">
                     <input type="radio" name="pagamento" />
@@ -42,9 +53,14 @@
 </template>
 
 <script>
+
     export default{
+       
+       
         props: ['nazione', 'provincia', 'indirizzo', 'citta', 'cap', 'piva', 'comune', 'societa', 'modinvio' , 'ragionesociale' , 'v','prezzo', 'vt', 'dataInizio', 'dataFine','nome', 'cognome', 'mail', 'targa', 'fattura', 'modello', 'msg', 'telefono'],
         methods: {
+         
+       
           
             paymentAuthorized(value){
                 
@@ -100,11 +116,13 @@
 
         mounted(){
             if(process.client){
-                console.log(this.nome, this.cognome, this.mail, this.targa);
+                
                 const Paypal = () => import('vue-paypal-checkout');
-                console.log(window.innerWidth, window.innerHeight);
+                
                 
           }
+
+       
         },
         data(){
             return{
@@ -121,8 +139,8 @@
                     label: 'checkout',
                     size: 'responsive',
                   
-                    
                 }
+            
 
             }
         },

@@ -52,7 +52,7 @@
                     //https://back-parking.g2r.it/api/genera/prezzi?dataFine='+DataFine+'&dataInizio='+DataInizio+'&VeicoloId='+this.v+'&SedeId='+this.sede);
                     let r = await this.$axios.$get('https://back-parking.g2r.it/api/genera/prezzi?VeicoloId='+this.v+'&dataInizio='+DataInizio+'&dataFine='+DataFine+'&SedeId='+this.sede);
                    //?VeicoloId='+data.veicolo.value+'&dataInizio='+data.datainizio.toLocaleString('it-IT')+'&dataFine='+data.datafine.toLocaleString('it-IT')+'&SedeId='+data.sede);
-                    console.log(r);
+                
                    r.map(function(item){
                        if(item.categoria.id == vt){
                           console.log(item.categoria.nome);
@@ -73,7 +73,7 @@
 
             }
             else{
-                this.$router.push('/prenotazione');
+                //this.$router.push('/prenotazione');
             }
             
         }
