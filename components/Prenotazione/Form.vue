@@ -215,7 +215,7 @@ export default{
  async mounted(){
 
     //Prendo orario e chiusura
-   const RangeLavoro = await this.$axios.$get('https://back-parking.g2r.it/api/sede/1');
+   const RangeLavoro = await this.$axios.$get('/sede/1');
    this.FasciaOraria = RangeLavoro.data;
    this.sede_info = RangeLavoro.data;
    //Rimuovo 00:08:00 -> :00 dalle stringhe, risultato -> 08:00

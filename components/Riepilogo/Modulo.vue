@@ -19,7 +19,7 @@
         </div>
     </div>
 </div>
-        <h2 class="font-bold text-[36px] text-secondary">Garage Olimpico Ottaviano</h2>
+        <h2 class="font-bold text-[36px] text-secondary">PRENOTA ONLINE IL TUO PARCHEGGIO</h2>
          
         <div class="mt-[54px] border-t-[1px] border-solid border-[#B4B4B4] py-[67px] flex flex-col gap-[20px]">
             <div class="flex-col md:flex-row flex gap-[20px] md:gap-[44px]">

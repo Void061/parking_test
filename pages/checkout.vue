@@ -103,7 +103,7 @@
 
             try{
                     //https://back-parking.g2r.it/api/genera/prezzi?dataFine='+DataFine+'&dataInizio='+DataInizio+'&VeicoloId='+this.v+'&SedeId='+this.sede);
-                    let r = await this.$axios.$get('https://back-parking.g2r.it/api/genera/prezzi?VeicoloId='+this.v+'&dataInizio='+this.dataInizio+'&dataFine='+this.dataFine+'&SedeId='+this.sede);
+                    let r = await this.$axios.$get('/genera/prezzi?VeicoloId='+this.v+'&dataInizio='+this.dataInizio+'&dataFine='+this.dataFine+'&SedeId='+this.sede);
                    //?VeicoloId='+data.veicolo.value+'&dataInizio='+data.datainizio.toLocaleString('it-IT')+'&dataFine='+data.datafine.toLocaleString('it-IT')+'&SedeId='+data.sede);
                   console.log(r);
                    r.map(function(item){

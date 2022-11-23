@@ -30,7 +30,7 @@ export default {
         order: JSON.stringify([ ['order', 'asc'] ])
       }) 
     try{
-      const response = await this.$axios.get('https://back-parking.g2r.it/api/veicolo?'+query);
+      const response = await this.$axios.get('/veicolo?'+query);
       this.veicoli = response.data.data;
      
       

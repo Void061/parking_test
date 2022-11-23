@@ -68,7 +68,7 @@
             async paymentCompleted(value){
                //value contiene tutte le info della transazione
                
-                const Save = await this.$axios.$post('https://back-parking.g2r.it/api/prenotazione/acquisizione', {
+                const Save = await this.$axios.$post('/prenotazione/acquisizione', {
                     "CategoriaId": this.vt,
                     "dataInizio": this.dataInizio,
                     "dataFine" : this.dataFine,

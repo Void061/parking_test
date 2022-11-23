@@ -36,7 +36,7 @@
         //this.risultati = VoidObj;
      
          
-          let r = await this.$axios.$get('https://back-parking.g2r.it/api/genera/prezzi?VeicoloId='+data.veicolo.value+'&dataInizio='+data.datainizio+'&dataFine='+data.datafine+'&SedeId='+data.sede);
+          let r = await this.$axios.$get('/genera/prezzi?VeicoloId='+data.veicolo.value+'&dataInizio='+data.datainizio+'&dataFine='+data.datafine+'&SedeId='+data.sede);
          // https://back-parking.g2r.it/api/genera/prezzi?VeicoloId='+data.veicolo+'&dataInizio='+data.datainizio.toLocaleString('it-IT')+'&dataFine='+data.datafine.toLocaleString('it-IT')+'&SedeId='+data.sede);
           r['datainizio'] = data.data_start;
           r['datafine'] = data.data_end;
@@ -88,7 +88,7 @@
       try{
        
      
-        let r = await this.$axios.$get('https://back-parking.g2r.it/api/genera/prezzi?VeicoloId='+this.veicolo+'&dataInizio='+DataInizio+'&dataFine='+DataFine+'&SedeId='+this.sede);
+        let r = await this.$axios.$get('/genera/prezzi?VeicoloId='+this.veicolo+'&dataInizio='+DataInizio+'&dataFine='+DataFine+'&SedeId='+this.sede);
         
         
         r['datainizio'] = this.data_start;
