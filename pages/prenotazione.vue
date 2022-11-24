@@ -43,7 +43,7 @@
           r['orainizio'] = data.ora_start;
           r['orafine'] = data.ora_end
           this.risultati = r;
-   
+          console.log(this.risultati);
           
            setTimeout(() => {
              document.getElementById('results').scrollIntoView();
