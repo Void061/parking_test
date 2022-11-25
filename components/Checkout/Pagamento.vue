@@ -57,7 +57,7 @@
     export default{
        
        
-        props: ['nazione', 'provincia', 'indirizzo', 'citta', 'cap', 'piva', 'comune', 'societa', 'datoinvio','modinvio' , 'ragionesociale' , 'v','prezzo', 'vt', 'dataInizio', 'dataFine','nome', 'cognome', 'mail', 'targa', 'fattura', 'modello', 'msg', 'telefono'],
+        props: ['ingresso', 'uscita', 'ora_uscita', 'ora_ingresso', 'nazione', 'provincia', 'indirizzo', 'citta', 'cap', 'piva', 'comune', 'societa', 'datoinvio','modinvio' , 'ragionesociale' , 'v','prezzo', 'vt', 'dataInizio', 'dataFine','nome', 'cognome', 'mail', 'targa', 'fattura', 'modello', 'msg', 'telefono'],
         methods: {
          
        
@@ -95,6 +95,10 @@
                     "Piva" : this.piva,
                     "NomeSocieta" : this.societa,
                     "paypal": value,
+                    "ora_uscita": this.ora_uscita,
+                    "ora_ingresso": this.ora_ingresso,
+                    "ingresso": this.ingresso,
+                    "uscita": this.uscita,
 
                 }).then(function(response){
                     
