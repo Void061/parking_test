@@ -9,7 +9,7 @@
                  <p class="leading-[35px] text-[18px] font-medium text-[#B4B4B4]">
                     In Occasione delle partite di casa di Champions League, EuropaLeague, di Coppa Italia, di Campionato e per tutti gli eventi pressolo stadio Olimpico e il Foro Italico, la disponibilità di prenotazione Online potrebbe variare. L’orario di chiusura notturna potrebbe essere esteso per dare la possibilità a tutti i clienti di ritirarela propria auto al termine della manifestazione.
                 </p>
-                <a href="tel:06/3701044" class="mx-auto xl:mx-0 bg-primary rounded-[11px] text-secondary py-[14px] max-w-[290px] px-10 font-semibold text-[24px]"><h3>CONTATTACI</h3></a>
+                <a href="tel:06/3701044" class="mx-auto xl:mx-0 bg-primary rounded-[11px] text-secondary py-[14px] max-w-[250px] px-10 font-semibold text-[24px]">CONTATTACI</a>
             </div>
         </div>
         <div>
