@@ -466,7 +466,8 @@ export default {
     methods:{
         consentiModal(){
             this.modello_consenti = 1;
-            modello.value = 'Comunicherò prima di presentarmi';
+            modello.value = 'NON INDICATO';
+            targa.value = 'NON INDICATA';
             document.getElementById('popup-modal').classList.add('hidden');
             this.Checkout();
         },
@@ -490,7 +491,7 @@ export default {
             e.target.style.border = '1.5px solid #B4B4B4';
             if(e.target.value != 'Nessuna'){document.getElementById('dato-invio').classList.remove('hidden');}
             if(e.target.value == 'PEC'){document.getElementById('dato-invio').placeholder='PEC';}
-            if(e.target.value == 'Codice destinatario'){document.getElementById('dato-invio').placeholder='Codice destinatario';}
+            if(e.target.value == 'Codice destinatario'){document.getElementById('dato-invio').placeholder='Codice destinatario (SDI)';}
             if(e.target.value == 'Codice IPA (pubblica amministrazione)'){document.getElementById('dato-invio').placeholder='Codice IPA';}
             if(e.target.value == 'Nessuna'){document.getElementById('dato-invio').classList.add('hidden');}
         },

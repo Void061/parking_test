@@ -57,7 +57,7 @@
     export default{
        
        
-        props: ['nazione', 'provincia', 'indirizzo', 'citta', 'cap', 'piva', 'comune', 'societa', 'modinvio' , 'ragionesociale' , 'v','prezzo', 'vt', 'dataInizio', 'dataFine','nome', 'cognome', 'mail', 'targa', 'fattura', 'modello', 'msg', 'telefono'],
+        props: ['nazione', 'provincia', 'indirizzo', 'citta', 'cap', 'piva', 'comune', 'societa', 'datoinvio','modinvio' , 'ragionesociale' , 'v','prezzo', 'vt', 'dataInizio', 'dataFine','nome', 'cognome', 'mail', 'targa', 'fattura', 'modello', 'msg', 'telefono'],
         methods: {
          
        
@@ -85,6 +85,7 @@
                     "Fattura" : this.fattura,
                     "Nazione" : this.nazione,
                     "mod_invio" : this.modinvio,
+                    "dato_invio": this.datoinvio,
                     "RagioneSociale" : this.ragionesociale,
                     "Provincia" :this.provincia ,
                     "Comune" : this.comune,

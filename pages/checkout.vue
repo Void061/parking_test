@@ -1,7 +1,7 @@
 <template>
     <div>
         <CheckoutInfo :nome="this.nome" :cognome="this.cognome" :mail="this.mail" :telefono="this.telefono" :targa="this.targa" :modello="this.modello" :fattura="this.fattura" :msg="this.msg" />
-        <CheckoutPagamento :indirizzo="this.indirizzo" :citta="this.citta" :cap="this.cap" :piva="this.piva" :comune="this.comune" :societa="this.societa" :modinvio="this.modinvio" :ragionesociale="this.ragionesociale" :provincia="this.provincia"  :nazione="this.nazione" :v="this.v" :prezzo="this.prezzo" :vt="this.vt" :dataInizio="this.dataInizio" :dataFine="this.dataFine" :nome="this.nome" :cognome="this.cognome" :mail="this.mail" :telefono="this.telefono" :targa="this.targa" :modello="this.modello" :fattura="this.fattura" :msg="this.msg"/>
+        <CheckoutPagamento :datoinvio="dt_send" :indirizzo="this.indirizzo" :citta="this.citta" :cap="this.cap" :piva="this.piva" :comune="this.comune" :societa="this.societa" :modinvio="this.modinvio" :ragionesociale="this.ragionesociale" :provincia="this.provincia"  :nazione="this.nazione" :v="this.v" :prezzo="this.prezzo" :vt="this.vt" :dataInizio="this.dataInizio" :dataFine="this.dataFine" :nome="this.nome" :cognome="this.cognome" :mail="this.mail" :telefono="this.telefono" :targa="this.targa" :modello="this.modello" :fattura="this.fattura" :msg="this.msg"/>
     </div>
 </template>
 
@@ -23,7 +23,7 @@
                 dataInizio: '',
                 dataFine: '',
                 sede: 1,
-
+                dt_send: '',
                 societa: '',
                 nazione: '',
                 modinvio: '',
@@ -45,7 +45,7 @@
                 || this.$route.query.tg == "" || this.$route.query.tg == undefined || this.$route.query.md == "" || this.$route.query.md == undefined
                 || this.$route.query.f == "" || this.$route.query.f == undefined || this.$route.query.vt == "" || this.$route.query.vt == undefined
                 || this.$route.query.v == "" || this.$route.query.v == undefined
-            ){alert(0);}
+            ){this.$router.push('/prenotazione')}
 
 
             this.nome = this.$route.query.n;
@@ -70,7 +70,7 @@
                    || this.$route.query.rag_it == "" || this.$route.query.rag_it == undefined || this.$route.query.prv == "" || this.$route.query.prv == undefined
                    || this.$route.query.com == "" || this.$route.query.com == undefined || this.$route.query.ind == "" || this.$route.query.ind == undefined
                    || this.$route.query.ind == "" || this.$route.query.ct_it == "" || this.$route.query.ct_it == undefined || this.$route.query.cap == "" ||
-                   this.$route.query.cap == undefined || this.$route.query.p_it == "" || this.$route.query.p_it == undefined){
+                   this.$route.query.cap == undefined || this.$route.query.p_it == "" || this.$route.query.p_it == undefined || this.$route.query.dt_send == "" || this.$route.query.dt_send == undefined){
                        this.$router.push('/prenotazione');
                   }
                    }
@@ -94,7 +94,7 @@
             this.cap = this.$route.query.cap;
             this.piva = this.$route.query.p_it;
             this.societa = this.$route.query.nf;
-
+            this.dt_send = this.$route.query.dt_send;
            this.dataInizio = new Date(this.$route.query.di + " " + this.$route.query.oi);
            this.dataFine = new Date(this.$route.query.df + " " + this.$route.query.of);
             
@@ -105,7 +105,7 @@
                     //https://back-parking.g2r.it/api/genera/prezzi?dataFine='+DataFine+'&dataInizio='+DataInizio+'&VeicoloId='+this.v+'&SedeId='+this.sede);
                     let r = await this.$axios.$get('/genera/prezzi?VeicoloId='+this.v+'&dataInizio='+this.dataInizio+'&dataFine='+this.dataFine+'&SedeId='+this.sede);
                    //?VeicoloId='+data.veicolo.value+'&dataInizio='+data.datainizio.toLocaleString('it-IT')+'&dataFine='+data.datafine.toLocaleString('it-IT')+'&SedeId='+data.sede);
-                  console.log(r);
+                
                    r.map(function(item){
                        if(item.categoria.id == vt){
                           console.log(item.categoria.nome);
