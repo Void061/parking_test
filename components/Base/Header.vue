@@ -29,13 +29,10 @@
 
         </div>
 
-        <!--
+        
         <ul class="lg:gap-[45px] gap-[15px] text-[14px] lg:text-[18px] text-secondary font-medium hidden lg:flex">
-            <li class="cursor-pointer"><h5>Home</h5></li>
-            <li class="cursor-pointer"><h5>Parking Garage a Roma</h5></li>
-            <li class="cursor-pointer"><h5>Servizi</h5></li>
-            <li class="cursor-pointer"><h5>Chi Siamo</h5></li>
-            <li class="cursor-pointer"><h5>Contatti</h5></li>
+            <li class="flex items-center gap-[10px] cursor-pointer"><img class="max-w-[30px]" src="/img/phone-old.png" alt="p"/><h5>06/3701044</h5></li>
+            
         </ul>
         
 
@@ -44,7 +41,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
         </div>
-        -->
+       
     </nav>
 </header>
 

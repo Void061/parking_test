@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="mt-4 flex flex-col justify-center items-center">
-        <h5 class="text-center max-w-[800px] mt-[24px] text-[18px] px-3 font-medium leading-[27px] text-[#B4B4B4]">HAI QUALCHE DUBBIO O BISOGNO DI ULTERIORI INFORMAZIONI?</h5>
+        <h5 class="text-center max-w-[800px] mt-[24px] text-[28px] px-3 font-medium leading-[27px] text-secondary">HAI QUALCHE DUBBIO O BISOGNO DI ULTERIORI INFORMAZIONI?</h5>
        <a href="tel:06/3701044" class=" mt-[50px] bg-primary rounded-[11px] text-secondary py-[14px] px-20 font-semibold text-[24px]"><h3>CONTATTACI</h3></a>
       </div>
     </section>
