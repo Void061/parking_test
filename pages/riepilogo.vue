@@ -1,7 +1,7 @@
 <template>
 
 
-    <RiepilogoModulo :icon="this.icon" :nome="this.nome" :prezzo="this.prezzo" :data_i="this.data_i" :data_f="this.data_f" :ora_i="this.ora_i" :v="this.v" :vt="this.vt_of" :slot-scope="this.data_f" :ora_f="this.ora_f"/>
+    <RiepilogoModulo :data_i_c="this.data_i_c" :data_f_c="this.data_f_c" :icon="this.icon" :nome="this.nome" :prezzo="this.prezzo" :data_i="this.data_i" :data_f="this.data_f" :ora_i="this.ora_i" :v="this.v" :vt="this.vt_of" :slot-scope="this.data_f" :ora_f="this.ora_f"/>
 
 </template>
 
@@ -22,7 +22,8 @@
                     nome: '',
                     prezzo: '',
                     vt_of: '',
-                    
+                    data_i_c : '',
+                    data_f_c: '',
                     
               
             }
@@ -37,7 +38,8 @@
                 this.ora_i = this.$route.query.oi;
                 this.data_f = this.$route.query.df;
                 this.ora_f = this.$route.query.of;
-                
+                this.data_i_c = new Date(this.$route.query.di).toLocaleString('it-IT').split(',')[0];
+                this.data_f_c = new Date(this.$route.query.df).toLocaleString('it-IT').split(',')[0];
                 this.v = this.$route.query.v;
                 this.vt_of = this.$route.query.vt;
                 let vt = this.$route.query.vt;

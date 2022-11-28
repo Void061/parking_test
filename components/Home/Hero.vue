@@ -29,7 +29,7 @@
                 <h4 class="text-center text-secondary font-medium text-[20px]">INGRESSO</h4>
                 <div class="relative p-[20px] mt-[10px] border-solid border-[1.5px] border-[#B4B4B4]">
                     <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="/img/icon_data.png" alt="data-ingresso" />
-                    <client-only><date-picker :disabled-dates="this.state.disabledDates" :id="'data_start'" :input-class="'mypicker'" placeholder="Data ingresso" format="dd/MM/yyyy" /></client-only>
+                    <client-only><date-picker :language="it" :highlighted="this.state.highlighted" :disabled-dates="this.state.disabledDates" :id="'data_start'" :input-class="'mypicker'" placeholder="Data ingresso" format="dd/MM/yyyy" /></client-only>
                     
                 </div>
                
@@ -45,7 +45,7 @@
                 <h4 class="text-center text-secondary font-medium text-[20px]">USCITA</h4>
                 <div class="relative p-[20px] mt-[10px] border-solid border-[1.5px] border-[#B4B4B4]">
                     <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="/img/icon_data.png" alt="data-uscita" />
-                   <client-only><date-picker :disabled-dates="this.state.disabledDates" :id="'data_end'" :input-class="'mypicker'" placeholder="Data uscita" format="dd/MM/yyyy"/></client-only>
+                   <client-only><date-picker :language="it" :highlighted="this.state.highlighted" :disabled-dates="this.state.disabledDates" :id="'data_end'" :input-class="'mypicker'" placeholder="Data uscita" format="dd/MM/yyyy"/></client-only>
                 </div>
                  <div class="relative p-[20px] mt-[10px] border-solid border-[1.5px] border-[#B4B4B4]">
                     <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="/img/clock_icon.png" alt="orario-uscita" />
@@ -86,11 +86,12 @@
 
 
 <script>
-
+import {en, es, it} from 'vuejs-datepicker/dist/locale'
 export default{
   props: [ 'veicoli'],
   data(){
     return{
+      it: it,
       data_start: "",
       data_end: "",
       ora_start: "",
@@ -101,7 +102,15 @@ export default{
       orari_ingresso: ['00:00', '00:30', '01:00', '01:30', '02:00','02:30', '03:00','03:30', '04:00','04:30', '05:00','05:30', '06:00','06:30', '07:00','07:30', '08:00','08:30', '09:00','09:30', '10:00', '10:30', '11:00','11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00', '23:30'],
       orari_uscita: [],
       sede_info: {},
-      state: {disabledDates: {days: [6, 0],}}
+      state: {
+       
+      highlighted: {
+       
+          dates: [
+            new Date(),
+          ],
+        }
+      }
     }
   },
   methods: {
@@ -187,7 +196,11 @@ export default{
   },
 
   async mounted(){
+let dx_day = new Date().getUTCDate();
+   let dx = new Date();
 
+   this.state.disabledDates =  {to: new Date(dx.getFullYear(),dx.getMonth(),dx_day),
+        days: [6, 0],}
     //Prendo orario e chiusura
    const RangeLavoro = await this.$axios.$get('/sede/1');
    this.FasciaOraria = RangeLavoro.data;

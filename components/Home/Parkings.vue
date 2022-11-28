@@ -22,13 +22,7 @@
           </div>
       </div>
 
-      <div class="flex flex-col justify-center items-center md:text-center py-8 ">
-            <h5 class=" mt-[25px] text-[#B4B4B4] text-[20px] font-medium">PARKINGARAGE 1</h5>
-             <h5 class=" mt-[25px] text-[#B4B4B4] text-[20px] font-medium"> O GARAGE I - ZONA PRATI - OLIMPICO - TRIBUNALE </h5>
-             <h5 class=" mt-[25px] text-[#B4B4B4] text-[20px] font-medium"> VIALE ANGELICO 32 A </h5>
-             <h5 class=" mt-[25px] text-[#B4B4B4] text-[20px] font-medium"> Tel: 06/3701044</h5>
-             <h5 class=" mt-[25px] text-[#B4B4B4] text-[20px] font-medium"> MAIL: ......... </h5>
-        </div>
+     
       
       
       

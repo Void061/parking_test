@@ -62,7 +62,7 @@
                 </div>
                  <div class="mt-[10px] lg:mt-[38px] flex items-center gap-[28px]">
                      <img class="ml-[-10px]" src="/img/icon_data.png" alt="data" />
-                     <h5 class="text-[#B4B4B4] font-medium text-[18px]">{{this.data_i}}</h5>
+                     <h5 class="text-[#B4B4B4] font-medium text-[18px]">{{this.data_i_c}}</h5>
                  </div>
                  <div class="mt-[20px] lg:w-full flex items-center gap-[28px]">
                     <img src="/img/clock_icon.png" alt="orologio" />
@@ -75,7 +75,7 @@
                 </div>
                  <div class="mt-[10px] lg:mt-[38px] flex items-center gap-[28px]">
                      <img src="/img/icon_data.png" alt="data" />
-                     <h5 class="text-[#B4B4B4] font-medium text-[18px]">{{this.data_f}}</h5>
+                     <h5 class="text-[#B4B4B4] font-medium text-[18px]">{{this.data_f_c}}</h5>
                  </div>
                  <div class="mt-[20px] lg:w-full flex items-center gap-[28px]">
                     <img src="/img/clock_icon.png" alt="orologio" />
@@ -452,16 +452,19 @@
 
 <script>
 export default {
-    props: ['nome', 'prezzo', 'icon', 'data_i' , 'data_f', 'ora_i', 'ora_f', 'v', 'vt'],
+    props: ['data_f_c', 'data_i_c', 'nome', 'prezzo', 'icon', 'data_i' , 'data_f', 'ora_i', 'ora_f', 'v', 'vt'],
     data(){
         return{
             veicolo_info: '',
             fat: false,
             modello_consenti: 0,
+         
+        
         }
     },
     async mounted(){
-           
+      
+          
     },
     methods:{
         consentiModal(){

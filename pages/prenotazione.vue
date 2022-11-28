@@ -2,7 +2,7 @@
 
 <template>
     <div>
-        <PrenotazioneForm v-on:Search="SearchCopertura" :data_start="this.data_start" :ora_start="this.ora_start" :ora_end="this.ora_end" :data_end="this.data_end" :sede="this.sede" :veicolo="this.veicolo" :veicoli="this.veicoli" />
+        <PrenotazioneForm v-on:Search="SearchCopertura"  :data_start="this.data_start" :ora_start="this.ora_start" :ora_end="this.ora_end" :data_end="this.data_end" :sede="this.sede" :veicolo="this.veicolo" :veicoli="this.veicoli" />
         <PrenotazioneRisultati :risultati="this.risultati" />
        
     </div>
@@ -23,6 +23,7 @@
       ora_end: '',
       veicolo: '',
       sede: '1',
+      
     }
   },
   async created(){
@@ -43,7 +44,7 @@
           r['orainizio'] = data.ora_start;
           r['orafine'] = data.ora_end
           this.risultati = r;
-          console.log(this.risultati);
+      
           
            setTimeout(() => {
              document.getElementById('results').scrollIntoView();
@@ -52,6 +53,7 @@
       }
   },
   async mounted(){
+    
     const query = new URLSearchParams({
         order: JSON.stringify([ ['order', 'asc'] ])
       }) 

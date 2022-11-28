@@ -1,5 +1,5 @@
 <template>
-    <section class="py-[80px] pb-[136px] text-center container mx-auto flex flex-col items-center">
+    <section class="py-[50px] pb-[50px] text-center container mx-auto flex flex-col items-center">
         <h1 class="font-bold text-secondary text-[30px] md:text-[50px]">SERVIZI DELLA STRUTTURA</h1>
         
         <div class="mt-12 gap-[3rem] flex flex-col md:flex-row items-center justify-between md:min-w-[600px]">

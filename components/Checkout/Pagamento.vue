@@ -2,7 +2,9 @@
     <section class="mt-[58px] container mx-auto px-[20px] md:px-[81px]">
         
         <h2 class="font-bold text-[36px] text-secondary">Scegli il metodo di pagamento</h2>
+        
         <div class="pb-[131px] mt-[54px] flex flex-col border-t-[1px] border-solid border-[#B4B4B4]">
+            <!--
             <label class="cursor-pointer h-[90px] border-[1.5px] px-[10px] md:px-[40px] py-[10px] border-solid border-[#B4B4B4] mt-[54px] flex justify-between items-center">
                 <div class="flex items-center gap-[52px]">
                    <input type="radio" name="pagamento" />
@@ -12,7 +14,7 @@
                     <img class="h-auto max-h-[50px]" src="/img/Stripe.png" alt="Stripe" />
                 </div>
             </label>  
-           
+           -->
             
             <label class="cursor-pointer h-[90px] border-[1.5px] px-[10px] md:px-[40px] py-[10px] border-solid border-[#B4B4B4] mt-[54px] flex justify-between items-center">
                 <div class="flex items-center gap-[52px]">
