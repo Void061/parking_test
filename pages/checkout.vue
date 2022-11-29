@@ -1,7 +1,7 @@
 <template>
     <div>
         <CheckoutInfo :nome="this.nome" :cognome="this.cognome" :mail="this.mail" :telefono="this.telefono" :targa="this.targa" :modello="this.modello" :fattura="this.fattura" :msg="this.msg" />
-        <CheckoutPagamento :ora_ingresso="ora_ingresso" :ora_uscita="ora_uscita" :uscita="df_convertita" :ingresso="di_convertita" :datoinvio="dt_send" :indirizzo="this.indirizzo" :citta="this.citta" :cap="this.cap" :piva="this.piva" :comune="this.comune" :societa="this.societa" :modinvio="this.modinvio" :ragionesociale="this.ragionesociale" :provincia="this.provincia"  :nazione="this.nazione" :v="this.v" :prezzo="this.prezzo" :vt="this.vt" :dataInizio="this.dataInizio" :dataFine="this.dataFine" :nome="this.nome" :cognome="this.cognome" :mail="this.mail" :telefono="this.telefono" :targa="this.targa" :modello="this.modello" :marca="this.marca" :fattura="this.fattura" :msg="this.msg"/>
+        <CheckoutPagamento :ricevuta="this.ricevuta" :ora_ingresso="ora_ingresso" :ora_uscita="ora_uscita" :uscita="df_convertita" :ingresso="di_convertita" :datoinvio="dt_send" :indirizzo="this.indirizzo" :citta="this.citta" :cap="this.cap" :piva="this.piva" :comune="this.comune" :societa="this.societa" :modinvio="this.modinvio" :ragionesociale="this.ragionesociale" :provincia="this.provincia"  :nazione="this.nazione" :v="this.v" :prezzo="this.prezzo" :vt="this.vt" :dataInizio="this.dataInizio" :dataFine="this.dataFine" :nome="this.nome" :cognome="this.cognome" :mail="this.mail" :telefono="this.telefono" :targa="this.targa" :modello="this.modello" :marca="this.marca" :fattura="this.fattura" :msg="this.msg"/>
     </div>
 </template>
 
@@ -39,6 +39,7 @@
                 ora_uscita: '',
                 ora_ingresso: '',
                 marca: '',
+                ricevuta: '',
             }
         },
 
@@ -49,7 +50,7 @@
                 this.$route.query.m == "" || this.$route.query.m == undefined || this.$route.query.tel == "" || this.$route.query.tel == undefined
                 || this.$route.query.tg == "" || this.$route.query.tg == undefined || this.$route.query.md == "" || this.$route.query.md == undefined
                 || this.$route.query.f == "" || this.$route.query.f == undefined || this.$route.query.vt == "" || this.$route.query.vt == undefined
-                || this.$route.query.v == "" || this.$route.query.v == undefined || this.$route.query.marca == "" || this.$route.query.marca == undefined
+                || this.$route.query.v == "" || this.$route.query.v == undefined || this.$route.query.marca == "" || this.$route.query.marca == undefined || this.$route.query.ricevuta == "" || this.$route.query.ricevuta == undefined
             ){this.$router.push('/prenotazione')}
 
 
@@ -64,6 +65,7 @@
             this.vt = this.$route.query.vt;
             this.v = this.$route.query.v;
             this.marca = this.$route.query.marca;
+            this.ricevuta = this.$route.query.ricevuta;
 
             if(this.$route.query.f == 1 || this.$route.query.f == "1"){
 

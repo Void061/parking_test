@@ -59,7 +59,7 @@
     export default{
        
        
-        props: ['marca', 'ingresso', 'uscita', 'ora_uscita', 'ora_ingresso', 'nazione', 'provincia', 'indirizzo', 'citta', 'cap', 'piva', 'comune', 'societa', 'datoinvio','modinvio' , 'ragionesociale' , 'v','prezzo', 'vt', 'dataInizio', 'dataFine','nome', 'cognome', 'mail', 'targa', 'fattura', 'modello', 'msg', 'telefono'],
+        props: ['ricevuta', 'marca', 'ingresso', 'uscita', 'ora_uscita', 'ora_ingresso', 'nazione', 'provincia', 'indirizzo', 'citta', 'cap', 'piva', 'comune', 'societa', 'datoinvio','modinvio' , 'ragionesociale' , 'v','prezzo', 'vt', 'dataInizio', 'dataFine','nome', 'cognome', 'mail', 'targa', 'fattura', 'modello', 'msg', 'telefono'],
         methods: {
          
        
@@ -102,6 +102,7 @@
                     "ingresso": this.ingresso,
                     "uscita": this.uscita,
                     "marca": this.marca,
+                    "ricevuta" : this.ricevuta,
 
                 }).then(function(response){
                     
@@ -162,5 +163,7 @@ label h4{
 label input:checked ~ h4{
     color: #143793;
 }
+
+
 
 </style>

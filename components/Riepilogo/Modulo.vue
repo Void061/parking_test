@@ -562,7 +562,7 @@ export default {
             let i_fattura = document.getElementById('i-fattura');
             let p_fattura = document.getElementById('p-fattura');
             let ct_fattura = document.getElementById('ct-fattura');
-
+            let ricevuta = 0;
             //Fatturazione straniera
             let provincia = document.getElementById('provincia-it');
             let comune = document.getElementById('comune-it');
@@ -648,7 +648,7 @@ export default {
                         p_fattura.style.border = '1.5px solid red';
                     }
                     else{
-                        this.$router.push('/checkout?di='+this.data_i+'&oi='+this.ora_i+'&of='+this.ora_f+'&df='+this.data_f+'&n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&msg='+msg.value+'&f='+fattura+'&nat='+nazione.value+'&nf='+n_fattura.value+'&rag_it='+r_fattura.value+'&ind='+i_fattura.value+'&ct_it='+ct_fattura.value+'&p_it='+p_fattura.value+'&vt='+this.vt+'&v='+this.v)
+                        this.$router.push('/checkout?di='+this.data_i+'&oi='+this.ora_i+'&of='+this.ora_f+'&df='+this.data_f+'&n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&msg='+msg.value+'&f='+fattura+'&ricevuta='+ricevuta+'&nat='+nazione.value+'&nf='+n_fattura.value+'&rag_it='+r_fattura.value+'&ind='+i_fattura.value+'&ct_it='+ct_fattura.value+'&p_it='+p_fattura.value+'&vt='+this.vt+'&v='+this.v)
                     }
                 }
                 else{
@@ -672,7 +672,7 @@ export default {
                     
                     else{
                         //REDIRECT CON MODALITA' DI INVIO
-                        this.$router.push('/checkout?di='+this.data_i+'&oi='+this.ora_i+'&of='+this.ora_f+'&df='+this.data_f+'&n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&marca='+marca.value+'&msg='+msg.value+'&f='+fattura+'&nat='+nazione.value+'&md_send='+mod_invio.value+'&dt_send='+dato_invio.value+'&rag_it='+ragione_it.value+'&prv='+provincia.value+'&com='+comune.value+'&ind='+indirizzo.value+'&ct_it='+citta.value+'&cap='+cap.value+'&p_it='+p_it.value+'&vt='+this.vt+'&v='+this.v)
+                        this.$router.push('/checkout?di='+this.data_i+'&oi='+this.ora_i+'&of='+this.ora_f+'&df='+this.data_f+'&n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&marca='+marca.value+'&msg='+msg.value+'&f='+fattura+'&ricevuta='+ricevuta+'&nat='+nazione.value+'&md_send='+mod_invio.value+'&dt_send='+dato_invio.value+'&rag_it='+ragione_it.value+'&prv='+provincia.value+'&com='+comune.value+'&ind='+indirizzo.value+'&ct_it='+citta.value+'&cap='+cap.value+'&p_it='+p_it.value+'&vt='+this.vt+'&v='+this.v)
                             
                         }
                     }
@@ -685,13 +685,14 @@ export default {
                     else if (p_it.value == "" || p_it.value == undefined){p_it.style.border = '1.5px solid red'; p_it.scrollIntoView();}
                     else{
                         //REDIRECT SENZA MODALITA' DI INVIO
-                        this.$router.push('/checkout?di='+this.data_i+'&oi='+this.ora_i+'&of='+this.ora_f+'&df='+this.data_f+'&n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&marca='+marca.value+'&msg='+msg.value+'&f='+fattura+'&nat='+nazione.value+'&md_send='+mod_invio.value+'&rag_it='+ragione_it.value+'&prv='+provincia.value+'&com='+comune.value+'&ind='+indirizzo.value+'&ct_it='+citta.value+'&cap='+cap.value+'&p_it='+p_it.value+'&vt='+this.vt+'&v='+this.v)
+                        this.$router.push('/checkout?di='+this.data_i+'&oi='+this.ora_i+'&of='+this.ora_f+'&df='+this.data_f+'&n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&marca='+marca.value+'&msg='+msg.value+'&f='+fattura+'&ricevuta='+ricevuta+'&nat='+nazione.value+'&md_send='+mod_invio.value+'&rag_it='+ragione_it.value+'&prv='+provincia.value+'&com='+comune.value+'&ind='+indirizzo.value+'&ct_it='+citta.value+'&cap='+cap.value+'&p_it='+p_it.value+'&vt='+this.vt+'&v='+this.v)
                     }
                 }
             }
             else{
                 fattura = 0;
-                this.$router.push('/checkout?di='+this.data_i+'&oi='+this.ora_i+'&of='+this.ora_f+'&df='+this.data_f+'&n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&marca='+marca.value+'&msg='+msg.value+'&f='+fattura+'&vt='+this.vt+'&v='+this.v);
+                ricevuta = 1;
+                this.$router.push('/checkout?di='+this.data_i+'&oi='+this.ora_i+'&of='+this.ora_f+'&df='+this.data_f+'&n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&marca='+marca.value+'&msg='+msg.value+'&f='+fattura+'&ricevuta='+ricevuta+'&vt='+this.vt+'&v='+this.v);
                 
             }
           }
