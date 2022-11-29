@@ -21,11 +21,17 @@
                     </div>
                     <div class="flex md:flex-row flex-col gap-[39px]">
                         <div class="flex-1 pl-[10px] md:pl-[40px] pb-[15px] border-b-[1px] border-[#B4B4B4] border-solid">
-                            <h4 class="text-secondary font-medium text-[20px]">{{this.modello}}</h4>
+                            <h4 class="text-secondary font-medium text-[20px]">MODELLO: {{this.modello}}</h4>
                         </div>
                         <div class="flex-1 pl-[10px] md:pl-[40px] pb-[15px] border-b-[1px] border-[#B4B4B4] border-solid">
-                            <h4 class="text-secondary font-medium text-[20px]">{{this.targa}}</h4>
+                            <h4 class="text-secondary font-medium text-[20px]">MARCA: {{this.targa}}</h4>
                         </div>
+                    </div>
+                      <div class="flex md:flex-row flex-col gap-[39px]">
+                        <div class="flex-1 pl-[10px] md:pl-[40px] pb-[15px] border-b-[1px] border-[#B4B4B4] border-solid">
+                            <h4 class="text-secondary font-medium text-[20px]">TARGA: {{this.targa}}</h4>
+                        </div>
+                       
                     </div>
                     <div class="flex gap-[39px]">
                         <div class="flex-1 pl-[10px] md:pl-[40px] pb-[97px] border-b-[1px] border-[#B4B4B4] border-solid">

@@ -59,7 +59,7 @@
     export default{
        
        
-        props: ['ingresso', 'uscita', 'ora_uscita', 'ora_ingresso', 'nazione', 'provincia', 'indirizzo', 'citta', 'cap', 'piva', 'comune', 'societa', 'datoinvio','modinvio' , 'ragionesociale' , 'v','prezzo', 'vt', 'dataInizio', 'dataFine','nome', 'cognome', 'mail', 'targa', 'fattura', 'modello', 'msg', 'telefono'],
+        props: ['marca', 'ingresso', 'uscita', 'ora_uscita', 'ora_ingresso', 'nazione', 'provincia', 'indirizzo', 'citta', 'cap', 'piva', 'comune', 'societa', 'datoinvio','modinvio' , 'ragionesociale' , 'v','prezzo', 'vt', 'dataInizio', 'dataFine','nome', 'cognome', 'mail', 'targa', 'fattura', 'modello', 'msg', 'telefono'],
         methods: {
          
        
@@ -101,6 +101,7 @@
                     "ora_ingresso": this.ora_ingresso,
                     "ingresso": this.ingresso,
                     "uscita": this.uscita,
+                    "marca": this.marca,
 
                 }).then(function(response){
                     

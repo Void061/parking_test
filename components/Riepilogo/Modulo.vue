@@ -1,7 +1,7 @@
 <template>
     <section class="px-[20px] py-[100px] md:py-[136px] mx-auto md:px-[81px] container">
-         <div id="popup-modal" tabindex="-1" class="hidden bg-[#000000a4] overflow-y-hidden overflow-x-hidden fixed top-0 right-0 left-0 z-50 md:inset-0 h-modal md:h-full">
-    <div class="relative p-4 w-full max-w-md h-full m-auto top-[35%] md:h-auto">
+         <div id="popup-modal" tabindex="-1" class="hidden bg-[#000000a4] overflow-y-hidden overflow-x-hidden fixed top-0 right-0 left-0 z-50 md:inset-0 h-modal h-full">
+    <div class="relative p-4 w-full max-w-md h-full m-auto top-[5%] md:top-[15%] md:h-auto">
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <button @click="closeModal" type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white">
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
@@ -9,8 +9,8 @@
             </button>
             <div class="p-6 text-center">
                 <svg aria-hidden="true" class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <h3 class="text-lg font-normal text-gray-500 dark:text-gray-400">Mi impegno a comunicare la targa e le specifiche del modello il prima possibile.</h3>
-                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Ogni prenotazione senza targa o le specifiche del modello potrebbe essere invalidata.</h3>
+                <h3 class="text-lg font-normal text-gray-500 dark:text-gray-400">Mi impegno a comunicare la TARGA e il MODELLO dell'auto almeno 24H prima del mio arrivo.</h3>
+                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Ogni prenotazione senza indicazione di targa e modello entro questi termini sarà considerata NULLA e non rimborsabile.</h3>
                 <button @click="consentiModal" type="button" class="text-secondary bg-primary hover:bg-[#ca9d14] focus:ring-4 focus:outline-none focus:ring-[#d6af3b] dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
                     Confermo
                 </button>
@@ -22,17 +22,20 @@
         <h2 class="font-bold text-[36px] text-secondary">PRENOTA ONLINE IL TUO PARCHEGGIO</h2>
          
         <div class="mt-[54px] border-t-[1px] border-solid border-[#B4B4B4] py-[67px] flex flex-col gap-[20px]">
-            <div class="flex-col md:flex-row flex gap-[20px] md:gap-[44px]">
+            <div class="flex-col xl:flex-row flex gap-[20px] xl:gap-[44px]">
                 <input @click="ErrorFixing($event)" id="nome" class="flex-1 text-[20px] py-[8px] pl-[37px] border-[1.5px] border-solid border-[#B4B4B4]" type="text" placeholder="NOME" />
                 <input  @click="ErrorFixing($event)" id="cognome" class="flex-1 text-[20px] py-[8px] pl-[37px] border-[1.5px] border-solid border-[#B4B4B4]" type="text" placeholder="COGNOME" />
             </div>
-            <div class="flex flex-col md:flex-row gap-[20px] md:gap-[44px]">
+            <div class="flex flex-col xl:flex-row gap-[20px] xl:gap-[44px]">
                 <input  @click="ErrorFixing($event)" id="telefono" class="flex-1 text-[20px] py-[8px] pl-[37px] border-[1.5px] border-solid border-[#B4B4B4]" type="text" placeholder="TELEFONO" />
                 <input  @click="ErrorFixing($event)" id="mail" class="flex-1 text-[20px] py-[8px] pl-[37px] border-[1.5px] border-solid border-[#B4B4B4]" type="text" placeholder="MAIL" />
             </div>
-            <div class="flex md:flex-row flex-col gap-[20px] md:gap-[44px]">
-                <input  @click="ErrorFixing($event)" id="modello" class="flex-1 text-[20px] py-[8px] pl-[37px] border-[1.5px] border-solid border-[#B4B4B4]" type="text" placeholder="MARCA E MODELLO DEL VEICOLO" />
-                <input  @click="ErrorFixing($event)" id="targa" class="flex-1 text-[20px] py-[8px] pl-[37px] border-[1.5px] border-solid border-[#B4B4B4]" type="text" placeholder="TARGA" />
+            <div class="flex xl:flex-row flex-col gap-[20px] xl:gap-[44px]">
+                <input  @click="ErrorFixing($event)" id="modello" class="flex-1 text-[20px] py-[8px] pl-[37px] border-[1.5px] border-solid border-[#B4B4B4]" type="text" placeholder="MODELLO DEL VEICOLO" />
+                <input  @click="ErrorFixing($event)" id="marca" class="flex-1 text-[20px] py-[8px] pl-[37px] border-[1.5px] border-solid border-[#B4B4B4]" type="text" placeholder="MARCA DEL VEICOLO" />
+            </div>
+            <div class="flex xl:flex-row flex-col gap-[20px] xl:gap-[44px]">
+                <input  @click="ErrorFixing($event)" id="targa" class="flex-1 text-[20px] py-[8px] pl-[37px] border-[1.5px] border-solid border-[#B4B4B4]" type="text" placeholder="TARGA DEL VEICOLO" />
             </div>
             <div class="flex gap-[44px]">
                 <textarea id="msg" placeholder="MESSAGGIO" class="h-[131px] flex-1 text-[20px] py-[8px] pl-[37px] border-[1.5px] border-solid border-[#B4B4B4]"></textarea>
@@ -101,12 +104,19 @@
         </div>
 
         <div class="pb-[55px] border-b-[1px] border-solid border-[#B4B4B4] mt-[100px] md:mt-[152px] flex flex-col">
-            <h4 class="font-bold text-[#B4B4B4] font-medium text-[20px] py-8">*NOTA BENE Posti per FURGONI/MINIVAN: <span class="font-normal">Altezza MAX consentita per veicoli mt 2,70 e larghezza Max mt 2,40</span></h4>
+            
             <h4 class="font-bold text-[#B4B4B4] font-medium text-[20px]">ORARI DEL PARCHEGGIO</h4>
             <h4 class="max-w-[953px] mt-[34px] text-[#B4B4B4] font-medium text-[20px]">
-                ORARI DI APERTURA: dal Lunedì al Sabato dalle 06:00 AM alle 01:00 AM 
-                GIORNI DI CHIUSURA: Domenica chiuso dalle 10:00 AM alle 18:00 AM e giorni festivi.
+                <span class="font-bold">ORARI DI APERTURA</span>: dal Lunedì al Sabato dalle <span class="font-bold">06:00 AM </span> alle <span class="font-bold">01:00 AM</span> 
             </h4>
+             <h4 class="max-w-[953px] text-[#B4B4B4] font-medium text-[20px]">
+                 <span class="font-bold">GIORNI DI CHIUSURA</span>: <span class="font-bold">Domenica</span> e <span class="font-bold">festivi</span> chiuso dalle <span class="font-bold">10:00</span> alle <span class="font-bold">18:00</span>
+            </h4>
+
+             <h4 class="max-w-[953px] mt-[34px] text-[#B4B4B4] font-medium text-[20px]">
+                 E dal 10 AGOSTO per tre settimane chiuso dalle 10:00 alle 19:00
+             </h4>
+        
             <div class="mt-[34px] flex gap-[30px]">
                  <label class="mt-[6px] custom-checkbox">
                     <input @click="ErrorFixing($event, 'checkmark-orario')" id='orario-ridotto' class="" type="checkbox" />
@@ -138,6 +148,13 @@
             <h4 class="font-bold text-[#B4B4B4] text-[20px]">AVVERTENZE</h4>
             <h4 class="max-w-[953px] mt-[34px] text-[#B4B4B4] font-medium text-[20px]">
                 Se in fase di prenotazione decidi di NON comunicare il segmento della tua auto poiché è stata NOLEGGIATA e non sei ancora certo del modello definitivo che ti verrà consegnato, ti impegni a comunicare al Parcheggio in oggetto i dati dell’auto che ti hanno consegnato almeno 24h prima dell’arrivo pena l’invalidità della prenotazione. In questa circostanza la tua prenotazione non sarà rimborsabile
+            </h4>
+
+            <h4 class="max-w-[953px] mt-[34px] text-[#B4B4B4] font-medium text-[20px]">
+                Le richieste di <span class="font-bold">ANNULLAMENTO</span> delle prenotazioni possono essere effettuate e devono avvenire con un preavviso di almeno 48h di anticipo prima dell'arrivo tramite comunicazione espressa inviata via mail all'indirizzo di posta elettronica.......
+            </h4>
+             <h4 class="max-w-[953px] mt-[34px] text-[#B4B4B4] font-medium text-[20px]">
+               <span class="font-bold">*NOTA BENE Posti per FURGONI/MINIVAN:</span> Altezza MAX consentita per veicoli <span class="font-bold">mt 2,70</span> e larghezza MAX <span class="font-bold">mt 2,40</span>
             </h4>
             <div class="mt-[34px] flex gap-[30px]">
                  <label class="mt-[6px] custom-checkbox">
@@ -471,6 +488,7 @@ export default {
             this.modello_consenti = 1;
             modello.value = 'NON INDICATO';
             targa.value = 'NON INDICATA';
+            marca.value = 'NON INDICATA';
             document.getElementById('popup-modal').classList.add('hidden');
             this.Checkout();
         },
@@ -478,6 +496,7 @@ export default {
             document.getElementById('popup-modal').classList.add('hidden');
             document.getElementById('modello').style.border = '1.5px solid red';
             document.getElementById('targa').style.border = '1.5px solid red';
+            document.getElementById('marca').style.border = '1.5px solid red';
             document.getElementById('modello').scrollIntoView();
            
         },
@@ -493,9 +512,9 @@ export default {
         ModInvio(e){
             e.target.style.border = '1.5px solid #B4B4B4';
             if(e.target.value != 'Nessuna'){document.getElementById('dato-invio').classList.remove('hidden');}
-            if(e.target.value == 'PEC'){document.getElementById('dato-invio').placeholder='PEC';}
-            if(e.target.value == 'Codice destinatario'){document.getElementById('dato-invio').placeholder='Codice destinatario (SDI)';}
-            if(e.target.value == 'Codice IPA (pubblica amministrazione)'){document.getElementById('dato-invio').placeholder='Codice IPA';}
+            if(e.target.value == 'PEC'){document.getElementById('dato-invio').placeholder='Indirizzo Pec';}
+            if(e.target.value == 'Codice destinatario'){document.getElementById('dato-invio').placeholder='Inserire codice destinatario (SDI)';}
+            if(e.target.value == 'Codice IPA (pubblica amministrazione)'){document.getElementById('dato-invio').placeholder='Inserire codice IPA';}
             if(e.target.value == 'Nessuna'){document.getElementById('dato-invio').classList.add('hidden');}
         },
         Locations(e){
@@ -534,6 +553,7 @@ export default {
             let targa = document.getElementById('targa');
             let mail = document.getElementById('mail');
             let modello = document.getElementById('modello');
+            let marca = document.getElementById('marca');
             let msg = document.getElementById('msg');
             let fattura = 0;
             let nazione = document.getElementById('nazione');
@@ -595,7 +615,7 @@ export default {
                 document.getElementById('checkmark-avvertenze').style.border = '1.5px solid red';
             }
 
-            else if(modello.value == "" || modello.value == undefined || targa.value == "" || targa.value == undefined){
+            else if(modello.value == "" || modello.value == undefined || targa.value == "" || targa.value == undefined || marca.value=="" || marca.value == undefined){
                 
                 document.getElementById('popup-modal').classList.remove('hidden');
                 
@@ -652,7 +672,7 @@ export default {
                     
                     else{
                         //REDIRECT CON MODALITA' DI INVIO
-                        this.$router.push('/checkout?di='+this.data_i+'&oi='+this.ora_i+'&of='+this.ora_f+'&df='+this.data_f+'&n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&msg='+msg.value+'&f='+fattura+'&nat='+nazione.value+'&md_send='+mod_invio.value+'&dt_send='+dato_invio.value+'&rag_it='+ragione_it.value+'&prv='+provincia.value+'&com='+comune.value+'&ind='+indirizzo.value+'&ct_it='+citta.value+'&cap='+cap.value+'&p_it='+p_it.value+'&vt='+this.vt+'&v='+this.v)
+                        this.$router.push('/checkout?di='+this.data_i+'&oi='+this.ora_i+'&of='+this.ora_f+'&df='+this.data_f+'&n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&marca='+marca.value+'&msg='+msg.value+'&f='+fattura+'&nat='+nazione.value+'&md_send='+mod_invio.value+'&dt_send='+dato_invio.value+'&rag_it='+ragione_it.value+'&prv='+provincia.value+'&com='+comune.value+'&ind='+indirizzo.value+'&ct_it='+citta.value+'&cap='+cap.value+'&p_it='+p_it.value+'&vt='+this.vt+'&v='+this.v)
                             
                         }
                     }
@@ -665,13 +685,13 @@ export default {
                     else if (p_it.value == "" || p_it.value == undefined){p_it.style.border = '1.5px solid red'; p_it.scrollIntoView();}
                     else{
                         //REDIRECT SENZA MODALITA' DI INVIO
-                        this.$router.push('/checkout?di='+this.data_i+'&oi='+this.ora_i+'&of='+this.ora_f+'&df='+this.data_f+'&n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&msg='+msg.value+'&f='+fattura+'&nat='+nazione.value+'&md_send='+mod_invio.value+'&rag_it='+ragione_it.value+'&prv='+provincia.value+'&com='+comune.value+'&ind='+indirizzo.value+'&ct_it='+citta.value+'&cap='+cap.value+'&p_it='+p_it.value+'&vt='+this.vt+'&v='+this.v)
+                        this.$router.push('/checkout?di='+this.data_i+'&oi='+this.ora_i+'&of='+this.ora_f+'&df='+this.data_f+'&n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&marca='+marca.value+'&msg='+msg.value+'&f='+fattura+'&nat='+nazione.value+'&md_send='+mod_invio.value+'&rag_it='+ragione_it.value+'&prv='+provincia.value+'&com='+comune.value+'&ind='+indirizzo.value+'&ct_it='+citta.value+'&cap='+cap.value+'&p_it='+p_it.value+'&vt='+this.vt+'&v='+this.v)
                     }
                 }
             }
             else{
                 fattura = 0;
-                this.$router.push('/checkout?di='+this.data_i+'&oi='+this.ora_i+'&of='+this.ora_f+'&df='+this.data_f+'&n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&msg='+msg.value+'&f='+fattura+'&vt='+this.vt+'&v='+this.v);
+                this.$router.push('/checkout?di='+this.data_i+'&oi='+this.ora_i+'&of='+this.ora_f+'&df='+this.data_f+'&n='+nome.value+'&c='+cognome.value+'&tel='+tel.value+'&m='+mail.value+'&tg='+targa.value+'&md='+modello.value+'&marca='+marca.value+'&msg='+msg.value+'&f='+fattura+'&vt='+this.vt+'&v='+this.v);
                 
             }
           }

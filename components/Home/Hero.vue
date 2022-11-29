@@ -1,10 +1,14 @@
 <template>
     <section class="min-h-[700px] bg-primary h-screen">
-   
-        <div class="pb-5 px-[20px] md:px-[80px] h-full container flex justify-center xl:justify-start items-center relative mx-auto">
+        <div v-if="!this.ready" class="fixed top-0 bottom-0 w-full bg-primary h-screen z-[9]">
+          <div class="flex justify-center items-center h-screen">
+            <img class="min-w-[120px]" src="/img/tail-spin.svg" alt="spin" />
+          </div>
+        </div>
+        <div v-else class="pb-5 px-[20px] md:px-[80px] h-full container flex justify-center xl:justify-start items-center relative mx-auto">
           <img class="z-[1] absolute xl:block hidden bottom-0 right-[5%]" src="/img/hand.png" alt="prenotazioni" />
           <div class="z-[2] flex flex-col max-w-[500px] md:max-w-[unset] md:min-w-[546px]">
-            <h4 class="mt-[18px] text-secondary font-medium text-[25px] md:text-[36px]">PARKING I</h4>
+            <h4 class="mt-[18px] text-secondary font-bold text-[25px] md:text-[40px]">PARKINGARAGE I</h4>
            <div class="flex gap-[10px] md:gap-[20px] items-center">
               <svg class="hidden md:block" width="26" height="36" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="26" height="36" transform="translate(1 1)" fill=""/>
@@ -91,6 +95,7 @@ export default{
   props: [ 'veicoli'],
   data(){
     return{
+      ready: false,
       it: it,
       data_start: "",
       data_end: "",
@@ -196,6 +201,7 @@ export default{
   },
 
   async mounted(){
+   
 let dx_day = new Date().getUTCDate();
    let dx = new Date();
 
@@ -228,6 +234,8 @@ let dx_day = new Date().getUTCDate();
     let index_chiusura = this.orari_ingresso.indexOf(chiusura);
     this.orari_ingresso = this.orari_ingresso.splice(index_apertura, index_chiusura);
     
+    setTimeout(() => this.ready = true, 3000);
+     
   }
 
 }

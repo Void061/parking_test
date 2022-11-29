@@ -1,7 +1,7 @@
 <template>
       <section class="px-[20px] md:px-[81px]  py-[60px] md:py-[100px] md:py-[136px] mx-auto  container">
        
-        <h4 class="font-medium text-[25px] md:text-[36px] text-secondary">PARKING I</h4>
+        <h4 class="font-bold text-[25px] md:text-[40px] text-secondary">PARKINGARAGE I</h4>
         <div class=" mt-[25px] flex bg-[#ffff] items-center gap-[10px] md:gap-[28px]">
              <svg class="hidden md:block" width="26" height="36" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="26" height="36" transform="translate(1 1)" fill=""/>
