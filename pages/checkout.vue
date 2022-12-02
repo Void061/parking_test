@@ -46,11 +46,15 @@
         async mounted(){
             
 
-            if(this.$route.query.of == "" || this.$route.query.of == undefined || this.$route.query.oi == "" || this.$route.query.oi == undefined || this.$route.query.df == "" || this.$route.query.df == undefined || this.$route.query.di == "" || this.$route.query.di== undefined || this.$route.query.n == "" || this.$route.query.n == undefined || this.$route.query.c == "" || this.$route.query.c == undefined || 
+            if(this.$route.query.of == "" || this.$route.query.of == undefined || this.$route.query.oi == "" || this.$route.query.oi == undefined || 
+            this.$route.query.df == "" || this.$route.query.df == undefined || 
+            this.$route.query.di == "" || this.$route.query.di== undefined || this.$route.query.n == "" || this.$route.query.n == undefined || 
+            this.$route.query.c == "" || this.$route.query.c == undefined || 
                 this.$route.query.m == "" || this.$route.query.m == undefined || this.$route.query.tel == "" || this.$route.query.tel == undefined
                 || this.$route.query.tg == "" || this.$route.query.tg == undefined || this.$route.query.md == "" || this.$route.query.md == undefined
                 || this.$route.query.f == "" || this.$route.query.f == undefined || this.$route.query.vt == "" || this.$route.query.vt == undefined
-                || this.$route.query.v == "" || this.$route.query.v == undefined || this.$route.query.marca == "" || this.$route.query.marca == undefined || this.$route.query.ricevuta == "" || this.$route.query.ricevuta == undefined
+                || this.$route.query.v == "" || this.$route.query.v == undefined || this.$route.query.marca == "" || this.$route.query.marca == undefined 
+                || this.$route.query.ricevuta == "" || this.$route.query.ricevuta == undefined
             ){this.$router.push('/prenotazione')}
 
 
@@ -75,10 +79,13 @@
                   }
                   else if(this.$route.query.nat == "Italy"){
                       if(this.$route.query.nat == undefined || this.$route.query.md_send == "" || this.$route.query.md_send == undefined
-                   || this.$route.query.rag_it == "" || this.$route.query.rag_it == undefined || this.$route.query.prv == "" || this.$route.query.prv == undefined
-                   || this.$route.query.com == "" || this.$route.query.com == undefined || this.$route.query.ind == "" || this.$route.query.ind == undefined
-                   || this.$route.query.ind == "" || this.$route.query.ct_it == "" || this.$route.query.ct_it == undefined || this.$route.query.cap == "" ||
-                   this.$route.query.cap == undefined || this.$route.query.p_it == "" || this.$route.query.p_it == undefined || this.$route.query.dt_send == "" || this.$route.query.dt_send == undefined){
+                   || this.$route.query.rag_it == "" || this.$route.query.rag_it == undefined || this.$route.query.prv == "" || 
+                   this.$route.query.prv == undefined
+                   || this.$route.query.com == "" || this.$route.query.com == undefined || this.$route.query.ind == "" || 
+                   this.$route.query.ind == undefined
+                   || this.$route.query.ind == "" || this.$route.query.ct_it == "" || this.$route.query.ct_it == undefined || 
+                   this.$route.query.cap == "" ||
+                   this.$route.query.cap == undefined || this.$route.query.p_it == "" || this.$route.query.p_it == undefined){
                        this.$router.push('/prenotazione');
                   }
                    }
