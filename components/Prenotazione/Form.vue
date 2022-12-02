@@ -227,7 +227,7 @@ export default{
    let dx = new Date();
 
    this.state.disabledDates =  {to: new Date(dx.getFullYear(),dx.getMonth(),dx_day),
-        days: [6, 0],}
+        /*days: [6, 0],*/}
     //Prendo orario e chiusura
    const RangeLavoro = await this.$axios.$get('/sede/1');
    this.FasciaOraria = RangeLavoro.data;

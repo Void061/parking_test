@@ -4,7 +4,7 @@
         <h2 class="font-bold text-[36px] text-secondary">Scegli il metodo di pagamento</h2>
         
         <div class="pb-[131px] mt-[54px] flex flex-col border-t-[1px] border-solid border-[#B4B4B4]">
-            <!--
+            
             <label class="cursor-pointer h-[90px] border-[1.5px] px-[10px] md:px-[40px] py-[10px] border-solid border-[#B4B4B4] mt-[54px] flex justify-between items-center">
                 <div class="flex items-center gap-[52px]">
                    <input type="radio" name="pagamento" />
@@ -14,7 +14,17 @@
                     <img class="h-auto max-h-[50px]" src="/img/Stripe.png" alt="Stripe" />
                 </div>
             </label>  
-           -->
+            <!--
+           <StripeCheckout
+                :pk="pk"
+                :amount="stripeamount"
+                locale="auto"
+                
+             
+            >
+            </StripeCheckout>
+            -->
+           
             
             <label class="cursor-pointer h-[90px] border-[1.5px] px-[10px] md:px-[40px] py-[10px] border-solid border-[#B4B4B4] mt-[54px] flex justify-between items-center">
                 <div class="flex items-center gap-[52px]">
@@ -34,7 +44,7 @@
                     <img src="/img/paypal_logo.png" alt="cards" />
                 </div>
             </label>   
-         
+            
             <div id="paypal-pagamento" class="mt-[78px] hidden">
                 <no-ssr>
             <paypal-checkout
@@ -57,9 +67,11 @@
 <script>
 
     export default{
-       
-       
+     
         props: ['ricevuta', 'marca', 'ingresso', 'uscita', 'ora_uscita', 'ora_ingresso', 'nazione', 'provincia', 'indirizzo', 'citta', 'cap', 'piva', 'comune', 'societa', 'datoinvio','modinvio' , 'ragionesociale' , 'v','prezzo', 'vt', 'dataInizio', 'dataFine','nome', 'cognome', 'mail', 'targa', 'fattura', 'modello', 'msg', 'telefono'],
+         components: {
+    //StripeCheckout,
+  },
         methods: {
          
        
@@ -70,6 +82,7 @@
             async paymentCompleted(value){
                //value contiene tutte le info della transazione
                
+               if(this.fattura){}
                 const Save = await this.$axios.$post('/prenotazione/acquisizione', {
                     "CategoriaId": this.vt,
                     "dataInizio": this.dataInizio,
@@ -103,6 +116,8 @@
                     "uscita": this.uscita,
                     "marca": this.marca,
                     "ricevuta" : this.ricevuta,
+                    "fatturaEmessa": this.ricevuta, //E' per dire che non serve la fattura se ricevuta è 1
+                    "ricevutaEmessa": this.fattura, //E' per dire che non serve la ricevuta se fattura è 1
 
                 }).then(function(response){
                     
@@ -127,14 +142,19 @@
             if(process.client){
                 
                 const Paypal = () => import('vue-paypal-checkout');
-                
+          
                 
           }
+
+        
 
        
         },
         data(){
             return{
+                stripeamount: 100,
+                token: null,
+                pk: 'pk_test_51M6tmzD2GIk435gIBwEV04IE2XdTnqLCIVNobNK8uW0USM3hdsqOzBc6Q9CUVbJSU0So1AIwDbRbo9ank4y18RnM00PPPWMQBA',
                 credentials: {
                     sandbox: 'ATnGXc13L0XiO0HvGsPIF4jVHFoWDFMZOyw5wzxwGWAxcuKneS_RL86UvVStZO1YeThjkcyaaaVQSrwL',
                     production: '',
