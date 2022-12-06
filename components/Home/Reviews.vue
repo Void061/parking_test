@@ -14,7 +14,7 @@
     <!-- Slides -->
        <div class="swiper-slide">
       <div class="px-[38px] py-[60px] bg-[#F8F8F8] rounded-[24px] flex flex-col items-center justify-center">
-        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Comodissimo per la sua ubicazione in una zona doveè praticamente impossibile trovare un parcheggio libero. Prezzi nella media. Complessivamente mi ritengo molto soddisfatta.</h5>
+        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Comodissimo per la sua ubicazione in una zona dove è praticamente impossibile trovare un parcheggio libero. Prezzi nella media. Complessivamente mi ritengo molto soddisfatta.</h5>
         <img class="mt-[11px] w-[78px] h-[33px]" src="/img/virgolette.png" alt="virgolette" />
         <h3 class="mt-[32px] text-primary font-medium text-[24px]" >MIRIAM B.</h3>
         <img class="absolute bottom-0 translate-y-[50px] max-w-[90px]" src="/img/woman.png" alt="woman-1" />
@@ -41,7 +41,7 @@
 
       <div class="swiper-slide">
       <div class="px-[38px] py-[60px] bg-[#F8F8F8] rounded-[24px] flex flex-col items-center justify-center">
-        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Parcheggio comodissimoben collegato alla zona Prati e se ci si deve recare presso il tribunale Civile e Penale. All’esterno della zona Ztl, ottimo rapporto qualità prezzo, ve lo consiglio!</h5>
+        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Parcheggio comodissimo ben collegato alla zona Prati e se ci si deve recare presso il tribunale Civile e Penale. All’esterno della zona Ztl, ottimo rapporto qualità prezzo, ve lo consiglio!</h5>
         <img class="mt-[11px] w-[78px] h-[33px]" src="/img/virgolette.png" alt="virgolette" />
         <h3 class="mt-[32px] text-primary font-medium text-[24px]" >ROSARIO A.</h3>
         <img class="absolute bottom-0 translate-y-[50px] max-w-[90px]" src="/img/man.png" alt="man-2" />
@@ -50,7 +50,7 @@
 
      <div class="swiper-slide">
       <div class="px-[38px] py-[60px] bg-[#F8F8F8] rounded-[24px] flex flex-col items-center justify-center">
-        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Parcheggio molto comodo in zona centrale. la macchina in ogni momento della giornata. Penso che i prezzi siano nella media. Ottimo il servizio di prenotazione Online, consigliato.</h5>
+        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Parcheggio molto comodo in zona centrale. Personale disponibile, anche per riprendere la macchina. Penso che i prezzi siano nella media. Ottimo il servizio di prenotazione Online, consigliato.</h5>
         <img class="mt-[11px] w-[78px] h-[33px]" src="/img/virgolette.png" alt="virgolette" />
         <h3 class="mt-[32px] text-primary font-medium text-[24px]" >SILVIA R.</h3>
         <img class="absolute bottom-0 translate-y-[50px] max-w-[90px]" src="/img/woman.png" alt="woman-3" />
@@ -87,7 +87,7 @@
     <!-- Slides -->
        <div class="swiper-slide">
       <div class="px-[38px] py-[60px] bg-[#F8F8F8] rounded-[24px] flex flex-col items-center justify-center">
-        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Comodissimo per la sua ubicazione in una zona doveè praticamente impossibile trovare un parcheggio libero. Prezzi nella media. Complessivamente mi ritengo molto soddisfatta.</h5>
+        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Comodissimo per la sua ubicazione in una zona dove è praticamente impossibile trovare un parcheggio libero. Prezzi nella media. Complessivamente mi ritengo molto soddisfatta.</h5>
         <img class="mt-[11px] w-[78px] h-[33px]" src="/img/virgolette.png" alt="virgolette" />
         <h3 class="mt-[32px] text-primary font-medium text-[24px]" >MIRIAM B.</h3>
         <img class="absolute bottom-0 translate-y-[50px] max-w-[90px]" src="/img/woman.png" alt="woman-1-m" />
@@ -114,7 +114,7 @@
 
     <div class="swiper-slide">
       <div class="px-[38px] py-[60px] bg-[#F8F8F8] rounded-[24px] flex flex-col items-center justify-center">
-        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Parcheggio comodissimoben collegato alla zona Prati e se ci si deve recare presso il tribunale Civile e Penale. All’esterno della zona Ztl, ottimo rapporto qualità prezzo, ve lo consiglio!
+        <h5 class="text-center text-[18px] text-medium text-[#B4B4B4]">Parcheggio comodissimo ben collegato alla zona Prati e se ci si deve recare presso il tribunale Civile e Penale. All’esterno della zona Ztl, ottimo rapporto qualità prezzo, ve lo consiglio!
 </h5>
         <img class="mt-[11px] w-[78px] h-[33px]" src="/img/virgolette.png" alt="virgolette" />
         <h3 class="mt-[32px] text-primary font-medium text-[24px]" >ROSARIO A.</h3>

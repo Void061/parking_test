@@ -5,7 +5,7 @@
         
         <div class="pb-[131px] mt-[54px] flex flex-col border-t-[1px] border-solid border-[#B4B4B4]">
             
-            <label class="cursor-pointer h-[90px] border-[1.5px] px-[10px] md:px-[40px] py-[10px] border-solid border-[#B4B4B4] mt-[54px] flex justify-between items-center">
+            <label @click="setupStripe()" class="cursor-pointer h-[90px] border-[1.5px] px-[10px] md:px-[40px] py-[10px] border-solid border-[#B4B4B4] mt-[54px] flex justify-between items-center">
                 <div class="flex items-center gap-[52px]">
                    <input type="radio" name="pagamento" />
                     <h4 class="text-[#B4B4B4] font-medium text-[14px] md:text-[20px]">Paga con Stripe</h4>
@@ -13,29 +13,16 @@
                 <div class="flex">
                     <img class="h-auto max-h-[50px]" src="/img/Stripe.png" alt="Stripe" />
                 </div>
-            </label>  
-            <!--
-           <StripeCheckout
-                :pk="pk"
-                :amount="stripeamount"
-                locale="auto"
-                
-             
-            >
-            </StripeCheckout>
-            -->
-           
-            
-            <label class="cursor-pointer h-[90px] border-[1.5px] px-[10px] md:px-[40px] py-[10px] border-solid border-[#B4B4B4] mt-[54px] flex justify-between items-center">
-                <div class="flex items-center gap-[52px]">
-                   <input type="radio" name="pagamento" />
-                    <h4 class="text-[#B4B4B4] font-medium text-[14px] md:text-[20px]">Paga con carta</h4>
-                </div>
-                <div class="flex">
-                    <img class="md:h-auto h-[15px]" src="/img/credit_cards.png" alt="cards" />
-                </div>
             </label> 
-            <label @click="SetupPaypal()" class="cursor-pointer h-[90px] border-[1.5px] md:px-[40px] px-[10px] py-[10px] border-solid border-[#B4B4B4] mt-[54px] flex justify-between items-center">
+            <no-ssr>
+            <div id="stripe-pagamento" class=" xl:mx-[25%] hidden flex-col mt-[48px] ">
+                <StripeElementCard @token="tokenCreated" ref="elementRef" :pk="apikey"/>
+                <button class="mt-4 py-4 px-4 rounded-[10px] text-white bg-[#6F68FF]" @click="submit">Generate token</button>
+            </div>
+            </no-ssr>
+        
+           
+            <label @click="setupPaypal()" class="cursor-pointer h-[90px] border-[1.5px] md:px-[40px] px-[10px] py-[10px] border-solid border-[#B4B4B4] mt-[54px] flex justify-between items-center">
                 <div class="flex items-center gap-[52px]">
                     <input type="radio" name="pagamento" />
                     <h4 class="text-[#B4B4B4] font-medium text-[14px] md:text-[20px]">Paga con il tuo conto Paypal</h4>
@@ -67,13 +54,22 @@
 <script>
 
     export default{
-     
+    
         props: ['ricevuta', 'marca', 'ingresso', 'uscita', 'ora_uscita', 'ora_ingresso', 'nazione', 'provincia', 'indirizzo', 'citta', 'cap', 'piva', 'comune', 'societa', 'datoinvio','modinvio' , 'ragionesociale' , 'v','prezzo', 'vt', 'dataInizio', 'dataFine','nome', 'cognome', 'mail', 'targa', 'fattura', 'modello', 'msg', 'telefono'],
          components: {
-    //StripeCheckout,
+            
   },
         methods: {
          
+         submit () {
+      // this will trigger the process
+      this.$refs.elementRef.submit();
+    },
+    tokenCreated (token) {
+      console.log(token);
+      // handle the token
+      // send it to your server
+    },
        
           
             paymentAuthorized(value){
@@ -118,6 +114,7 @@
                     "ricevuta" : this.ricevuta,
                     "fatturaEmessa": this.ricevuta, //E' per dire che non serve la fattura se ricevuta è 1
                     "ricevutaEmessa": this.fattura, //E' per dire che non serve la ricevuta se fattura è 1
+                    "payment_method" : "Paypal",
 
                 }).then(function(response){
                     
@@ -127,22 +124,28 @@
             paymentCancelled(value){
                 
             },
-            SetupPaypal(){
+            setupPaypal(){
                 /*
                 document.querySelectorAll('.paypal-button-shape-pill').style.paddingTop = '21px';
                 document.querySelectorAll('.paypal-button-shape-pill').style.paddingBottom = '21px';
                 document.querySelectorAll('.paypal-button-shape-pill').style.borderRadius = '11px';
                 */
                 document.getElementById('paypal-pagamento').classList.remove('hidden');
-                //Hidden cards
-            }
+                document.getElementById('stripe-pagamento').classList.add('hidden');
+                document.getElementById('stripe-pagamento').classList.remove('flex');
+            },
+
+        setupStripe(){
+            document.getElementById('stripe-pagamento').classList.remove('hidden');
+            document.getElementById('stripe-pagamento').classList.add('flex');
+            document.getElementById('paypal-pagamento').classList.add('hidden');
         },
+    },
 
         mounted(){
             if(process.client){
-                
                 const Paypal = () => import('vue-paypal-checkout');
-          
+                //const Stripe = () => import('@vue-stripe/vue-stripe');
                 
           }
 
@@ -152,9 +155,9 @@
         },
         data(){
             return{
-                stripeamount: 100,
+                apikey: 'pk_test_51M6tmzD2GIk435gIBwEV04IE2XdTnqLCIVNobNK8uW0USM3hdsqOzBc6Q9CUVbJSU0So1AIwDbRbo9ank4y18RnM00PPPWMQBA',
                 token: null,
-                pk: 'pk_test_51M6tmzD2GIk435gIBwEV04IE2XdTnqLCIVNobNK8uW0USM3hdsqOzBc6Q9CUVbJSU0So1AIwDbRbo9ank4y18RnM00PPPWMQBA',
+              
                 credentials: {
                     sandbox: 'ATnGXc13L0XiO0HvGsPIF4jVHFoWDFMZOyw5wzxwGWAxcuKneS_RL86UvVStZO1YeThjkcyaaaVQSrwL',
                     production: '',
