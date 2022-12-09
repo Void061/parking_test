@@ -78,12 +78,18 @@ export default {
     
     
   ],
+  
+  publicRuntimeConfig: {
+    stripeApiKey: 'pk_test_51M6tmzD2GIk435gIBwEV04IE2XdTnqLCIVNobNK8uW0USM3hdsqOzBc6Q9CUVbJSU0So1AIwDbRbo9ank4y18RnM00PPPWMQBA',
+    Sede: 1,
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: 'https://back-parking.g2r.it/api',
   },
+ 
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

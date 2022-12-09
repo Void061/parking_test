@@ -2,8 +2,8 @@
     <section class="mt-[58px] container mx-auto px-[20px] md:px-[81px]">
         
         <h2 class="font-bold text-[36px] text-secondary">Scegli il metodo di pagamento</h2>
-        
-        <div class="pb-[131px] mt-[54px] flex flex-col border-t-[1px] border-solid border-[#B4B4B4]">
+       
+        <div v-if="loading" class="pb-[131px] mt-[54px] flex flex-col border-t-[1px] border-solid border-[#B4B4B4]">
             
             <label @click="setupStripe()" class="cursor-pointer h-[90px] border-[1.5px] px-[10px] md:px-[40px] py-[10px] border-solid border-[#B4B4B4] mt-[54px] flex justify-between items-center">
                 <div class="flex items-center gap-[52px]">
@@ -16,11 +16,20 @@
             </label> 
             <no-ssr>
             <div id="stripe-pagamento" class=" xl:mx-[25%] hidden flex-col mt-[48px] ">
-                <StripeElementCard @token="tokenCreated" ref="elementRef" :pk="apikey"/>
-                <button class="mt-4 py-4 px-4 rounded-[10px] text-white bg-[#6F68FF]" @click="submit">Generate token</button>
+                <StripeCheckout
+      ref="checkoutRef"
+      mode="payment"
+      :pk="apikey"
+      :line-items="lineItems"
+      :success-url="successURL"
+      :cancel-url="cancelURL"
+      @loading="v => loading = v"
+    />
+                <button class="mt-4 py-4 px-4 rounded-[10px] text-white bg-[#6F68FF]" @click="submit">PROCEDI AL PAGAMENTO</button>
             </div>
             </no-ssr>
         
+
            
             <label @click="setupPaypal()" class="cursor-pointer h-[90px] border-[1.5px] md:px-[40px] px-[10px] py-[10px] border-solid border-[#B4B4B4] mt-[54px] flex justify-between items-center">
                 <div class="flex items-center gap-[52px]">
@@ -55,15 +64,27 @@
 
     export default{
     
-        props: ['ricevuta', 'marca', 'ingresso', 'uscita', 'ora_uscita', 'ora_ingresso', 'nazione', 'provincia', 'indirizzo', 'citta', 'cap', 'piva', 'comune', 'societa', 'datoinvio','modinvio' , 'ragionesociale' , 'v','prezzo', 'vt', 'dataInizio', 'dataFine','nome', 'cognome', 'mail', 'targa', 'fattura', 'modello', 'msg', 'telefono'],
+        props: ['ricevuta', 'marca', 'ingresso', 'uscita', 'ora_uscita', 'ora_ingresso', 'nazione', 'provincia', 'indirizzo',
+         'citta', 'cap', 'piva', 'comune', 'societa', 'datoinvio','modinvio' , 'ragionesociale' , 'v','prezzo', 'vt', 'dataInizio', 'dataFine','nome', 'cognome', 'mail', 'targa', 'fattura', 'modello', 'msg', 'telefono'],
          components: {
             
   },
         methods: {
+            async init(){
+                
+             const key = this.$axios.$get('/prenotazione/stripePrice?CategoriaId='+this.vt+'&SedeId=1&dataInizio='+new Date(this.dataInizio).getTime()+'&dataFine='+new Date(this.dataFine).getTime()).then(data => {
+                  this.lineItems[0].price = data.price.id;
+                 this.successURL = "http://localhost:3000/check_payment?CategoriaId="+this.vt+"&dataInizio="+new Date(this.dataInizio).getTime()+"&dataFine="+new Date(this.dataFine).getTime()+"&SedeId=1&Nome="+this.nome+"&Cognome="+this.cognome+"&Telefono="+this.telefono+"&Mail="+this.mail+"&Modello="+this.modello+"&Targa="+this.targa+"&Messaggio="+this.msg+"&Prezzo="+this.Prezzo+"&Veicolo="+this.v+"&Fattura="+this.fattura+"&Nazione="+this.nazione+"&mod_invio="+this.mod_invio+"&dato_invio="+this.dato_invio+"&RagioneSociale="+this.ragionesociale+"&Provincia="+this.provincia+"&Comune="+this.comune+"&Indirizzo="+this.indirizzo+"&City="+this.citta+"&Cap="+this.cap+"&Piva="+this.piva+"&NomeSocieta="+this.societa+"&ora_uscita="+this.ora_uscita+"&ora_ingresso="+this.ora_ingresso+"&ingresso="+this.ingresso+"&uscita="+this.uscita+"&marca="+this.marca+"&ricevuta="+this.ricevuta+"&fatturaEmessa="+this.ricevuta+"&ricevutaEmessa="+this.fattura+"&payment_method=stripe&session_id={CHECKOUT_SESSION_ID}";
+                 this.loading = true;
+             })
+            
+             
+            
+            },
          
          submit () {
-      // this will trigger the process
-      this.$refs.elementRef.submit();
+      // You will be redirected to Stripe's secure checkout page
+      this.$refs.checkoutRef.redirectToCheckout();
     },
     tokenCreated (token) {
       console.log(token);
@@ -105,7 +126,7 @@
                     "Cap" : this.cap,
                     "Piva" : this.piva,
                     "NomeSocieta" : this.societa,
-                    "paypal": value,
+                    "paypal": value, // NOT IN STRIPE
                     "ora_uscita": this.ora_uscita,
                     "ora_ingresso": this.ora_ingresso,
                     "ingresso": this.ingresso,
@@ -114,7 +135,7 @@
                     "ricevuta" : this.ricevuta,
                     "fatturaEmessa": this.ricevuta, //E' per dire che non serve la fattura se ricevuta è 1
                     "ricevutaEmessa": this.fattura, //E' per dire che non serve la ricevuta se fattura è 1
-                    "payment_method" : "Paypal",
+                    "payment_method" : "paypal",
 
                 }).then(function(response){
                     
@@ -142,21 +163,33 @@
         },
     },
 
-        mounted(){
+        async mounted(){
             if(process.client){
-                const Paypal = () => import('vue-paypal-checkout');
+                //const Paypal = () => import('vue-paypal-checkout');
                 //const Stripe = () => import('@vue-stripe/vue-stripe');
+                 await this.init();
+                 
                 
           }
 
-        
+       
+
 
        
         },
         data(){
             return{
-                apikey: 'pk_test_51M6tmzD2GIk435gIBwEV04IE2XdTnqLCIVNobNK8uW0USM3hdsqOzBc6Q9CUVbJSU0So1AIwDbRbo9ank4y18RnM00PPPWMQBA',
+                apikey: this.$config.stripeApiKey,
                 token: null,
+                loading: false,
+                successURL: 0,
+      cancelURL: 'http://localhost:3000/#',
+                lineItems: [
+        {
+          price: '', // The id of the one-time price you created in your Stripe dashboard
+          quantity: 1,
+        },
+      ],
               
                 credentials: {
                     sandbox: 'ATnGXc13L0XiO0HvGsPIF4jVHFoWDFMZOyw5wzxwGWAxcuKneS_RL86UvVStZO1YeThjkcyaaaVQSrwL',

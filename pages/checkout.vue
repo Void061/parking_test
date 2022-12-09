@@ -1,7 +1,10 @@
 <template>
     <div>
         <CheckoutInfo :nome="this.nome" :cognome="this.cognome" :mail="this.mail" :telefono="this.telefono" :targa="this.targa" :modello="this.modello" :fattura="this.fattura" :msg="this.msg" />
-        <CheckoutPagamento :ricevuta="this.ricevuta" :ora_ingresso="ora_ingresso" :ora_uscita="ora_uscita" :uscita="df_convertita" :ingresso="di_convertita" :datoinvio="dt_send" :indirizzo="this.indirizzo" :citta="this.citta" :cap="this.cap" :piva="this.piva" :comune="this.comune" :societa="this.societa" :modinvio="this.modinvio" :ragionesociale="this.ragionesociale" :provincia="this.provincia"  :nazione="this.nazione" :v="this.v" :prezzo="this.prezzo" :vt="this.vt" :dataInizio="this.dataInizio" :dataFine="this.dataFine" :nome="this.nome" :cognome="this.cognome" :mail="this.mail" :telefono="this.telefono" :targa="this.targa" :modello="this.modello" :marca="this.marca" :fattura="this.fattura" :msg="this.msg"/>
+        
+
+            <CheckoutPagamento v-if="loading" :ricevuta="this.ricevuta" :ora_ingresso="ora_ingresso" :ora_uscita="ora_uscita" :uscita="df_convertita" :ingresso="di_convertita" :datoinvio="dt_send" :indirizzo="this.indirizzo" :citta="this.citta" :cap="this.cap" :piva="this.piva" :comune="this.comune" :societa="this.societa" :modinvio="this.modinvio" :ragionesociale="this.ragionesociale" :provincia="this.provincia"  :nazione="this.nazione" :v="this.v" :prezzo="this.prezzo" :vt="this.vt" :dataInizio="this.dataInizio" :dataFine="this.dataFine" :nome="this.nome" :cognome="this.cognome" :mail="this.mail" :telefono="this.telefono" :targa="this.targa" :modello="this.modello" :marca="this.marca" :fattura="this.fattura" :msg="this.msg"/>
+        
     </div>
 </template>
 
@@ -40,6 +43,7 @@
                 ora_ingresso: '',
                 marca: '',
                 ricevuta: '',
+                loading: false,
             }
         },
 
@@ -110,8 +114,8 @@
             this.piva = this.$route.query.p_it;
             this.societa = this.$route.query.nf;
             this.dt_send = this.$route.query.dt_send;
-           this.dataInizio = new Date(this.$route.query.di + " " + this.$route.query.oi);
-           this.dataFine = new Date(this.$route.query.df + " " + this.$route.query.of);
+            this.dataInizio = new Date(this.$route.query.di + " " + this.$route.query.oi)
+            this.dataFine = new Date(this.$route.query.df + " " + this.$route.query.of)
             this.di_convertita = new Date(this.$route.query.di).toLocaleString('it-IT').split(',')[0];
             this.df_convertita = new Date(this.$route.query.df).toLocaleString('it-IT').split(',')[0];
             this.ora_ingresso = this.$route.query.oi;
@@ -137,10 +141,16 @@
                 
                    
                     this.prezzo = p.toFixed(2);
+                    this.loading = true;
                 }
                 catch(err){
                     console.log(err);
                 }
+                
+
+               
+
+            
         },
     }
 </script>
