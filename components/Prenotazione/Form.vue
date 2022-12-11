@@ -24,7 +24,7 @@
                 <h4 class="text-center text-secondary font-medium text-[20px]">INGRESSO</h4>
                 <div class="relative p-[20px] mt-[20px] border-solid border-[1.5px] border-[#B4B4B4]">
                     <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="/img/icon_data.png" alt="data-uscita" />
-                    <client-only><date-picker :language="it" :highlighted="this.state.highlighted"  :disabled-dates="this.state.disabledDates" :id="'data_start'" :input-class="'mypicker'" placeholder="Data ingresso" format="dd/MM/yyyy" :value="this.data_start" /></client-only>
+                    <client-only><date-picker @input="ChiusuraOrari('start')" :language="it" :highlighted="this.state.highlighted"  :disabled-dates="this.state.disabledDates" :id="'data_start'" :input-class="'mypicker'" placeholder="Data ingresso" format="dd/MM/yyyy" :value="this.data_start" /></client-only>
                 </div>
                  <div class="relative p-[20px] mt-[20px] border-solid border-[1.5px] border-[#B4B4B4]">
                    
@@ -40,8 +40,8 @@
                      </template>
 
                      <template v-if="this.ora_start == undefined || this.ora_start == null || this.ora_start == ''">
-                        <select id="ora_start" class="pl-[50px] absolute top-0 bottom-0 left-0 border-0 w-full">
-                        <option selected disabled>Orario ingresso</option>
+                        <select disabled id="ora_start" class="pl-[50px] absolute top-0 bottom-0 left-0 border-0 w-full">
+                        <option selected value="">Orario ingresso</option>
                         <option v-for="item in this.orari_ingresso" :key="item">{{item}}</option>
                         </select>
                      </template>
@@ -52,7 +52,7 @@
                 <h4 class="text-center text-secondary font-medium text-[20px]">USCITA</h4>
                 <div class="relative p-[20px] mt-[20px] border-solid border-[1.5px] border-[#B4B4B4]">
                     <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="/img/icon_data.png" alt="data-uscita" />
-                    <client-only><date-picker :language="it" :highlighted="this.state.highlighted"  :disabled-dates="this.state.disabledDates" :id="'data_end'" :input-class="'mypicker'" placeholder="Data uscita" format="dd/MM/yyyy" :value="this.data_end" /></client-only>
+                    <client-only><date-picker @input="ChiusuraOrari('end')" :language="it" :highlighted="this.state.highlighted"  :disabled-dates="this.state.disabledDates" :id="'data_end'" :input-class="'mypicker'" placeholder="Data uscita" format="dd/MM/yyyy" :value="this.data_end" /></client-only>
                 </div>
                  <div class="relative p-[20px] mt-[20px] border-solid border-[1.5px] border-[#B4B4B4]">
                     <img class="top-0 translate-y-[45%] z-[1] absolute left-[11px] " src="/img/clock_icon.png" alt="orario-uscita" />  
@@ -63,8 +63,8 @@
                      </template>
 
                      <template v-if="this.ora_end == undefined || this.ora_end == null || this.ora_end == ''">
-                        <select id="ora_end" class="pl-[50px] absolute top-0 bottom-0 left-0 border-0 w-full">
-                        <option selected disabled>Orario ingresso</option>
+                        <select disabled id="ora_end" class="pl-[50px] absolute top-0 bottom-0 left-0 border-0 w-full">
+                        <option selected value="">Orario uscita</option>
                         <option v-for="item in this.orari_uscita" :key="item">{{item}}</option>
                         </select>
                      </template>
@@ -108,6 +108,8 @@ export default{
  components: { },
   data(){
       return{
+        ready: false,
+        orari_generici: [],
         m_data_start : '',
         m_data_end: '',
         m_veicolo: '',
@@ -115,8 +117,8 @@ export default{
         m_ora_end: '',
         m_sede: '1',
         it : it,
-        
-      
+        chiusuraSede:[],
+       
         orari_ingresso: ['00:00', '00:30', '01:00', '01:30', '02:00','02:30', '03:00','03:30', '04:00','04:30', '05:00','05:30', '06:00','06:30', '07:00','07:30', '08:00','08:30', '09:00','09:30', '10:00', '10:30', '11:00','11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00', '23:30'],
         orari_uscita: [],
         sede_info: {},
@@ -133,6 +135,78 @@ export default{
   
  
   methods: {
+     async ChiusuraOrari(data){
+        let found_edit = 0;
+
+        //Disabilito il componente ora
+        let ora_inizio = document.getElementById('ora_'+data);
+        ora_inizio.value = "";
+        ora_inizio.setAttribute('disabled', '');
+        
+  
+        
+          setTimeout(() => { 
+          let orari_test = [];
+          
+          //Prendo la data - Inizio
+          let inizio = document.getElementById('data_'+data);
+          
+          
+
+          //Splitto per /
+          let splitting = inizio.value.split('/');
+      
+          //Converto le / in - e ordino la data
+          inizio = splitting[2] + '-' + splitting[1] + "-"+splitting[0];
+
+          //this.chiusuraSede oggetto che contiene le chiusure
+          this.chiusuraSede.map(function(el){
+            
+            //Se la data predisposta alla chiusura è uguale a quella inserita
+            
+            if(el.giorno == inizio){
+              found_edit = 1;
+              let ore = el.ore.split("");
+             
+              ore.map(function(ora, index){
+                if(ora =="1"){
+                  if(index < 10){
+                    orari_test.push('0'+index+":00");
+                    orari_test.push('0'+index+":30");
+                  }
+                  else{
+                    
+                    if(index != 24){
+                    orari_test.push(index+':00')
+                    orari_test.push(index+':30');
+                    }
+                  }
+                  
+                }
+              })
+              
+              
+            } 
+            
+           
+            
+          })
+
+          if(data == 'start'){this.orari_ingresso = orari_test;}
+          if(data=='end'){this.orari_uscita = orari_test;}
+          
+          if(found_edit == 0){
+            if(data == 'start'){ this.orari_ingresso = this.orari_generici;}
+            if(data=='end'){ this.orari_uscita = this.orari_generici;}
+           
+          }
+
+          ora_inizio.removeAttribute('disabled');
+          }, "1000")
+          
+          
+        
+      },
   SearchCopertura(){
         this.m_data_end = document.getElementById('data_end');
         this.m_data_start = document.getElementById('data_start');
@@ -230,6 +304,7 @@ export default{
         /*days: [6, 0],*/}
     //Prendo orario e chiusura
    const RangeLavoro = await this.$axios.$get('/sede/1');
+   this.chiusuraSede = RangeLavoro.data.GiorniChiusura;
    this.FasciaOraria = RangeLavoro.data;
    this.sede_info = RangeLavoro.data;
    //Rimuovo 00:08:00 -> :00 dalle stringhe, risultato -> 08:00
@@ -253,7 +328,15 @@ export default{
     let index_apertura = this.orari_ingresso.indexOf(apertura);
     let index_chiusura = this.orari_ingresso.indexOf(chiusura);
     this.orari_ingresso = this.orari_ingresso.splice(index_apertura, index_chiusura);
-    
+    this.orari_generici = this.orari_ingresso;
+
+  try{
+    this.ChiusuraOrari('start');
+    this.ChiusuraOrari('end');
+  }
+  catch(err){
+    null;
+  }
   }
 
 }

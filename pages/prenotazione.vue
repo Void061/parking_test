@@ -1,11 +1,14 @@
 
 
 <template>
-    <div>
+<div>
+  <BaseLoadingPanel :ready="this.ready" />
+    <div v-if="ready">
         <PrenotazioneForm v-on:Search="SearchCopertura"  :data_start="this.data_start" :ora_start="this.ora_start" :ora_end="this.ora_end" :data_end="this.data_end" :sede="this.sede" :veicolo="this.veicolo" :veicoli="this.veicoli" />
         <PrenotazioneRisultati :risultati="this.risultati" />
        
     </div>
+  </div>
 </template>
 
 
@@ -15,6 +18,7 @@
        
       data(){
     return{
+      ready: false,
       veicoli: {},
       risultati: {},
       data_start: '',
@@ -60,7 +64,7 @@
      try{
       const response = await this.$axios.get('https://back-parking.g2r.it/api/veicolo?'+query);
       this.veicoli = response.data.data;
-      
+      this.ready = true;
     }
     catch(error){
       console.log(error);
@@ -100,11 +104,13 @@
         
        
         this.risultati = r
-
+       
        
         
         setTimeout(() => {
+            
              document.getElementById('results').scrollIntoView();
+             
         }, "1100")
         
         

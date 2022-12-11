@@ -73,8 +73,8 @@ export default{
                     "uscita": this.$route.query.uscita,
                     "marca": this.$route.query.marca,
                     "ricevuta" : this.$route.query.ricevuta,
-                    "fatturaEmessa": this.$route.query.ricevutaEmessa,//E' per dire che non serve la fattura se ricevuta è 1
-                    "ricevutaEmessa": this.$route.query.fatturaEmessa, //E' per dire che non serve la ricevuta se fattura è 1
+                    "fatturaEmessa": this.$route.query.ricevuta,//E' per dire che non serve la fattura se ricevuta è 1
+                    "ricevutaEmessa": this.$route.query.Fattura, //E' per dire che non serve la ricevuta se fattura è 1
                     "payment_method" : "stripe",
 
                 }).then(function(response){
